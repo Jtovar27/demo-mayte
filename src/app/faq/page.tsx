@@ -1,0 +1,129 @@
+import CTABanner from "@/components/CTABanner";
+
+export const metadata = {
+  title: "Preguntas Frecuentes | Taxes and Insurance Group LLC",
+  description: "Respuestas a las preguntas más comunes sobre impuestos, seguros, notaría y servicios administrativos.",
+};
+
+const faqs = [
+  {
+    category: "Impuestos",
+    questions: [
+      {
+        q: "¿Cuándo es la fecha límite para declarar mis impuestos?",
+        a: "En general, el 15 de abril de cada año es la fecha límite federal. Si necesitas más tiempo, podemos solicitar una extensión de 6 meses. Sin embargo, si debes dinero, el pago sigue siendo exigible el 15 de abril.",
+      },
+      {
+        q: "¿Qué documentos necesito para declarar mis impuestos?",
+        a: "Generalmente necesitas: W-2 o 1099 de tu empleador, número de seguro social o ITIN, información de cuenta bancaria para depósito directo, recibos de gastos deducibles (si aplica), y la declaración del año anterior si es posible.",
+      },
+      {
+        q: "¿Puedo declarar aunque no tenga número de seguro social?",
+        a: "Sí. Si tienes un ITIN (Individual Taxpayer Identification Number), puedes declarar tus impuestos. Si no tienes ITIN, te ayudamos a solicitarlo.",
+      },
+    ],
+  },
+  {
+    category: "Seguros",
+    questions: [
+      {
+        q: "¿Qué es Obamacare y quién puede calificar?",
+        a: "Obamacare (ACA) es el programa de salud del gobierno federal. La mayoría de residentes en EE.UU. pueden calificar, incluyendo personas con bajos ingresos. Dependiendo de tus ingresos, puedes recibir subsidios que reducen el costo mensual.",
+      },
+      {
+        q: "¿Cuál es la diferencia entre Medicare y Medicaid?",
+        a: "Medicare es para personas de 65 años o más (o con ciertas discapacidades). Medicaid es para personas con ingresos bajos, sin límite de edad. Podemos ayudarte a determinar cuál te corresponde según tu situación.",
+      },
+    ],
+  },
+  {
+    category: "Notaría y Documentos",
+    questions: [
+      {
+        q: "¿Qué es una apostilla y para qué se necesita?",
+        a: "Una apostilla es un sello oficial que autentica documentos para que sean válidos en otros países. Se necesita cuando debes presentar documentos como actas de nacimiento, diplomas o poderes notariales fuera de EE.UU.",
+      },
+      {
+        q: "¿En cuántos idiomas ofrecen traducciones certificadas?",
+        a: "Ofrecemos traducciones certificadas en más de 5 idiomas, incluyendo español, inglés, portugués, francés e italiano. Nuestras traducciones son aceptadas por instituciones oficiales, consulados y tribunales.",
+      },
+    ],
+  },
+  {
+    category: "Negocios",
+    questions: [
+      {
+        q: "¿Cuánto cuesta registrar una LLC en Florida?",
+        a: "El costo oficial del estado de Florida es de $125 para registrar una LLC nueva. Nosotros te ayudamos con todo el proceso y la preparación de documentos. Contáctanos para conocer nuestras tarifas de servicio.",
+      },
+      {
+        q: "¿Necesito un número de EIN para mi negocio?",
+        a: "Si tienes empleados, operas como LLC o corporación, o abres una cuenta bancaria de negocios, sí necesitas un EIN. Te ayudamos a solicitarlo ante el IRS de forma gratuita.",
+      },
+    ],
+  },
+];
+
+export default function FAQPage() {
+  return (
+    <>
+      {/* Hero */}
+      <section className="bg-gradient-to-br from-blue-950 to-blue-900 text-white py-20">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <div className="text-amber-400 font-semibold text-sm uppercase tracking-wider mb-3">Preguntas Frecuentes</div>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">¿Tienes Dudas?</h1>
+          <p className="text-blue-200 text-lg max-w-2xl mx-auto">
+            Aquí respondemos las preguntas más comunes. Si no encuentras lo que buscas, contáctanos directamente.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQs */}
+      <section className="py-16 md:py-20 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 space-y-12">
+          {faqs.map((section) => (
+            <div key={section.category}>
+              <h2 className="text-xl font-bold text-blue-900 mb-6 pb-2 border-b-2 border-amber-400 inline-block">
+                {section.category}
+              </h2>
+              <div className="space-y-4">
+                {section.questions.map((faq) => (
+                  <div key={faq.q} className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-sm transition-shadow">
+                    <h3 className="text-base font-bold text-blue-900 mb-3">❓ {faq.q}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Still have questions */}
+        <div className="max-w-4xl mx-auto px-4 mt-12">
+          <div className="bg-blue-900 text-white rounded-2xl p-8 text-center">
+            <h3 className="text-xl font-bold mb-2">¿No encontraste tu respuesta?</h3>
+            <p className="text-blue-200 mb-6 text-sm">Contáctanos directamente. Estamos aquí para ayudarte sin costo.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="tel:4072354065"
+                className="bg-amber-500 hover:bg-amber-400 text-white font-bold px-6 py-3 rounded-xl transition-colors"
+              >
+                📞 Llamar ahora
+              </a>
+              <a
+                href="https://wa.me/14072354065"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-600 hover:bg-green-500 text-white font-bold px-6 py-3 rounded-xl transition-colors"
+              >
+                💬 WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CTABanner />
+    </>
+  );
+}
