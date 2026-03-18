@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useLang } from "@/context/LanguageContext";
 
 export default function ContactPage() {
@@ -29,11 +30,18 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="text-white py-24"
-        style={{ background: "linear-gradient(150deg, #0E0E0E 0%, #1C1C1C 100%)" }}
-      >
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      <section className="relative text-white py-28 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80"
+            alt="Professional office reception"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(150deg, rgba(8,8,8,0.93) 0%, rgba(28,28,28,0.87) 100%)" }} />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <div className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#B9954F" }}>
             {t("contact.label")}
           </div>
