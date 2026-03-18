@@ -1,5 +1,19 @@
 "use client";
 import Image from "next/image";
+import {
+  FileText,
+  Briefcase,
+  HeartPulse,
+  Users,
+  Stamp,
+  Globe,
+  Scale,
+  ClipboardCheck,
+  Languages,
+  Building2,
+  CreditCard,
+  Banknote,
+} from "lucide-react";
 import CTABanner from "@/components/CTABanner";
 import ServiceCard from "@/components/ServiceCard";
 import { useLang } from "@/context/LanguageContext";
@@ -11,33 +25,33 @@ export default function ServicesPage() {
     {
       categoryKey: "cat.taxes",
       services: [
-        { titleKey: "svc.taxes.personal.full.title", descKey: "svc.taxes.personal.full.desc" },
-        { titleKey: "svc.taxes.business.full.title", descKey: "svc.taxes.business.full.desc" },
+        { titleKey: "svc.taxes.personal.full.title", descKey: "svc.taxes.personal.full.desc", icon: FileText },
+        { titleKey: "svc.taxes.business.full.title", descKey: "svc.taxes.business.full.desc", icon: Briefcase },
       ],
     },
     {
       categoryKey: "cat.insurance",
       services: [
-        { titleKey: "svc.ins.health.title", descKey: "svc.ins.health.desc" },
-        { titleKey: "svc.ins.life.title", descKey: "svc.ins.life.desc" },
+        { titleKey: "svc.ins.health.title", descKey: "svc.ins.health.desc", icon: HeartPulse },
+        { titleKey: "svc.ins.life.title", descKey: "svc.ins.life.desc", icon: Users },
       ],
     },
     {
       categoryKey: "cat.notary",
       services: [
-        { titleKey: "svc.notary.pub.title", descKey: "svc.notary.pub.desc" },
-        { titleKey: "svc.apostille.title", descKey: "svc.apostille.desc" },
-        { titleKey: "svc.power.title", descKey: "svc.power.desc" },
-        { titleKey: "svc.fevida.title", descKey: "svc.fevida.desc" },
-        { titleKey: "svc.translation.title", descKey: "svc.translation.desc" },
+        { titleKey: "svc.notary.pub.title", descKey: "svc.notary.pub.desc", icon: Stamp },
+        { titleKey: "svc.apostille.title", descKey: "svc.apostille.desc", icon: Globe },
+        { titleKey: "svc.power.title", descKey: "svc.power.desc", icon: Scale },
+        { titleKey: "svc.fevida.title", descKey: "svc.fevida.desc", icon: ClipboardCheck },
+        { titleKey: "svc.translation.title", descKey: "svc.translation.desc", icon: Languages },
       ],
     },
     {
       categoryKey: "cat.business",
       services: [
-        { titleKey: "svc.biz.reg.title", descKey: "svc.biz.reg.desc" },
-        { titleKey: "svc.biz.credit.title", descKey: "svc.biz.credit.desc" },
-        { titleKey: "svc.loans.title", descKey: "svc.loans.desc" },
+        { titleKey: "svc.biz.reg.title", descKey: "svc.biz.reg.desc", icon: Building2 },
+        { titleKey: "svc.biz.credit.title", descKey: "svc.biz.credit.desc", icon: CreditCard },
+        { titleKey: "svc.loans.title", descKey: "svc.loans.desc", icon: Banknote },
       ],
     },
   ];
@@ -96,6 +110,7 @@ export default function ServicesPage() {
                     key={service.titleKey}
                     title={t(service.titleKey)}
                     description={t(service.descKey)}
+                    icon={service.icon}
                   />
                 ))}
               </div>
