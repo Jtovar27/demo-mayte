@@ -39,7 +39,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex flex-col">
-          <span className="text-lg font-bold leading-tight text-white" style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif" }}>
+          <span className="text-lg font-bold leading-tight text-white" style={{ fontFamily: "var(--font-heading), 'Cormorant Garamond', Georgia, serif" }}>
             Taxes &amp; Insurance Group LLC
           </span>
           <span className="text-xs leading-tight" style={{ color: "#AFAFAF" }}>

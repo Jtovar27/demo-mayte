@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import CTABanner from "@/components/CTABanner";
 import { useLang } from "@/context/LanguageContext";
 
@@ -40,17 +41,18 @@ export default function FAQPage() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="text-white py-24"
-        style={{ background: "linear-gradient(150deg, #0E0E0E 0%, #1C1C1C 100%)" }}
-      >
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      <section className="relative text-white py-28 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1600&q=80" alt="Professional consultation" fill className="object-cover object-center" priority />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(150deg, rgba(8,8,8,0.93) 0%, rgba(28,28,28,0.87) 100%)" }} />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <div className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#B9954F" }}>
             {t("faq.label")}
           </div>
           <h1
             className="text-4xl md:text-5xl font-bold mb-4 text-white"
-            style={{ fontFamily: "var(--font-playfair), serif" }}
+            style={{ fontFamily: "var(--font-heading), serif" }}
           >
             {t("faq.h1")}
           </h1>
@@ -67,7 +69,7 @@ export default function FAQPage() {
             <div key={section.categoryKey}>
               <h2
                 className="text-lg font-bold mb-6 pb-2 border-b-2 inline-block"
-                style={{ color: "#1C1C1C", borderColor: "#B9954F", fontFamily: "var(--font-playfair), serif" }}
+                style={{ color: "#1C1C1C", borderColor: "#B9954F", fontFamily: "var(--font-heading), serif" }}
               >
                 {t(section.categoryKey)}
               </h2>
@@ -80,7 +82,7 @@ export default function FAQPage() {
                   >
                     <h3
                       className="text-sm font-bold mb-3"
-                      style={{ color: "#1C1C1C", fontFamily: "var(--font-playfair), serif" }}
+                      style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
                     >
                       {t(faq.qKey)}
                     </h3>
@@ -97,7 +99,7 @@ export default function FAQPage() {
           <div className="text-white rounded-2xl p-10 text-center" style={{ backgroundColor: "#1C1C1C" }}>
             <h3
               className="text-xl font-bold mb-2 text-white"
-              style={{ fontFamily: "var(--font-playfair), serif" }}
+              style={{ fontFamily: "var(--font-heading), serif" }}
             >
               {t("faq.notfound.title")}
             </h3>

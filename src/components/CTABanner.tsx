@@ -9,7 +9,7 @@ export default function CTABanner() {
       <div className="max-w-4xl mx-auto px-4 text-center">
         <h2
           className="text-2xl md:text-3xl font-bold text-white mb-3"
-          style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif" }}
+          style={{ fontFamily: "var(--font-heading), 'Cormorant Garamond', Georgia, serif" }}
         >
           {t("cta.title")}
         </h2>

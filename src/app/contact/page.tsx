@@ -39,7 +39,7 @@ export default function ContactPage() {
           </div>
           <h1
             className="text-4xl md:text-5xl font-bold mb-4 text-white"
-            style={{ fontFamily: "var(--font-playfair), serif" }}
+            style={{ fontFamily: "var(--font-heading), serif" }}
           >
             {t("contact.h1")}
           </h1>
@@ -54,7 +54,7 @@ export default function ContactPage() {
         <div className="max-w-5xl mx-auto px-4">
           <h2
             className="text-2xl font-bold text-center mb-12"
-            style={{ color: "#1C1C1C", fontFamily: "var(--font-playfair), serif" }}
+            style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
           >
             {t("contact.how")}
           </h2>
@@ -68,7 +68,7 @@ export default function ContactPage() {
                 <div className="w-6 h-0.5 mb-5" style={{ backgroundColor: "#B9954F" }} />
                 <h3
                   className="text-base font-bold mb-1"
-                  style={{ color: "#1C1C1C", fontFamily: "var(--font-playfair), serif" }}
+                  style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
                 >
                   {t(method.titleKey)}
                 </h3>
@@ -96,7 +96,7 @@ export default function ContactPage() {
           <div className="text-center mb-10">
             <h2
               className="text-2xl font-bold mb-2"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-playfair), serif" }}
+              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
             >
               {t("contact.form.title")}
             </h2>
@@ -190,7 +190,7 @@ export default function ContactPage() {
           <div>
             <h3
               className="text-lg font-bold mb-4"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-playfair), serif" }}
+              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
             >
               {t("contact.hours.title")}
             </h3>

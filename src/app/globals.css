@@ -1,18 +1,5 @@
 @import "tailwindcss";
 
-:root {
-  --brand-dark: #1C1C1C;
-  --brand-darker: #0E0E0E;
-  --brand-gold: #B9954F;
-  --brand-gold-hover: #a8854a;
-  --text-light: #C2C8CC;
-  --text-muted: #AFAFAF;
-  --text-dim: #6E6E6E;
-  --bg-light: #F5F5F5;
-  --bg-faint: #FAFAFA;
-  --border: #E4E4E4;
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -20,17 +7,17 @@ html {
 body {
   background: #F5F5F5;
   color: #1C1C1C;
-  font-family: var(--font-inter), 'Inter', system-ui, sans-serif;
+  font-family: var(--font-body), 'DM Sans', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-playfair), 'Playfair Display', Georgia, serif;
-  letter-spacing: -0.01em;
+  font-family: var(--font-heading), 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: 0.01em;
+  font-weight: 600;
 }
 
-/* Smooth transitions for interactive elements */
 a, button {
   transition: opacity 0.15s ease, color 0.15s ease, background-color 0.15s ease;
 }

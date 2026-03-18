@@ -17,17 +17,24 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section
-        className="text-white py-24"
-        style={{ background: "linear-gradient(150deg, #0E0E0E 0%, #1C1C1C 100%)" }}
-      >
-        <div className="max-w-4xl mx-auto px-4 text-center">
+      <section className="relative text-white py-28 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=1600&q=80"
+            alt="Professional business meeting"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(150deg, rgba(8,8,8,0.93) 0%, rgba(28,28,28,0.87) 100%)" }} />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <div className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#B9954F" }}>
             {t("about.page.hero.label")}
           </div>
           <h1
             className="text-4xl md:text-5xl font-bold mb-4 text-white"
-            style={{ fontFamily: "var(--font-playfair), serif" }}
+            style={{ fontFamily: "var(--font-heading), serif" }}
           >
             {t("about.page.hero.h1")}
           </h1>
@@ -43,7 +50,7 @@ export default function AboutPage() {
           <div>
             <h2
               className="text-3xl font-bold mb-6 leading-tight"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-playfair), serif" }}
+              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
             >
               {t("about.page.story.h2")}
             </h2>
@@ -85,7 +92,7 @@ export default function AboutPage() {
               >
                 <div
                   className="text-2xl font-bold mb-1"
-                  style={{ color: "#B9954F", fontFamily: "var(--font-playfair), serif" }}
+                  style={{ color: "#B9954F", fontFamily: "var(--font-heading), serif" }}
                 >
                   {stat.number}
                 </div>
@@ -103,7 +110,7 @@ export default function AboutPage() {
           <div className="text-center mb-14">
             <h2
               className="text-3xl font-bold mb-3"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-playfair), serif" }}
+              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
             >
               {t("about.values.title")}
             </h2>
@@ -119,7 +126,7 @@ export default function AboutPage() {
                 <div className="w-8 h-0.5 mx-auto mb-5" style={{ backgroundColor: "#B9954F" }} />
                 <h3
                   className="text-base font-bold mb-2"
-                  style={{ color: "#1C1C1C", fontFamily: "var(--font-playfair), serif" }}
+                  style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
                 >
                   {t(value.titleKey)}
                 </h3>
@@ -135,13 +142,13 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <div
             className="w-20 h-20 rounded-full flex items-center justify-center text-lg font-bold text-white mx-auto mb-6"
-            style={{ backgroundColor: "#B9954F", fontFamily: "var(--font-playfair), serif" }}
+            style={{ backgroundColor: "#B9954F", fontFamily: "var(--font-heading), serif" }}
           >
             MR
           </div>
           <h2
             className="text-2xl font-bold mb-1"
-            style={{ color: "#1C1C1C", fontFamily: "var(--font-playfair), serif" }}
+            style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
           >
             Mayte F. Roses Soto
           </h2>

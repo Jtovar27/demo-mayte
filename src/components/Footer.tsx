@@ -21,7 +21,7 @@ export default function Footer() {
         <div className="lg:col-span-2">
           <h3
             className="text-xl font-bold text-white mb-3"
-            style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif" }}
+            style={{ fontFamily: "var(--font-heading), 'Cormorant Garamond', Georgia, serif" }}
           >
             Taxes &amp; Insurance Group LLC
           </h3>

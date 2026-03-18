@@ -50,7 +50,7 @@ export default function HomePage() {
           </div>
           <h1
             className="text-4xl md:text-6xl font-bold leading-tight mb-6 text-white"
-            style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif", letterSpacing: "-0.02em" }}
+            style={{ fontFamily: "var(--font-heading), 'Cormorant Garamond', Georgia, serif", letterSpacing: "-0.02em" }}
           >
             {t("hero.h1.line1")}<br />
             <span style={{ color: "#B9954F" }}>{t("hero.h1.line2")}</span><br />
@@ -93,7 +93,7 @@ export default function HomePage() {
             <div key={i} className="flex flex-col items-center gap-1 py-2 text-center">
               <span
                 className="text-2xl font-bold"
-                style={{ fontFamily: "var(--font-playfair), serif", color: "#B9954F" }}
+                style={{ fontFamily: "var(--font-heading), serif", color: "#B9954F" }}
               >
                 {stat.number}
               </span>
@@ -111,7 +111,7 @@ export default function HomePage() {
           <div className="text-center mb-14">
             <h2
               className="text-3xl md:text-4xl font-bold mb-3"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-playfair), serif" }}
+              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
             >
               {t("services.title")}
             </h2>
@@ -145,7 +145,7 @@ export default function HomePage() {
             </div>
             <h2
               className="text-3xl md:text-4xl font-bold mb-5 leading-tight"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-playfair), serif" }}
+              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
             >
               {t("about.h2")}
             </h2>
@@ -185,7 +185,7 @@ export default function HomePage() {
           <div className="text-center mb-14">
             <h2
               className="text-3xl md:text-4xl font-bold mb-3"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-playfair), serif" }}
+              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
             >
               {t("blog.title")}
             </h2>
@@ -205,7 +205,7 @@ export default function HomePage() {
                   </span>
                   <h3
                     className="text-base font-bold mt-2 mb-2 leading-tight"
-                    style={{ color: "#1C1C1C", fontFamily: "var(--font-playfair), serif" }}
+                    style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
                   >
                     {post.title}
                   </h3>
@@ -231,7 +231,7 @@ export default function HomePage() {
           <p className="text-xs mb-1 uppercase tracking-widest" style={{ color: "#6E6E6E" }}>{t("location.visit")}</p>
           <p
             className="text-lg font-bold text-white"
-            style={{ fontFamily: "var(--font-playfair), serif" }}
+            style={{ fontFamily: "var(--font-heading), serif" }}
           >
             1216 Dyer Blvd, Kissimmee, FL 34741
           </p>
