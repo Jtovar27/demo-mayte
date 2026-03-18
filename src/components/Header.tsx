@@ -15,34 +15,43 @@ export default function Header() {
   ];
 
   return (
-    <header className="bg-blue-900 text-white sticky top-0 z-50 shadow-lg">
+    <header className="sticky top-0 z-50 shadow-lg" style={{ backgroundColor: "#1C1C1C" }}>
       {/* Top bar */}
-      <div className="bg-blue-950 text-sm py-2">
-        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-1 text-blue-200">
-          <span>📍 1216 Dyer Blvd, Kissimmee, FL 34741</span>
-          <a href="tel:4072354065" className="font-semibold text-amber-400 hover:text-amber-300">
-            📞 (407) 235-4065
+      <div style={{ backgroundColor: "#0E0E0E" }} className="text-sm py-2">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-1" style={{ color: "#AFAFAF" }}>
+          <span>1216 Dyer Blvd, Kissimmee, FL 34741</span>
+          <a href="tel:4072354065" className="font-semibold transition-opacity hover:opacity-80" style={{ color: "#B9954F" }}>
+            (407) 235-4065
           </a>
         </div>
       </div>
+
       {/* Main nav */}
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex flex-col">
           <span className="text-xl font-bold leading-tight text-white">Taxes &amp; Insurance Group LLC</span>
-          <span className="text-xs text-blue-300 leading-tight">Mayte F. Roses Soto · Kissimmee, Florida</span>
+          <span className="text-xs leading-tight" style={{ color: "#AFAFAF" }}>Mayte F. Roses Soto · Kissimmee, Florida</span>
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-blue-100 hover:text-amber-400 transition-colors">
+            <Link
+              key={link.href}
+              href={link.href}
+              className="transition-colors hover:opacity-80"
+              style={{ color: "#C2C8CC" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#B9954F")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#C2C8CC")}
+            >
               {link.label}
             </Link>
           ))}
           <a
             href="tel:4072354065"
-            className="bg-amber-500 hover:bg-amber-400 text-white font-bold px-4 py-2 rounded-lg transition-colors text-sm"
+            className="text-white font-bold px-4 py-2 rounded-lg transition-opacity hover:opacity-90 text-sm"
+            style={{ backgroundColor: "#B9954F" }}
           >
             Consulta Gratis
           </a>
@@ -66,13 +75,14 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-blue-950 border-t border-blue-800">
+        <div className="md:hidden border-t" style={{ backgroundColor: "#141414", borderColor: "#333333" }}>
           <div className="flex flex-col px-4 py-4 gap-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-blue-100 hover:text-amber-400 py-2 text-base border-b border-blue-800 last:border-0"
+                className="py-2 text-base border-b last:border-0 transition-colors"
+                style={{ color: "#C2C8CC", borderColor: "#333333" }}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
@@ -80,7 +90,8 @@ export default function Header() {
             ))}
             <a
               href="tel:4072354065"
-              className="bg-amber-500 text-white font-bold py-3 rounded-lg text-center mt-2"
+              className="text-white font-bold py-3 rounded-lg text-center mt-2"
+              style={{ backgroundColor: "#B9954F" }}
             >
               Consulta Gratis
             </a>
