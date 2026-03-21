@@ -35,15 +35,17 @@ export default function Header() {
              To activate: drop logo file into public/ and set SITE.logo.path in src/config/site.ts */}
         <Link href="/" className="flex items-center gap-3">
           {SITE.logo.path ? (
-            <Image
-              src={SITE.logo.path}
-              alt={SITE.logo.alt}
-              width={64}
-              height={64}
-              priority
-              className="object-contain"
-              style={{ mixBlendMode: "screen" }}
-            />
+            <div style={{ backgroundColor: "#1C1C1C", lineHeight: 0 }}>
+              <Image
+                src={SITE.logo.path}
+                alt={SITE.logo.alt}
+                width={80}
+                height={80}
+                priority
+                className="object-contain"
+                style={{ mixBlendMode: "screen", display: "block" }}
+              />
+            </div>
           ) : (
             <div className="flex flex-col">
               <span className="text-lg font-bold leading-tight text-white" style={{ fontFamily: "var(--font-heading), 'Cormorant Garamond', Georgia, serif" }}>
