@@ -2,19 +2,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useLang } from "@/context/LanguageContext";
+import { SITE } from "@/config/site";
+import { navLinks } from "@/data/nav";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { lang, setLang, t } = useLang();
-
-  const navLinks = [
-    { href: "/", key: "nav.home" },
-    { href: "/about", key: "nav.about" },
-    { href: "/services", key: "nav.services" },
-    { href: "/blog", key: "nav.blog" },
-    { href: "/faq", key: "nav.faq" },
-    { href: "/contact", key: "nav.contact" },
-  ];
 
   return (
     <header className="sticky top-0 z-50 shadow-lg" style={{ backgroundColor: "#1C1C1C" }}>
@@ -24,13 +17,13 @@ export default function Header() {
           className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-1"
           style={{ color: "#AFAFAF" }}
         >
-          <span>1216 Dyer Blvd, Kissimmee, FL 34741</span>
+          <span>{SITE.address.full}</span>
           <a
-            href="tel:4072354065"
+            href={SITE.phoneHref}
             className="font-semibold"
             style={{ color: "#B9954F" }}
           >
-            (407) 235-4065
+            {SITE.phone}
           </a>
         </div>
       </div>
@@ -84,7 +77,7 @@ export default function Header() {
           </button>
 
           <a
-            href="tel:4072354065"
+            href={SITE.phoneHref}
             className="text-white font-bold px-4 py-2 rounded-lg text-sm"
             style={{ backgroundColor: "#B9954F" }}
           >
@@ -133,7 +126,7 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href="tel:4072354065"
+              href={SITE.phoneHref}
               className="text-white font-bold py-3 rounded-lg text-center mt-3"
               style={{ backgroundColor: "#B9954F" }}
             >

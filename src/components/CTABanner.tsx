@@ -1,5 +1,6 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
+import { SITE } from "@/config/site";
 
 export default function CTABanner() {
   const { t } = useLang();
@@ -18,14 +19,14 @@ export default function CTABanner() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="tel:4072354065"
+            href={SITE.phoneHref}
             className="font-bold px-8 py-3 rounded-lg text-base"
             style={{ backgroundColor: "#1C1C1C", color: "#FFFFFF" }}
           >
             {t("cta.call")}
           </a>
           <a
-            href="https://wa.me/14072354065"
+            href={SITE.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
             className="font-bold px-8 py-3 rounded-lg text-base border-2 border-white text-white"

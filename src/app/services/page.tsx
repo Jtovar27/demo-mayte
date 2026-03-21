@@ -1,60 +1,13 @@
 "use client";
 import Image from "next/image";
-import {
-  FileText,
-  Briefcase,
-  HeartPulse,
-  Users,
-  Stamp,
-  Globe,
-  Scale,
-  ClipboardCheck,
-  Languages,
-  Building2,
-  CreditCard,
-  Banknote,
-} from "lucide-react";
 import CTABanner from "@/components/CTABanner";
 import ServiceCard from "@/components/ServiceCard";
 import { useLang } from "@/context/LanguageContext";
+import { SITE } from "@/config/site";
+import { serviceCategories } from "@/data/services";
 
 export default function ServicesPage() {
   const { t } = useLang();
-
-  const serviceCategories = [
-    {
-      categoryKey: "cat.taxes",
-      services: [
-        { titleKey: "svc.taxes.personal.full.title", descKey: "svc.taxes.personal.full.desc", icon: FileText },
-        { titleKey: "svc.taxes.business.full.title", descKey: "svc.taxes.business.full.desc", icon: Briefcase },
-      ],
-    },
-    {
-      categoryKey: "cat.insurance",
-      services: [
-        { titleKey: "svc.ins.health.title", descKey: "svc.ins.health.desc", icon: HeartPulse },
-        { titleKey: "svc.ins.life.title", descKey: "svc.ins.life.desc", icon: Users },
-      ],
-    },
-    {
-      categoryKey: "cat.notary",
-      services: [
-        { titleKey: "svc.notary.pub.title", descKey: "svc.notary.pub.desc", icon: Stamp },
-        { titleKey: "svc.apostille.title", descKey: "svc.apostille.desc", icon: Globe },
-        { titleKey: "svc.power.title", descKey: "svc.power.desc", icon: Scale },
-        { titleKey: "svc.fevida.title", descKey: "svc.fevida.desc", icon: ClipboardCheck },
-        { titleKey: "svc.translation.title", descKey: "svc.translation.desc", icon: Languages },
-      ],
-    },
-    {
-      categoryKey: "cat.business",
-      services: [
-        { titleKey: "svc.biz.reg.title", descKey: "svc.biz.reg.desc", icon: Building2 },
-        { titleKey: "svc.biz.credit.title", descKey: "svc.biz.credit.desc", icon: CreditCard },
-        { titleKey: "svc.loans.title", descKey: "svc.loans.desc", icon: Banknote },
-      ],
-    },
-  ];
 
   return (
     <>
@@ -84,7 +37,7 @@ export default function ServicesPage() {
             {t("services.page.sub")}
           </p>
           <a
-            href="tel:4072354065"
+            href={SITE.phoneHref}
             className="inline-block text-white font-semibold px-8 py-3 rounded-lg"
             style={{ backgroundColor: "#B9954F" }}
           >

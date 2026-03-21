@@ -4,6 +4,7 @@ import Image from "next/image";
 import ServiceCard from "@/components/ServiceCard";
 import CTABanner from "@/components/CTABanner";
 import { useLang } from "@/context/LanguageContext";
+import { SITE } from "@/config/site";
 
 export default function HomePage() {
   const { t } = useLang();
@@ -64,7 +65,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:4072354065"
+              href={SITE.phoneHref}
               className="text-white font-semibold px-8 py-4 rounded-lg text-base shadow-lg"
               style={{ backgroundColor: "#B9954F" }}
             >
@@ -233,7 +234,7 @@ export default function HomePage() {
             className="text-lg font-bold text-white"
             style={{ fontFamily: "var(--font-heading), serif" }}
           >
-            1216 Dyer Blvd, Kissimmee, FL 34741
+            {SITE.address.full}
           </p>
           <p className="text-xs mt-2" style={{ color: "#AFAFAF" }}>{t("location.hours")}</p>
         </div>

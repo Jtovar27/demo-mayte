@@ -2,6 +2,7 @@
 import Image from "next/image";
 import CTABanner from "@/components/CTABanner";
 import { useLang } from "@/context/LanguageContext";
+import { SITE } from "@/config/site";
 
 export default function FAQPage() {
   const { t } = useLang();
@@ -108,14 +109,14 @@ export default function FAQPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="tel:4072354065"
+                href={SITE.phoneHref}
                 className="text-white font-semibold px-6 py-3 rounded-xl"
                 style={{ backgroundColor: "#B9954F" }}
               >
                 {t("faq.call")}
               </a>
               <a
-                href="https://wa.me/14072354065"
+                href={SITE.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold px-6 py-3 rounded-xl border-2 border-white text-white"

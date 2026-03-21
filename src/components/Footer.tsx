@@ -1,18 +1,11 @@
 "use client";
 import Link from "next/link";
 import { useLang } from "@/context/LanguageContext";
+import { SITE } from "@/config/site";
+import { navLinks } from "@/data/nav";
 
 export default function Footer() {
   const { t } = useLang();
-
-  const navLinks = [
-    { href: "/", key: "nav.home" },
-    { href: "/about", key: "nav.about" },
-    { href: "/services", key: "nav.services" },
-    { href: "/blog", key: "nav.blog" },
-    { href: "/faq", key: "nav.faq" },
-    { href: "/contact", key: "nav.contact" },
-  ];
 
   return (
     <footer style={{ backgroundColor: "#141414" }} className="text-white">
@@ -23,7 +16,7 @@ export default function Footer() {
             className="text-xl font-bold text-white mb-3"
             style={{ fontFamily: "var(--font-heading), 'Cormorant Garamond', Georgia, serif" }}
           >
-            Taxes &amp; Insurance Group LLC
+            {SITE.legalName}
           </h3>
           <p className="text-sm mb-5 leading-relaxed" style={{ color: "#AFAFAF" }}>
             {t("footer.tagline")}
@@ -59,22 +52,22 @@ export default function Footer() {
           </h4>
           <ul className="space-y-3 text-sm" style={{ color: "#AFAFAF" }}>
             <li>
-              <span>1216 Dyer Blvd,</span><br />
-              <span>Kissimmee, FL 34741</span>
+              <span>{SITE.address.street},</span><br />
+              <span>{SITE.address.city}, {SITE.address.state} {SITE.address.zip}</span>
             </li>
             <li>
-              <a href="tel:4072354065" className="hover:opacity-70 transition-opacity">
-                (407) 235-4065
+              <a href={SITE.phoneHref} className="hover:opacity-70 transition-opacity">
+                {SITE.phone}
               </a>
             </li>
             <li>
-              <a href="mailto:inmigracion360@gmail.com" className="hover:opacity-70 transition-opacity">
-                inmigracion360@gmail.com
+              <a href={SITE.emailHref} className="hover:opacity-70 transition-opacity">
+                {SITE.email}
               </a>
             </li>
             <li>
               <a
-                href="https://wa.me/14072354065"
+                href={SITE.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-70 transition-opacity"

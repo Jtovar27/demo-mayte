@@ -1,31 +1,41 @@
 "use client";
 import Image from "next/image";
 import { useLang } from "@/context/LanguageContext";
+import { SITE } from "@/config/site";
+import { serviceDropdownKeys } from "@/data/services";
 
 export default function ContactPage() {
   const { t } = useLang();
 
   const contactMethods = [
-    { titleKey: "contact.phone.title", detail: "(407) 235-4065", actionKey: "contact.phone.action", href: "tel:4072354065" },
-    { titleKey: "contact.whatsapp.title", detailKey: "contact.whatsapp.detail", actionKey: "contact.whatsapp.action", href: "https://wa.me/14072354065" },
-    { titleKey: "contact.email.title", detail: "inmigracion360@gmail.com", actionKey: "contact.email.action", href: "mailto:inmigracion360@gmail.com" },
-    { titleKey: "contact.address.title", detail: "1216 Dyer Blvd, Kissimmee, FL 34741", actionKey: "contact.address.action", href: "https://maps.google.com/?q=1216+Dyer+Blvd+Kissimmee+FL+34741" },
+    {
+      titleKey: "contact.phone.title",
+      detail: SITE.phone,
+      actionKey: "contact.phone.action",
+      href: SITE.phoneHref,
+    },
+    {
+      titleKey: "contact.whatsapp.title",
+      detailKey: "contact.whatsapp.detail",
+      actionKey: "contact.whatsapp.action",
+      href: SITE.whatsapp,
+    },
+    {
+      titleKey: "contact.email.title",
+      detail: SITE.email,
+      actionKey: "contact.email.action",
+      href: SITE.emailHref,
+    },
+    {
+      titleKey: "contact.address.title",
+      detail: SITE.address.full,
+      actionKey: "contact.address.action",
+      href: SITE.address.mapsHref,
+    },
   ];
 
-  const serviceOptions = [
-    "contact.form.service.ph",
-    "svc.taxes.personal.title",
-    "svc.taxes.business.title",
-    "svc.ins.health.title",
-    "svc.ins.life.title",
-    "svc.notary.pub.title",
-    "svc.apostille.title",
-    "svc.power.title",
-    "svc.translation.title",
-    "svc.biz.reg.title",
-    "svc.biz.credit.title",
-    "svc.loans.title",
-  ];
+  // Prepend placeholder option, then all service title keys from shared data
+  const serviceOptions = ["contact.form.service.ph", ...serviceDropdownKeys];
 
   return (
     <>

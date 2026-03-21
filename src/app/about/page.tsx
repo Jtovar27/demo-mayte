@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import Image from "next/image";
 import CTABanner from "@/components/CTABanner";
 import { useLang } from "@/context/LanguageContext";

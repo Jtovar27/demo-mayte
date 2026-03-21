@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, Bot } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
+import { SITE } from "@/config/site";
 
 interface Message {
   role: "user" | "assistant";
@@ -107,8 +108,8 @@ export default function ChatWidget() {
           role: "assistant",
           content:
             lang === "es"
-              ? "Lo siento, ocurrió un error. Por favor llámanos al (407) 235-4065."
-              : "Sorry, an error occurred. Please call us at (407) 235-4065.",
+              ? `Lo siento, ocurrió un error. Por favor llámanos al ${SITE.phone}.`
+              : `Sorry, an error occurred. Please call us at ${SITE.phone}.`,
         };
         return updated;
       });
