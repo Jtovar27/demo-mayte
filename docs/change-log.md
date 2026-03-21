@@ -2,6 +2,48 @@
 
 ---
 
+## Phase 6 — Lead Capture + Team-Member Selection
+**Date:** 2026-03-21
+
+### Goal
+Improve lead capture UX by adding a preferred team-member selector to the contact form, wiring a submit handler with a bilingual success state, and creating a centralized team data structure that is ready for future admin management.
+
+### New Files
+
+| File | Purpose |
+|---|---|
+| `src/data/team.ts` | `TeamMember` interface + `teamMembers` array. Currently contains Mayte F. Roses Soto. Adding a new advisor requires one entry here + two translation keys — then the form updates automatically. |
+
+### Modified Files
+
+| File | Change |
+|---|---|
+| `src/app/contact/page.tsx` | Added `useState` (`submitted`) + `handleSubmit` (prevents default, sets submitted=true, compatible with future `/api/contact` backend). Added optional **Asesor Preferido** `<select>` field between service and message, populated from `teamMembers`. Added bilingual **success state** (CheckCircle icon + confirmation text + "send another" reset link) shown after submit instead of the form silently doing nothing. |
+| `src/context/LanguageContext.tsx` | Added `contact.form.team`, `contact.form.team.ph`, `contact.form.success.title`, `contact.form.success.sub`, `contact.form.success.back`. Added `team.mayte.name`, `team.mayte.role`. |
+
+### Form field order (final)
+1. Name (required) + Phone (required) — side by side
+2. Email (optional)
+3. Service of Interest (required)
+4. Preferred Advisor (optional) — **new**
+5. Message (optional)
+6. Submit → success state
+
+### Architecture notes
+- `teamMembers` in `src/data/team.ts` is the single source of truth for advisor options
+- `TeamMember.id` is used as the `<option value>` — this is what a future backend will receive
+- The `handleSubmit` function has a `// TODO: wire to /api/contact` comment marking the integration point
+- Success state can be swapped for real API feedback in the backend phase without restructuring the form
+
+### What Was NOT Changed
+- No `/api/contact` backend route (future phase)
+- No visual redesign
+- All other pages: unchanged
+- Contact methods, hours, disclaimer sections: unchanged
+- No chatbot, admin, or other form changes
+
+---
+
 ## Phase 5 — Google Reviews Visibility
 **Date:** 2026-03-21
 

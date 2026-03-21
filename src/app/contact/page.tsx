@@ -1,11 +1,15 @@
 "use client";
 import Image from "next/image";
+import { useState } from "react";
+import { CheckCircle } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import { SITE } from "@/config/site";
 import { serviceDropdownKeys } from "@/data/services";
+import { teamMembers } from "@/data/team";
 
 export default function ContactPage() {
   const { t } = useLang();
+  const [submitted, setSubmitted] = useState(false);
 
   const contactMethods = [
     {
@@ -36,6 +40,12 @@ export default function ContactPage() {
 
   // Prepend placeholder option, then all service title keys from shared data
   const serviceOptions = ["contact.form.service.ph", ...serviceDropdownKeys];
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    // TODO: wire to /api/contact in a future phase
+    setSubmitted(true);
+  }
 
   return (
     <>
@@ -120,85 +130,133 @@ export default function ContactPage() {
             </h2>
             <p className="text-sm" style={{ color: "#6E6E6E" }}>{t("contact.form.sub")}</p>
           </div>
-          <form
-            className="space-y-4 rounded-2xl p-8 border"
-            style={{ backgroundColor: "#FAFAFA", borderColor: "#E4E4E4" }}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
-                  {t("contact.form.name")}
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder={t("contact.form.name.ph")}
-                  className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
-                  style={{ borderColor: "#D0D0D0" }}
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
-                  {t("contact.form.phone")}
-                </label>
-                <input
-                  type="tel"
-                  required
-                  placeholder="(407) 000-0000"
-                  className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
-                  style={{ borderColor: "#D0D0D0" }}
-                />
-              </div>
-            </div>
-            <div>
-              <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
-                {t("contact.form.email")}
-              </label>
-              <input
-                type="email"
-                placeholder="correo@ejemplo.com"
-                className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
-                style={{ borderColor: "#D0D0D0" }}
-              />
-            </div>
-            <div>
-              <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
-                {t("contact.form.service")}
-              </label>
-              <select
-                required
-                className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
-                style={{ borderColor: "#D0D0D0" }}
-              >
-                {serviceOptions.map((key, i) => (
-                  <option key={key} value={i === 0 ? "" : t(key)}>
-                    {t(key)}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
-                {t("contact.form.message")}
-              </label>
-              <textarea
-                rows={4}
-                placeholder={t("contact.form.message.ph")}
-                className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none resize-none"
-                style={{ borderColor: "#D0D0D0" }}
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full text-white font-bold py-4 rounded-xl text-base"
-              style={{ backgroundColor: "#1C1C1C" }}
+
+          {submitted ? (
+            /* Success state */
+            <div
+              className="rounded-2xl p-10 border text-center flex flex-col items-center gap-5"
+              style={{ backgroundColor: "#FAFAFA", borderColor: "#E4E4E4" }}
             >
-              {t("contact.form.submit")}
-            </button>
-            <p className="text-xs text-center" style={{ color: "#AFAFAF" }}>
-              {t("contact.form.privacy")}
-            </p>
-          </form>
+              <CheckCircle size={48} style={{ color: "#B9954F" }} />
+              <div>
+                <h3
+                  className="text-xl font-bold mb-2"
+                  style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+                >
+                  {t("contact.form.success.title")}
+                </h3>
+                <p className="text-sm" style={{ color: "#6E6E6E" }}>
+                  {t("contact.form.success.sub")}
+                </p>
+              </div>
+              <button
+                onClick={() => setSubmitted(false)}
+                className="text-sm font-semibold underline underline-offset-2"
+                style={{ color: "#B9954F" }}
+              >
+                {t("contact.form.success.back")}
+              </button>
+            </div>
+          ) : (
+            /* Form */
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-4 rounded-2xl p-8 border"
+              style={{ backgroundColor: "#FAFAFA", borderColor: "#E4E4E4" }}
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
+                    {t("contact.form.name")}
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder={t("contact.form.name.ph")}
+                    className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
+                    style={{ borderColor: "#D0D0D0" }}
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
+                    {t("contact.form.phone")}
+                  </label>
+                  <input
+                    type="tel"
+                    required
+                    placeholder="(407) 000-0000"
+                    className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
+                    style={{ borderColor: "#D0D0D0" }}
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
+                  {t("contact.form.email")}
+                </label>
+                <input
+                  type="email"
+                  placeholder="correo@ejemplo.com"
+                  className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
+                  style={{ borderColor: "#D0D0D0" }}
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
+                  {t("contact.form.service")}
+                </label>
+                <select
+                  required
+                  className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
+                  style={{ borderColor: "#D0D0D0" }}
+                >
+                  {serviceOptions.map((key, i) => (
+                    <option key={key} value={i === 0 ? "" : t(key)}>
+                      {t(key)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
+                  {t("contact.form.team")}
+                </label>
+                <select
+                  className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
+                  style={{ borderColor: "#D0D0D0" }}
+                  defaultValue=""
+                >
+                  <option value="">{t("contact.form.team.ph")}</option>
+                  {teamMembers.map((member) => (
+                    <option key={member.id} value={member.id}>
+                      {t(member.nameKey)} — {t(member.roleKey)}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
+                  {t("contact.form.message")}
+                </label>
+                <textarea
+                  rows={4}
+                  placeholder={t("contact.form.message.ph")}
+                  className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none resize-none"
+                  style={{ borderColor: "#D0D0D0" }}
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full text-white font-bold py-4 rounded-xl text-base"
+                style={{ backgroundColor: "#1C1C1C" }}
+              >
+                {t("contact.form.submit")}
+              </button>
+              <p className="text-xs text-center" style={{ color: "#AFAFAF" }}>
+                {t("contact.form.privacy")}
+              </p>
+            </form>
+          )}
         </div>
       </section>
 
