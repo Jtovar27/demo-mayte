@@ -73,6 +73,25 @@ const translations: Record<string, Record<Lang, string>> = {
   "blog.sub": { es: "Información útil para tomar mejores decisiones financieras y de seguros.", en: "Useful information to help you make better financial and insurance decisions." },
   "blog.read": { es: "Leer más", en: "Read more" },
 
+  // GOOGLE REVIEWS SECTION
+  "reviews.label": { es: "Reseñas de Clientes", en: "Client Reviews" },
+  "reviews.h2": { es: "Lo Que Dicen Nuestros Clientes", en: "What Our Clients Say" },
+  "reviews.sub": { es: "Más de 20 años construyendo confianza en Kissimmee. Esto es lo que dicen quienes nos visitan.", en: "Over 20 years building trust in Kissimmee. Here's what our clients say." },
+  "reviews.aggregate": { es: "Calificación en Google", en: "Rating on Google" },
+  "reviews.verified": { es: "Reseña verificada de Google", en: "Verified Google review" },
+  "reviews.cta": { es: "Déjanos una Reseña en Google", en: "Leave Us a Google Review" },
+  "reviews.cta.sub": { es: "Tu opinión nos ayuda a seguir creciendo y a servir mejor a nuestra comunidad.", en: "Your review helps us keep growing and serve our community better." },
+  "reviews.r1.text": { es: "Llevo 5 años con Mayte y no cambiaría nada. Siempre me explica todo con calma y sin letra pequeña. Este año recibí el mejor reembolso de impuestos de mi vida.", en: "I've been with Mayte for 5 years and wouldn't change a thing. She always explains everything calmly and clearly. This year I got the best tax refund of my life." },
+  "reviews.r1.name": { es: "María G.", en: "María G." },
+  "reviews.r1.service": { es: "Impuestos Personales", en: "Personal Taxes" },
+  "reviews.r2.text": { es: "Me ayudaron a registrar mi empresa en tiempo récord. Muy profesionales, me explicaron cada paso y ahora tenemos todo en orden. Totalmente recomendados.", en: "They helped me register my business in record time. Very professional, explained every step, and now everything is in order. Highly recommended." },
+  "reviews.r2.name": { es: "Carlos R.", en: "Carlos R." },
+  "reviews.r2.service": { es: "Constitución de Empresa", en: "Business Formation" },
+  "reviews.r3.text": { es: "Hicimos el seguro de salud aquí y fue facilísimo. Nos consiguieron el mejor plan dentro de nuestro presupuesto. 100% profesionales, muy amables y hablan español perfectamente.", en: "We got health insurance here and it was so easy. They found the best plan within our budget. 100% professional, very friendly, and speak perfect Spanish." },
+  "reviews.r3.name": { es: "Ana L.", en: "Ana L." },
+  "reviews.r3.service": { es: "Seguros de Salud", en: "Health Insurance" },
+  "footer.review.cta": { es: "Reséñanos en Google", en: "Review us on Google" },
+
   // LOCATION BAR
   "location.visit": { es: "Visítanos en", en: "Visit us at" },
   "location.hours": { es: "Lunes a Viernes · 9am – 6pm · Sábados con cita", en: "Mon–Fri · 9am–6pm · Saturdays by appointment" },

@@ -27,6 +27,16 @@ export default function Footer() {
           >
             {t("footer.disclaimer")}
           </p>
+          <a
+            href={SITE.google.reviewsUrl || SITE.google.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 mt-5 text-xs transition-opacity hover:opacity-80"
+            style={{ color: "#B9954F" }}
+          >
+            <span>★</span>
+            {t("footer.review.cta")}
+          </a>
         </div>
 
         {/* Navigation */}

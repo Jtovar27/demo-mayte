@@ -224,6 +224,78 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* GOOGLE REVIEWS */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#B9954F" }}>
+              {t("reviews.label")}
+            </div>
+            <h2
+              className="text-3xl md:text-4xl font-bold mb-3"
+              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+            >
+              {t("reviews.h2")}
+            </h2>
+            <p className="text-sm max-w-xl mx-auto" style={{ color: "#6E6E6E" }}>
+              {t("reviews.sub")}
+            </p>
+            {/* Aggregate rating */}
+            <div className="inline-flex items-center gap-2 mt-5 px-4 py-2 rounded-full border" style={{ borderColor: "#E4E4E4", backgroundColor: "#FAFAFA" }}>
+              <span className="text-base font-bold" style={{ color: "#1C1C1C" }}>4.9</span>
+              <span className="text-sm" style={{ color: "#B9954F" }}>★★★★★</span>
+              <span className="text-xs" style={{ color: "#6E6E6E" }}>{t("reviews.aggregate")}</span>
+            </div>
+          </div>
+
+          {/* Testimonial cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {[
+              { text: "reviews.r1.text", name: "reviews.r1.name", service: "reviews.r1.service" },
+              { text: "reviews.r2.text", name: "reviews.r2.name", service: "reviews.r2.service" },
+              { text: "reviews.r3.text", name: "reviews.r3.name", service: "reviews.r3.service" },
+            ].map((r) => (
+              <div
+                key={r.name}
+                className="rounded-xl border p-6 flex flex-col gap-4"
+                style={{ borderColor: "#E4E4E4", backgroundColor: "#FAFAFA" }}
+              >
+                <div className="flex items-center gap-1 text-sm" style={{ color: "#B9954F" }}>
+                  {"★★★★★"}
+                </div>
+                <p className="text-sm leading-relaxed flex-1" style={{ color: "#444444" }}>
+                  &ldquo;{t(r.text)}&rdquo;
+                </p>
+                <div className="border-t pt-4" style={{ borderColor: "#EBEBEB" }}>
+                  <p className="text-sm font-semibold" style={{ color: "#1C1C1C" }}>{t(r.name)}</p>
+                  <p className="text-xs mt-0.5" style={{ color: "#B9954F" }}>{t(r.service)}</p>
+                  <p className="text-xs mt-1" style={{ color: "#AFAFAF" }}>{t("reviews.verified")}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Leave a review CTA */}
+          <div className="text-center">
+            <p className="text-sm mb-5" style={{ color: "#6E6E6E" }}>
+              {t("reviews.cta.sub")}
+            </p>
+            <a
+              href={SITE.google.reviewsUrl || SITE.google.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-semibold px-8 py-3 rounded-lg border-2 transition-colors hover:text-white"
+              style={{ borderColor: "#B9954F", color: "#B9954F" }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#B9954F"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "transparent"; }}
+            >
+              <span>★</span>
+              {t("reviews.cta")}
+            </a>
+          </div>
+        </div>
+      </section>
+
       <CTABanner />
 
       {/* LOCATION BAR */}

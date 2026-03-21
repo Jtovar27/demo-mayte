@@ -2,6 +2,39 @@
 
 ---
 
+## Phase 5 — Google Reviews Visibility
+**Date:** 2026-03-21
+
+### Goal
+Add a Google Reviews section to the homepage with static demo testimonials, an aggregate rating display, and a "Leave us a Google Review" CTA linked through centralized config. Add a subtle review link to the footer brand column.
+
+### Modified Files
+
+| File | Change |
+|---|---|
+| `src/app/page.tsx` | Added **Google Reviews section** between Blog Preview and CTABanner: aggregate rating badge (4.9 ★), 3 static testimonial cards (each with rating, quote, client name, service tag, verified label), and an outlined "Déjanos una Reseña en Google" CTA button |
+| `src/components/Footer.tsx` | Added a `★ Reséñanos en Google` text link in the footer brand column, below the disclaimer. Uses `SITE.google.reviewsUrl` with `SITE.google.mapsUrl` fallback |
+| `src/context/LanguageContext.tsx` | Added all `reviews.*` bilingual keys: section heading/sub, aggregate label, 3 testimonials (text, name, service), CTA text/sub, verified label. Added `footer.review.cta` key. |
+
+### Review URL Wiring
+- Both the homepage CTA and the footer link use `SITE.google.reviewsUrl || SITE.google.mapsUrl`
+- When the real Google Business review link is confirmed, set `SITE.google.reviewsUrl` in `src/config/site.ts` — both locations update automatically
+- Until then, both links point to the business Google Maps listing (same place, still useful)
+
+### Testimonials
+- 3 static demo testimonials covering: Personal Taxes, Business Formation, Health Insurance
+- All in Spanish by default; full EN translations included for language toggle
+- Styled consistently with the site: `#FAFAFA` card background, `#B9954F` gold stars, verified label
+
+### What Was NOT Changed
+- No new routes or pages
+- No visual redesign
+- Services, About, Blog, FAQ, Contact, Taxes To Go pages: unchanged
+- `src/config/site.ts`: unchanged — `SITE.google.reviewsUrl` was already in place as a TODO
+- No chatbot, admin, or form changes
+
+---
+
 ## Phase 4 — Taxes To Go Page
 **Date:** 2026-03-21
 
