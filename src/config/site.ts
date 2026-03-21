@@ -56,9 +56,10 @@ export const SITE = {
     url: "https://taxestogo.com/App/Download/2620",
   },
 
-  // Logo — drop the file into public/ and set path to activate the image in the header.
+  // Logo — set path to activate the image in the header.
   // While path is empty, the header displays the business name as text (safe fallback).
-  // Recommended filename: public/logo.png (or .svg / .webp)
+  // IMPORTANT: Replace /logo.jpeg with a transparent asset (e.g. public/logo.png or public/logo.svg)
+  // for clean rendering on the dark navbar. JPEG files with a background will show a visible box.
   logo: {
     path: "/logo.jpeg" as string,
     alt: "Taxes & Insurance Group LLC",

@@ -2,6 +2,31 @@
 
 ---
 
+## Phase 9 — Logo Rendering Fix (Mobile + Desktop)
+**Date:** 2026-03-21
+
+### Goal
+Clean up logo rendering in the header for both mobile and desktop. Remove fragile `mix-blend-mode` hacks that produced incorrect results with a white-background JPEG. Prepare the component to accept a transparent PNG or SVG asset cleanly.
+
+### Modified Files
+
+| File | Change |
+|---|---|
+| `src/components/Header.tsx` | Replaced blend-mode hack wrapper with a clean sized container (`relative w-10 h-10 md:w-12 md:h-12`). Logo uses `fill` + `object-contain` + `sizes` for proper responsive behavior. Removed `mix-blend-mode: screen` and `backgroundColor` wrapper — both were incorrect for a white-background JPEG. Updated comment to guide toward transparent asset swap. |
+| `src/config/site.ts` | Updated logo comment to clearly document that JPEG produces a visible background box and that a transparent PNG/SVG is the correct replacement. |
+
+### To swap in a transparent logo
+1. Export logo as `public/logo.png` or `public/logo.svg` (transparent background)
+2. Set `SITE.logo.path = "/logo.png"` in `src/config/site.ts`
+3. Rebuild — no other changes needed
+
+### What Was NOT Changed
+- All other header elements: top bar, nav links, language toggle, CTA button, mobile menu
+- Footer, pages, services, chatbot, translations — unchanged
+- The JPEG file itself — kept as-is until client provides transparent asset
+
+---
+
 ## Phase 8 — URL Activation & Logo Integration Prep
 **Date:** 2026-03-21
 

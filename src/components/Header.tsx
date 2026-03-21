@@ -31,19 +31,18 @@ export default function Header() {
 
       {/* Main nav */}
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo — shows image when SITE.logo.path is set, text otherwise.
-             To activate: drop logo file into public/ and set SITE.logo.path in src/config/site.ts */}
-        <Link href="/" className="flex items-center gap-3">
+        {/* Logo — for best results replace the current JPEG with a transparent asset (logo.png or logo.svg).
+             To swap: drop the transparent file into public/ and update SITE.logo.path in src/config/site.ts */}
+        <Link href="/" className="flex items-center gap-2">
           {SITE.logo.path ? (
-            <div style={{ backgroundColor: "#1C1C1C", lineHeight: 0 }}>
+            <div className="relative w-10 h-10 md:w-12 md:h-12 flex-shrink-0">
               <Image
                 src={SITE.logo.path}
                 alt={SITE.logo.alt}
-                width={80}
-                height={80}
+                fill
                 priority
                 className="object-contain"
-                style={{ mixBlendMode: "screen", display: "block" }}
+                sizes="(max-width: 768px) 40px, 48px"
               />
             </div>
           ) : (
