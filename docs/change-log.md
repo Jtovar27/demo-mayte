@@ -2,6 +2,84 @@
 
 ---
 
+## Phase 8 — URL Activation & Logo Integration Prep
+**Date:** 2026-03-21
+
+### Goal
+Wire in the two confirmed external URLs and prepare a clean logo drop-in point in the header.
+
+### Modified Files
+
+| File | Change |
+|---|---|
+| `src/config/site.ts` | Set `taxesToGo.url` → `https://taxestogo.com/App/Download/2620`. Set `google.reviewsUrl` → `https://share.google/S6E2cBbGFseLH14MC`. Added `logo: { path: "" as string, alt: "..." }` — central logo config. |
+| `src/components/Header.tsx` | Added `Image` import. Brand section now conditionally renders `<Image>` when `SITE.logo.path` is set, or falls back to text display when path is empty. |
+
+### To activate the logo when the file is ready
+1. Drop the logo file into `public/` (e.g. `public/logo.png`)
+2. Set `SITE.logo.path = "/logo.png"` in `src/config/site.ts`
+3. Rebuild — no other changes needed
+
+### Effect of URL changes
+- Taxes To Go CTA on `/taxes-to-go` page and hero now link to the real app download
+- Google Reviews CTA on homepage and footer link to the real review page (both used `SITE.google.reviewsUrl || SITE.google.mapsUrl` — the fallback is no longer needed now that the URL is set)
+
+### What Was NOT Changed
+- Business email (still placeholder — separate phase)
+- No page redesigns, no routing changes, no chatbot changes
+- Footer brand display unchanged (still uses `SITE.legalName` text — logo in footer is optional)
+
+---
+
+## Phase 7 — Chatbot Safety & Maintainability
+**Date:** 2026-03-21
+
+### Goal
+Extract all chatbot response content into a maintainable data file, add out-of-scope safety guardrails for legal immigration topics, inject the required immigration disclaimer for document-prep topics, and add missing topics (Taxes To Go, immigration documents, credit repair).
+
+### New Files
+
+| File | Purpose |
+|---|---|
+| `src/data/chatbot.ts` | All chatbot logic: `ChatTopic` interface, `chatTopics[]` array (13 topics, ordered most-specific first), `BLOCKED_PATTERN` (out-of-scope legal guardrail), `OUT_OF_SCOPE_RESPONSE`, `IMMIGRATION_DISCLAIMER`, `FALLBACK_RESPONSE`. Single file to maintain all chatbot content. |
+
+### Modified Files
+
+| File | Change |
+|---|---|
+| `src/app/api/chat/route.ts` | Replaced ~130 lines of inline response strings with a 3-step clean dispatcher: (1) blocked check, (2) topic loop, (3) fallback. Now imports from `src/data/chatbot.ts`. `isSpanish`, `streamWords`, and POST handler are unchanged. |
+
+### Safety improvements
+
+| Behavior | Before | After |
+|---|---|---|
+| Green card / naturalization / asylum / deportation questions | Falls through to generic "we offer services" response — misleading | `BLOCKED_PATTERN` catches it first → `OUT_OF_SCOPE_RESPONSE` directs user to a licensed immigration attorney |
+| Immigration document prep questions | No topic match → generic fallback | `immigration-docs` topic responds with what we DO offer + `IMMIGRATION_DISCLAIMER` prepended |
+| Out-of-scope USCIS form numbers (I-485, I-130, I-90) | No match → generic fallback | Blocked → out-of-scope response |
+
+### New topics added
+
+| Topic id | Trigger keywords | Notes |
+|---|---|---|
+| `taxes-to-go` | `taxes to go` | Explains the service + links to page. Placed before `taxes` topic. |
+| `immigration-docs` | `inmigración`, `immigration`, `trámite migratorio`, `carta de presentación`, `papeles`, etc. | Immigration disclaimer prepended. Explains document prep service and its limits. |
+| `credit-repair` | `reparación de crédito`, `credit repair`, `credit score`, `bureau`, etc. | Placed before `business` topic to avoid the broader pattern swallowing it. |
+
+### Architecture notes
+- `BLOCKED_PATTERN` is tested FIRST — before any topic — so dangerous keywords always trigger the safe redirect
+- `addImmigrationDisclaimer: true` on a topic causes `IMMIGRATION_DISCLAIMER` to be prepended automatically
+- Adding a new topic = one array entry in `chatbot.ts` with `id`, `pattern`, and `response {es, en}`
+- The dispatcher in `route.ts` is now 10 lines — all content logic lives in `chatbot.ts`
+
+### What Was NOT Changed
+- `ChatWidget.tsx` — UI, streaming, welcome message, error handling: unchanged
+- All site pages, components, config, nav, services, team, translations: unchanged
+- `isSpanish` heuristic: unchanged
+- `streamWords` streaming mechanism: unchanged
+- No admin, no real AI backend
+
+---
+
 ## Phase 6 — Lead Capture + Team-Member Selection
 **Date:** 2026-03-21
 

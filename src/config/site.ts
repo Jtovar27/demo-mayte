@@ -5,7 +5,6 @@
  * All components and API routes import from here — do NOT hardcode these values elsewhere.
  *
  * TODO: Replace email with the correct business email before going live.
- * TODO: Add googleReviewsUrl once the Google Business profile link is confirmed.
  */
 
 export const SITE = {
@@ -48,15 +47,21 @@ export const SITE = {
 
   // Google Business
   google: {
-    // TODO: add the Google Business review link once confirmed
-    reviewsUrl: "",
+    reviewsUrl: "https://share.google/S6E2cBbGFseLH14MC",
     mapsUrl: "https://maps.google.com/?q=1216+Dyer+Blvd+Kissimmee+FL+34741",
   },
 
-  // Taxes To Go — external service URL
-  // TODO: replace with the real Taxes To Go external URL when confirmed
+  // Taxes To Go — external service
   taxesToGo: {
-    url: "",
+    url: "https://taxestogo.com/App/Download/2620",
+  },
+
+  // Logo — drop the file into public/ and set path to activate the image in the header.
+  // While path is empty, the header displays the business name as text (safe fallback).
+  // Recommended filename: public/logo.png (or .svg / .webp)
+  logo: {
+    path: "/logo.jpeg" as string,
+    alt: "Taxes & Insurance Group LLC",
   },
 
   // Legal disclaimer (used in footer, about, services, contact)

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { useLang } from "@/context/LanguageContext";
 import { SITE } from "@/config/site";
@@ -30,14 +31,28 @@ export default function Header() {
 
       {/* Main nav */}
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex flex-col">
-          <span className="text-lg font-bold leading-tight text-white" style={{ fontFamily: "var(--font-heading), 'Cormorant Garamond', Georgia, serif" }}>
-            Taxes &amp; Insurance Group LLC
-          </span>
-          <span className="text-xs leading-tight" style={{ color: "#AFAFAF" }}>
-            {t("header.tagline")}
-          </span>
+        {/* Logo — shows image when SITE.logo.path is set, text otherwise.
+             To activate: drop logo file into public/ and set SITE.logo.path in src/config/site.ts */}
+        <Link href="/" className="flex items-center gap-3">
+          {SITE.logo.path ? (
+            <Image
+              src={SITE.logo.path}
+              alt={SITE.logo.alt}
+              width={160}
+              height={40}
+              priority
+              className="object-contain"
+            />
+          ) : (
+            <div className="flex flex-col">
+              <span className="text-lg font-bold leading-tight text-white" style={{ fontFamily: "var(--font-heading), 'Cormorant Garamond', Georgia, serif" }}>
+                Taxes &amp; Insurance Group LLC
+              </span>
+              <span className="text-xs leading-tight" style={{ color: "#AFAFAF" }}>
+                {t("header.tagline")}
+              </span>
+            </div>
+          )}
         </Link>
 
         {/* Desktop nav */}
