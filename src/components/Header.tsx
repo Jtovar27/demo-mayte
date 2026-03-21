@@ -11,9 +11,9 @@ export default function Header() {
   const { lang, setLang, t } = useLang();
 
   return (
-    <header className="sticky top-0 z-50 shadow-lg" style={{ backgroundColor: "#000000" }}>
+    <header className="sticky top-0 z-50 shadow-lg" style={{ backgroundColor: "#1C1C1C" }}>
       {/* Top bar */}
-      <div className="text-sm py-1.5 border-b" style={{ backgroundColor: "#000000", borderColor: "#1C1C1C" }}>
+      <div className="text-sm py-1.5 border-b" style={{ backgroundColor: "#0E0E0E", borderColor: "#2A2A2A" }}>
         <div
           className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-1"
           style={{ color: "#AFAFAF" }}
@@ -38,10 +38,11 @@ export default function Header() {
             <Image
               src={SITE.logo.path}
               alt={SITE.logo.alt}
-              width={54}
-              height={54}
+              width={64}
+              height={64}
               priority
               className="object-contain"
+              style={{ mixBlendMode: "screen" }}
             />
           ) : (
             <div className="flex flex-col">
