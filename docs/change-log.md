@@ -2,6 +2,41 @@
 
 ---
 
+## Phase 3 — Services Content Expansion
+**Date:** 2026-03-21
+
+### Goal
+Expand the services offering with Credit Repair, Immigration Document Assistance, and improved Business Formation/Credit content. Add mandatory compliance disclaimer for immigration-related services.
+
+### Modified Files
+
+| File | Change |
+|---|---|
+| `src/data/services.ts` | Added `categoryDisclaimerKey?: string` to `ServiceCategory` interface. Added `svc.immigration` (FileCheck icon) to Notary category with `categoryDisclaimerKey: "cat.notary.immigration.disclaimer"`. Added `svc.credit.repair` (TrendingUp icon) to Business category. Updated `svc.biz.reg` title/desc keys for clearer administrative framing. Updated `svc.biz.credit` desc key for clearer messaging. Added imports for `FileCheck` and `TrendingUp` icons. |
+| `src/context/LanguageContext.tsx` | Added translation keys: `svc.immigration.title`, `svc.immigration.desc`, `svc.credit.repair.title`, `svc.credit.repair.desc`, `cat.notary.immigration.disclaimer`. Updated `svc.biz.reg.title` → "Constitución de Empresa" / "Business Formation". Updated `svc.biz.reg.desc` and `svc.biz.credit.desc` for clearer administrative framing. Updated `services.page.sub` to reflect expanded scope. |
+| `src/app/services/page.tsx` | Added conditional rendering of `categoryDisclaimerKey` block below each category grid. The immigration/notary compliance notice renders as a bordered callout only under Notary & Documents. |
+
+### New Services Added
+
+| Service | Category | Notes |
+|---|---|---|
+| Documentos para Trámites Migratorios / Immigration Document Assistance | Notary & Documents | Document preparation only — non-legal framing enforced in both service description and category disclaimer |
+| Reparación de Crédito / Credit Repair | Business & Credit | Administrative credit dispute process — step-by-step framing |
+
+### Compliance
+- Immigration disclaimer (`cat.notary.immigration.disclaimer`) clearly states: document preparation only, not legal advice, not an immigration attorney or accredited consultant, directs users to consult a licensed immigration attorney for legal matters.
+- Immigration service card description (`svc.immigration.desc`) also contains inline non-legal framing.
+
+### What Was NOT Changed
+- No visual redesign — colors, typography, layout unchanged
+- No Taxes To Go page
+- No admin, no chatbot, no form changes
+- Homepage, About, Blog, FAQ, Contact pages unchanged
+- Taxes and Insurance category content unchanged
+- `ServiceCard.tsx` component unchanged
+
+---
+
 ## Phase 2 — Cleanup & Refactor-Readiness
 **Date:** 2026-03-21
 

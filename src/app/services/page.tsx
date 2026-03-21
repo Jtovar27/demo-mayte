@@ -67,6 +67,16 @@ export default function ServicesPage() {
                   />
                 ))}
               </div>
+              {cat.categoryDisclaimerKey && (
+                <div
+                  className="mt-6 rounded-lg border-l-4 px-5 py-4"
+                  style={{ borderColor: "#B9954F", backgroundColor: "#FAFAFA" }}
+                >
+                  <p className="text-xs italic leading-relaxed" style={{ color: "#6E6E6E" }}>
+                    {t(cat.categoryDisclaimerKey)}
+                  </p>
+                </div>
+              )}
             </div>
           ))}
         </div>

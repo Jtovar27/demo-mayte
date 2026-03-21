@@ -119,7 +119,7 @@ const translations: Record<string, Record<Lang, string>> = {
   // SERVICES PAGE
   "services.page.label": { es: "Servicios Profesionales", en: "Professional Services" },
   "services.page.h1": { es: "Todo en Un Solo Lugar", en: "Everything in One Place" },
-  "services.page.sub": { es: "Impuestos, seguros, notaría, apostillas, traducciones y apoyo empresarial. Atención 100% en español.", en: "Taxes, insurance, notary, apostilles, translations, and business support. Bilingual service." },
+  "services.page.sub": { es: "Impuestos, seguros, notaría, documentos migratorios, reparación de crédito y apoyo empresarial. Atención 100% en español.", en: "Taxes, insurance, notary, immigration documents, credit repair, and business support. Bilingual service." },
   "services.page.cta": { es: "Consulta Gratuita", en: "Free Consultation" },
   "services.disclaimer": { es: "Aviso importante: No somos abogados. Solo preparamos documentos y ayudamos con trámites administrativos.", en: "Important notice: We are not attorneys. We only prepare documents and assist with administrative processes." },
 
@@ -128,14 +128,26 @@ const translations: Record<string, Record<Lang, string>> = {
   "cat.insurance": { es: "Seguros", en: "Insurance" },
   "cat.notary": { es: "Notaría y Documentos", en: "Notary & Documents" },
   "cat.business": { es: "Negocios y Crédito", en: "Business & Credit" },
+
+  // Notary category compliance notice (shown below the full category grid)
+  "cat.notary.immigration.disclaimer": {
+    es: "Aviso de cumplimiento: Los servicios de documentación migratoria que ofrecemos son de preparación y organización de documentos administrativos únicamente. No somos abogados de inmigración ni consultores acreditados. No ofrecemos asesoría legal migratoria. Para orientación legal sobre su caso migratorio, consulte a un abogado de inmigración certificado.",
+    en: "Compliance notice: The immigration documentation services we offer consist of document preparation and administrative organization only. We are not immigration attorneys or accredited consultants. We do not provide legal immigration advice. For legal guidance on your immigration case, please consult a licensed immigration attorney.",
+  },
+
+  // Taxes
   "svc.taxes.personal.full.title": { es: "Impuestos Personales", en: "Personal Tax Returns" },
   "svc.taxes.personal.full.desc": { es: "Preparamos tu declaración federal y estatal con precisión. Maximizamos tu reembolso y cumplimos todos los requisitos del IRS.", en: "We prepare your federal and state tax returns with precision. We maximize your refund and meet all IRS requirements." },
   "svc.taxes.business.full.title": { es: "Impuestos Empresariales", en: "Business Tax Returns" },
   "svc.taxes.business.full.desc": { es: "Declaraciones para LLC, corporaciones, sole proprietors y más. Te ayudamos a cumplir con todas tus obligaciones fiscales como negocio.", en: "Returns for LLCs, corporations, sole proprietors, and more. We help you meet all your business tax obligations." },
+
+  // Insurance
   "svc.ins.health.title": { es: "Seguros de Salud (Obamacare / ACA)", en: "Health Insurance (Obamacare / ACA)" },
   "svc.ins.health.desc": { es: "Te ayudamos a seleccionar y enrolarte en el plan de salud que más te conviene a ti y a tu familia, incluyendo subsidios disponibles.", en: "We help you select and enroll in the best health plan for you and your family, including available subsidies." },
   "svc.ins.life.title": { es: "Seguros de Vida y Medicare", en: "Life Insurance & Medicare" },
   "svc.ins.life.desc": { es: "Protege el futuro de tu familia con seguros de vida y asegura tu cobertura médica con Medicare. Te asesoramos sin presión.", en: "Protect your family's future with life insurance and secure your medical coverage with Medicare. We advise without pressure." },
+
+  // Notary & Documents
   "svc.notary.pub.title": { es: "Notario Público", en: "Notary Public" },
   "svc.notary.pub.desc": { es: "Autenticación y certificación de documentos oficiales. Servicio rápido, legal y confiable.", en: "Authentication and certification of official documents. Fast, legal, and reliable service." },
   "svc.apostille.title": { es: "Apostillas", en: "Apostilles" },
@@ -146,12 +158,18 @@ const translations: Record<string, Record<Lang, string>> = {
   "svc.fevida.desc": { es: "Documento oficial que certifica que una persona se encuentra viva. Requisito frecuente para trámites en el extranjero.", en: "Official document certifying that a person is alive. Often required for international procedures." },
   "svc.translation.title": { es: "Traducciones Certificadas", en: "Certified Translations" },
   "svc.translation.desc": { es: "Traducción de documentos en más de 5 idiomas. Certificadas y aceptadas por instituciones oficiales.", en: "Document translation in 5+ languages. Certified and accepted by official institutions." },
-  "svc.biz.reg.title": { es: "Registro de Empresa / Perfil Empresarial", en: "Business Registration / Business Profile" },
-  "svc.biz.reg.desc": { es: "Te ayudamos a registrar tu LLC, corporación o negocio en Florida. También armamos tu perfil empresarial para acceder a crédito.", en: "We help you register your LLC, corporation, or business in Florida. We also build your business profile to access credit." },
+  "svc.immigration.title": { es: "Documentos para Trámites Migratorios", en: "Immigration Document Assistance" },
+  "svc.immigration.desc": { es: "Preparamos y organizamos documentos de apoyo para trámites migratorios: cartas de presentación, declaraciones escritas y paquetes de evidencia. Somos preparadores de documentos, no abogados de inmigración.", en: "We prepare and organize supporting documents for immigration processes: cover letters, written declarations, and evidence packages. We are document preparers, not immigration attorneys." },
+
+  // Business & Credit
+  "svc.biz.reg.title": { es: "Constitución de Empresa", en: "Business Formation" },
+  "svc.biz.reg.desc": { es: "Gestionamos el registro administrativo de tu LLC, corporación o negocio en Florida. Te acompañamos en cada paso del proceso: desde el nombre hasta el EIN, incluyendo tu perfil empresarial para acceder a financiamiento.", en: "We handle the administrative registration of your LLC, corporation, or business in Florida. We guide you through every step: from naming to EIN, including your business profile to access financing." },
   "svc.biz.credit.title": { es: "Establecimiento de Crédito Empresarial", en: "Business Credit Establishment" },
-  "svc.biz.credit.desc": { es: "Te guiamos paso a paso para construir un historial crediticio sólido para tu negocio y acceder a más oportunidades.", en: "We guide you step by step to build a solid credit history for your business and access more opportunities." },
+  "svc.biz.credit.desc": { es: "Te acompañamos paso a paso para construir un historial crediticio sólido para tu negocio: apertura de cuentas, líneas de crédito y estrategia para calificar a mejores tasas y financiamiento.", en: "We walk you through building a solid credit history for your business: account setup, credit lines, and a strategy to qualify for better rates and financing." },
   "svc.loans.title": { es: "Préstamos de Corto y Largo Plazo", en: "Short & Long-Term Loans" },
   "svc.loans.desc": { es: "Te conectamos con opciones de financiamiento para tu negocio o necesidades personales. Evaluamos tu caso sin compromiso.", en: "We connect you with financing options for your business or personal needs. We evaluate your case without obligation." },
+  "svc.credit.repair.title": { es: "Reparación de Crédito", en: "Credit Repair" },
+  "svc.credit.repair.desc": { es: "Te ayudamos a revisar tu reporte de crédito, identificar errores y gestionar cartas de disputa ante las agencias crediticias. Un proceso claro y paso a paso para mejorar tu historial financiero.", en: "We help you review your credit report, identify errors, and manage dispute letters with the credit bureaus. A clear, step-by-step process to improve your financial history." },
 
   // BLOG PAGE
   "blog.page.label": { es: "Blog y Recursos", en: "Blog & Resources" },

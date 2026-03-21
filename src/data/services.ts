@@ -14,6 +14,9 @@
  *   1. Add a new object to serviceCategories with categoryKey and services[].
  *   2. Add the categoryKey translation to LanguageContext.tsx.
  *
+ * categoryDisclaimerKey (optional): if set, a compliance disclaimer is rendered below
+ * that category's service grid on the services page.
+ *
  * Icons are from lucide-react. Import only what is used here.
  */
 
@@ -27,9 +30,11 @@ import {
   Scale,
   ClipboardCheck,
   Languages,
+  FileCheck,
   Building2,
   CreditCard,
   Banknote,
+  TrendingUp,
   type LucideIcon,
 } from "lucide-react";
 
@@ -42,6 +47,8 @@ export interface ServiceItem {
 export interface ServiceCategory {
   categoryKey: string;
   services: ServiceItem[];
+  /** Optional key for a compliance/legal disclaimer rendered below this category's grid. */
+  categoryDisclaimerKey?: string;
 }
 
 export const serviceCategories: ServiceCategory[] = [
@@ -77,6 +84,7 @@ export const serviceCategories: ServiceCategory[] = [
   },
   {
     categoryKey: "cat.notary",
+    categoryDisclaimerKey: "cat.notary.immigration.disclaimer",
     services: [
       {
         titleKey: "svc.notary.pub.title",
@@ -103,7 +111,11 @@ export const serviceCategories: ServiceCategory[] = [
         descKey: "svc.translation.desc",
         icon: Languages,
       },
-      // TODO Phase 3: add immigration document processing entry here
+      {
+        titleKey: "svc.immigration.title",
+        descKey: "svc.immigration.desc",
+        icon: FileCheck,
+      },
     ],
   },
   {
@@ -124,7 +136,11 @@ export const serviceCategories: ServiceCategory[] = [
         descKey: "svc.loans.desc",
         icon: Banknote,
       },
-      // TODO Phase 3: add Credit Repair entry here
+      {
+        titleKey: "svc.credit.repair.title",
+        descKey: "svc.credit.repair.desc",
+        icon: TrendingUp,
+      },
     ],
   },
 ];
