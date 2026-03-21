@@ -13,7 +13,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 shadow-lg" style={{ backgroundColor: "#1C1C1C" }}>
       {/* Top bar */}
-      <div className="text-sm py-1.5 border-b" style={{ backgroundColor: "#0E0E0E", borderColor: "#2A2A2A" }}>
+      <div style={{ backgroundColor: "#0E0E0E" }} className="text-sm py-2">
         <div
           className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-1"
           style={{ color: "#AFAFAF" }}
@@ -30,7 +30,7 @@ export default function Header() {
       </div>
 
       {/* Main nav */}
-      <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo — shows image when SITE.logo.path is set, text otherwise.
              To activate: drop logo file into public/ and set SITE.logo.path in src/config/site.ts */}
         <Link href="/" className="flex items-center gap-3">
