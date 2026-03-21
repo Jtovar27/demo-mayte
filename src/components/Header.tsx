@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import { useLang } from "@/context/LanguageContext";
 import { SITE } from "@/config/site";
@@ -35,16 +34,12 @@ export default function Header() {
              To swap: drop the transparent file into public/ and update SITE.logo.path in src/config/site.ts */}
         <Link href="/" className="flex items-center gap-2">
           {SITE.logo.path ? (
-            <div className="relative w-10 h-10 md:w-12 md:h-12 flex-shrink-0">
-              <Image
-                src={SITE.logo.path}
-                alt={SITE.logo.alt}
-                fill
-                priority
-                className="object-contain"
-                sizes="(max-width: 768px) 40px, 48px"
-              />
-            </div>
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={SITE.logo.path}
+              alt={SITE.logo.alt}
+              className="h-10 md:h-14 w-auto object-contain flex-shrink-0"
+            />
           ) : (
             <div className="flex flex-col">
               <span className="text-lg font-bold leading-tight text-white" style={{ fontFamily: "var(--font-heading), 'Cormorant Garamond', Georgia, serif" }}>
