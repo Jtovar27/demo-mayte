@@ -2,6 +2,51 @@
 
 ---
 
+## Phase 4 — Taxes To Go Page
+**Date:** 2026-03-21
+
+### Goal
+Add a dedicated Taxes To Go page with a clear process explanation, a "what to bring" checklist, and a prominent CTA linking to the external Taxes To Go service URL. Wire everything through the centralized config/data layer.
+
+### New Files
+
+| File | Purpose |
+|---|---|
+| `src/app/taxes-to-go/page.tsx` | Dedicated Taxes To Go page: hero, "what is it" section, 4-step process, "what to bring" checklist, dark CTA block, CTABanner |
+
+### Modified Files
+
+| File | Change |
+|---|---|
+| `src/config/site.ts` | Added `taxesToGo.url` field — single place to set the external Taxes To Go URL. Falls back to WhatsApp if URL is empty. |
+| `src/data/nav.ts` | Added `{ href: "/taxes-to-go", key: "nav.taxestogo" }` — now appears automatically in both Header and Footer. |
+| `src/context/LanguageContext.tsx` | Added `nav.taxestogo` key + all bilingual (ES/EN) content keys for the Taxes To Go page (`ttg.*` prefix): hero, what-is-it section, 4 process steps, 6 bring-items, and CTA block. |
+
+### Page Structure
+
+| Section | Content |
+|---|---|
+| Hero | Full-bleed Unsplash image, "Taxes To Go" headline, subtitle, external CTA button |
+| What is Taxes To Go? | 2-paragraph explanation of the service (fast, no complications, who it's for) |
+| How it Works | 4 numbered cards: Book → Gather Documents → We Prepare → Receive Refund |
+| What to Bring | Checklist of 6 required documents with checkmark icons |
+| CTA Block | Dark background, primary "Access Taxes To Go" (external link) + secondary "Contact Us First" (internal /contact link) + phone number |
+| CTABanner | Reused standard CTA banner (call / WhatsApp) |
+
+### CTA Wiring
+- `SITE.taxesToGo.url` — set this to the real Taxes To Go URL before going live
+- If `taxesToGo.url` is empty, the CTA falls back to `SITE.whatsapp` so the button is never broken in demo
+- `ExternalLink` icon on all outbound CTA buttons signals to users they are leaving the site
+
+### What Was NOT Changed
+- No visual redesign — same design tokens, same page structure pattern
+- Homepage, About, Blog, FAQ, Contact pages unchanged
+- Services page and data unchanged
+- No admin, no chatbot, no form changes
+- No Google Reviews
+
+---
+
 ## Phase 3 — Services Content Expansion
 **Date:** 2026-03-21
 

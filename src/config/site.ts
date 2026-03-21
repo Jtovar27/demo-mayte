@@ -53,6 +53,12 @@ export const SITE = {
     mapsUrl: "https://maps.google.com/?q=1216+Dyer+Blvd+Kissimmee+FL+34741",
   },
 
+  // Taxes To Go — external service URL
+  // TODO: replace with the real Taxes To Go external URL when confirmed
+  taxesToGo: {
+    url: "",
+  },
+
   // Legal disclaimer (used in footer, about, services, contact)
   disclaimer: {
     es: "No somos abogados. Solo preparamos documentos y ayudamos con trámites administrativos.",

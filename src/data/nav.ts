@@ -8,6 +8,7 @@ export const navLinks = [
   { href: "/", key: "nav.home" },
   { href: "/about", key: "nav.about" },
   { href: "/services", key: "nav.services" },
+  { href: "/taxes-to-go", key: "nav.taxestogo" },
   { href: "/blog", key: "nav.blog" },
   { href: "/faq", key: "nav.faq" },
   { href: "/contact", key: "nav.contact" },
