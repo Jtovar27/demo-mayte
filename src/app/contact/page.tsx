@@ -1,50 +1,97 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CheckCircle } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
-import { SITE } from "@/config/site";
+import { useSiteSettings } from "@/context/SiteSettingsContext";
 import { serviceDropdownKeys } from "@/data/services";
-import { teamMembers } from "@/data/team";
+
+interface TeamMember {
+  id: string;
+  name: string;
+  role: { es: string; en: string };
+}
+
+const EMPTY_FORM = { name: "", phone: "", email: "", service: "", advisor: "", message: "" };
 
 export default function ContactPage() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
+  const site = useSiteSettings();
+  const [dynamicTeam, setDynamicTeam] = useState<TeamMember[]>([]);
+
+  useEffect(() => {
+    fetch("/api/team")
+      .then((r) => r.json())
+      .then((data: unknown) => {
+        if (Array.isArray(data)) setDynamicTeam(data as TeamMember[]);
+      })
+      .catch(() => {/* keep empty */});
+  }, []);
+  const [form, setForm] = useState(EMPTY_FORM);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [serverError, setServerError] = useState(false);
+
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  }
 
   const contactMethods = [
     {
       titleKey: "contact.phone.title",
-      detail: SITE.phone,
+      detail: site.phone,
       actionKey: "contact.phone.action",
-      href: SITE.phoneHref,
+      href: site.phoneHref,
     },
     {
       titleKey: "contact.whatsapp.title",
       detailKey: "contact.whatsapp.detail",
       actionKey: "contact.whatsapp.action",
-      href: SITE.whatsapp,
+      href: site.whatsapp,
     },
     {
       titleKey: "contact.email.title",
-      detail: SITE.email,
+      detail: site.email,
       actionKey: "contact.email.action",
-      href: SITE.emailHref,
+      href: site.emailHref,
     },
     {
       titleKey: "contact.address.title",
-      detail: SITE.address.full,
+      detail: site.address.full,
       actionKey: "contact.address.action",
-      href: SITE.address.mapsHref,
+      href: site.address.mapsHref,
     },
   ];
 
   // Prepend placeholder option, then all service title keys from shared data
   const serviceOptions = ["contact.form.service.ph", ...serviceDropdownKeys];
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: wire to /api/contact in a future phase
-    setSubmitted(true);
+    setLoading(true);
+    setServerError(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: form.phone,
+          email: form.email || undefined,
+          service: form.service,
+          advisor: form.advisor || undefined,
+          message: form.message || undefined,
+        }),
+      });
+      if (!res.ok) throw new Error("server error");
+      setSubmitted(true);
+      setForm(EMPTY_FORM);
+    } catch {
+      setServerError(true);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -171,7 +218,10 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="text"
+                    name="name"
                     required
+                    value={form.name}
+                    onChange={handleChange}
                     placeholder={t("contact.form.name.ph")}
                     className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
                     style={{ borderColor: "#D0D0D0" }}
@@ -183,7 +233,10 @@ export default function ContactPage() {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     required
+                    value={form.phone}
+                    onChange={handleChange}
                     placeholder="(407) 000-0000"
                     className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
                     style={{ borderColor: "#D0D0D0" }}
@@ -196,6 +249,9 @@ export default function ContactPage() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={form.email}
+                  onChange={handleChange}
                   placeholder="correo@ejemplo.com"
                   className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
                   style={{ borderColor: "#D0D0D0" }}
@@ -206,7 +262,10 @@ export default function ContactPage() {
                   {t("contact.form.service")}
                 </label>
                 <select
+                  name="service"
                   required
+                  value={form.service}
+                  onChange={handleChange}
                   className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
                   style={{ borderColor: "#D0D0D0" }}
                 >
@@ -222,14 +281,16 @@ export default function ContactPage() {
                   {t("contact.form.team")}
                 </label>
                 <select
+                  name="advisor"
+                  value={form.advisor}
+                  onChange={handleChange}
                   className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none"
                   style={{ borderColor: "#D0D0D0" }}
-                  defaultValue=""
                 >
                   <option value="">{t("contact.form.team.ph")}</option>
-                  {teamMembers.map((member) => (
+                  {dynamicTeam.map((member) => (
                     <option key={member.id} value={member.id}>
-                      {t(member.nameKey)} — {t(member.roleKey)}
+                      {member.name} — {member.role[lang]}
                     </option>
                   ))}
                 </select>
@@ -239,18 +300,27 @@ export default function ContactPage() {
                   {t("contact.form.message")}
                 </label>
                 <textarea
+                  name="message"
                   rows={4}
+                  value={form.message}
+                  onChange={handleChange}
                   placeholder={t("contact.form.message.ph")}
                   className="w-full border rounded-lg px-4 py-3 text-sm bg-white focus:outline-none resize-none"
                   style={{ borderColor: "#D0D0D0" }}
                 />
               </div>
+              {serverError && (
+                <p className="text-sm text-center" style={{ color: "#C0392B" }}>
+                  {t("contact.form.error")}
+                </p>
+              )}
               <button
                 type="submit"
-                className="w-full text-white font-bold py-4 rounded-xl text-base"
+                disabled={loading}
+                className="w-full text-white font-bold py-4 rounded-xl text-base disabled:opacity-60"
                 style={{ backgroundColor: "#1C1C1C" }}
               >
-                {t("contact.form.submit")}
+                {loading ? t("contact.form.sending") : t("contact.form.submit")}
               </button>
               <p className="text-xs text-center" style={{ color: "#AFAFAF" }}>
                 {t("contact.form.privacy")}

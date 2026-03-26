@@ -1,17 +1,56 @@
 "use client";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import CTABanner from "@/components/CTABanner";
 import { useLang } from "@/context/LanguageContext";
+import type { BlogPost } from "@/lib/admin-store";
+
+type Lang = "es" | "en";
+
+const CATEGORY_KEY_MAP: Record<string, string> = {
+  taxes: "blog.cat.taxes",
+  insurance: "blog.cat.insurance",
+  business: "blog.cat.business",
+  notary: "blog.cat.notary",
+};
+
+function formatDate(dateStr: string, lang: Lang): string {
+  try {
+    const date = new Date(dateStr + "T00:00:00");
+    return date.toLocaleDateString(lang === "es" ? "es-ES" : "en-US", {
+      year: "numeric",
+      month: "long",
+    });
+  } catch {
+    return dateStr;
+  }
+}
+
+const CATEGORIES = ["all", "taxes", "insurance", "business", "notary"] as const;
+type Category = typeof CATEGORIES[number];
 
 export default function BlogPage() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState<Category>("all");
 
-  const articles = [
-    { titleKey: "blog.a1.title", excerptKey: "blog.a1.excerpt", date: "Marzo 2026", categoryKey: "blog.cat.taxes", readTime: "5" },
-    { titleKey: "blog.a2.title", excerptKey: "blog.a2.excerpt", date: "Febrero 2026", categoryKey: "blog.cat.insurance", readTime: "6" },
-    { titleKey: "blog.a3.title", excerptKey: "blog.a3.excerpt", date: "Enero 2026", categoryKey: "blog.cat.taxes", readTime: "4" },
-    { titleKey: "blog.a4.title", excerptKey: "blog.a4.excerpt", date: "Diciembre 2025", categoryKey: "blog.cat.business", readTime: "5" },
-  ];
+  useEffect(() => {
+    async function loadPosts() {
+      try {
+        const res = await fetch("/api/blog");
+        if (!res.ok) throw new Error("fetch failed");
+        const data = await res.json() as BlogPost[];
+        setPosts(Array.isArray(data) ? data : []);
+      } catch {
+        setPosts([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+    void loadPosts();
+  }, []);
 
   return (
     <>
@@ -40,59 +79,119 @@ export default function BlogPage() {
       {/* Articles */}
       <section className="py-16 md:py-24" style={{ backgroundColor: "#F5F5F5" }}>
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {articles.map((article) => (
-              <article
-                key={article.titleKey}
-                className="bg-white rounded-xl border overflow-hidden hover:shadow-lg transition-shadow"
-                style={{ borderColor: "#E4E4E4" }}
-              >
-                <div className="h-0.5" style={{ backgroundColor: "#B9954F" }} />
-                <div className="p-8">
-                  <div className="mb-4">
-                    <span
-                      className="text-xs font-semibold px-3 py-1 rounded-full"
-                      style={{ backgroundColor: "#F0EAE0", color: "#8A6F40" }}
-                    >
-                      {t(article.categoryKey)}
-                    </span>
-                  </div>
-                  <h2
-                    className="text-lg font-bold mb-3 leading-tight"
-                    style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
-                  >
-                    {t(article.titleKey)}
-                  </h2>
-                  <p className="text-xs leading-relaxed mb-6" style={{ color: "#6E6E6E" }}>
-                    {t(article.excerptKey)}
-                  </p>
-                  <div className="flex justify-between items-center text-xs" style={{ color: "#AFAFAF" }}>
-                    <span>{article.date} · {article.readTime} min {t("blog.readtime")}</span>
-                    <span className="font-semibold" style={{ color: "#B9954F" }}>
-                      {t("blog.coming")}
-                    </span>
+          {/* Category filter */}
+          {!loading && posts.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-10">
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className="text-xs font-semibold px-4 py-2 rounded-full transition-colors"
+                  style={activeCategory === cat
+                    ? { backgroundColor: "#1C1C1C", color: "#FFFFFF" }
+                    : { backgroundColor: "#FFFFFF", color: "#6E6E6E", border: "1px solid #D0D0D0" }}
+                >
+                  {cat === "all" ? (lang === "es" ? "Todos" : "All") : t(CATEGORY_KEY_MAP[cat] ?? cat)}
+                </button>
+              ))}
+            </div>
+          )}
+          {loading ? (
+            /* Loading skeleton */
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[1, 2, 3, 4].map((n) => (
+                <div
+                  key={n}
+                  className="bg-white rounded-xl border overflow-hidden"
+                  style={{ borderColor: "#E4E4E4" }}
+                >
+                  <div className="h-0.5" style={{ backgroundColor: "#B9954F" }} />
+                  <div className="p-8 space-y-3 animate-pulse">
+                    <div className="h-5 w-20 rounded-full" style={{ backgroundColor: "#F0EAE0" }} />
+                    <div className="h-5 w-full rounded" style={{ backgroundColor: "#F0F0F0" }} />
+                    <div className="h-5 w-3/4 rounded" style={{ backgroundColor: "#F0F0F0" }} />
+                    <div className="h-3 w-full rounded" style={{ backgroundColor: "#F5F5F5" }} />
+                    <div className="h-3 w-full rounded" style={{ backgroundColor: "#F5F5F5" }} />
+                    <div className="h-3 w-2/3 rounded" style={{ backgroundColor: "#F5F5F5" }} />
                   </div>
                 </div>
-              </article>
-            ))}
-          </div>
-
-          {/* Coming soon */}
-          <div
-            className="mt-12 text-center bg-white border rounded-xl p-10"
-            style={{ borderColor: "#E4E4E4" }}
-          >
-            <div className="w-10 h-0.5 mx-auto mb-6" style={{ backgroundColor: "#B9954F" }} />
-            <h3
-              className="text-xl font-bold mb-2"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+              ))}
+            </div>
+          ) : posts.length === 0 ? (
+            /* Coming soon — no posts */
+            <div
+              className="text-center bg-white border rounded-xl p-10"
+              style={{ borderColor: "#E4E4E4" }}
             >
-              {t("blog.more.title")}
-            </h3>
-            <p className="text-sm max-w-md mx-auto" style={{ color: "#6E6E6E" }}>
-              {t("blog.more.sub")}
-            </p>
-          </div>
+              <div className="w-10 h-0.5 mx-auto mb-6" style={{ backgroundColor: "#B9954F" }} />
+              <h3
+                className="text-xl font-bold mb-2"
+                style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+              >
+                {t("blog.more.title")}
+              </h3>
+              <p className="text-sm max-w-md mx-auto" style={{ color: "#6E6E6E" }}>
+                {t("blog.more.sub")}
+              </p>
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {posts.filter(p => activeCategory === "all" || p.category === activeCategory).map((post) => (
+                  <Link
+                    key={post.id}
+                    href={`/blog/${post.slug}`}
+                    className="block bg-white rounded-xl border overflow-hidden hover:shadow-lg transition-shadow"
+                    style={{ borderColor: "#E4E4E4" }}
+                  >
+                    <div className="h-0.5" style={{ backgroundColor: "#B9954F" }} />
+                    <div className="p-8">
+                      <div className="mb-4">
+                        <span
+                          className="text-xs font-semibold px-3 py-1 rounded-full"
+                          style={{ backgroundColor: "#F0EAE0", color: "#8A6F40" }}
+                        >
+                          {t(CATEGORY_KEY_MAP[post.category] ?? "blog.cat.taxes")}
+                        </span>
+                      </div>
+                      <h2
+                        className="text-lg font-bold mb-3 leading-tight"
+                        style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+                      >
+                        {post.title[lang as Lang]}
+                      </h2>
+                      <p className="text-xs leading-relaxed mb-6" style={{ color: "#6E6E6E" }}>
+                        {post.excerpt[lang as Lang]}
+                      </p>
+                      <div className="flex justify-between items-center text-xs" style={{ color: "#AFAFAF" }}>
+                        <span>{formatDate(post.date, lang as Lang)}</span>
+                        <span className="font-semibold" style={{ color: "#B9954F" }}>
+                          {t("blog.read")}
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {/* More coming soon */}
+              <div
+                className="mt-12 text-center bg-white border rounded-xl p-10"
+                style={{ borderColor: "#E4E4E4" }}
+              >
+                <div className="w-10 h-0.5 mx-auto mb-6" style={{ backgroundColor: "#B9954F" }} />
+                <h3
+                  className="text-xl font-bold mb-2"
+                  style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+                >
+                  {t("blog.more.title")}
+                </h3>
+                <p className="text-sm max-w-md mx-auto" style={{ color: "#6E6E6E" }}>
+                  {t("blog.more.sub")}
+                </p>
+              </div>
+            </>
+          )}
         </div>
       </section>
 

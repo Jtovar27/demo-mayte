@@ -1,9 +1,10 @@
 "use client";
 import { useLang } from "@/context/LanguageContext";
-import { SITE } from "@/config/site";
+import { useSiteSettings } from "@/context/SiteSettingsContext";
 
 export default function CTABanner() {
   const { t } = useLang();
+  const site = useSiteSettings();
 
   return (
     <section className="py-16" style={{ backgroundColor: "#B9954F" }}>
@@ -19,14 +20,14 @@ export default function CTABanner() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href={SITE.phoneHref}
+            href={site.phoneHref}
             className="font-bold px-8 py-3 rounded-lg text-base"
             style={{ backgroundColor: "#1C1C1C", color: "#FFFFFF" }}
           >
             {t("cta.call")}
           </a>
           <a
-            href={SITE.whatsapp}
+            href={site.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
             className="font-bold px-8 py-3 rounded-lg text-base border-2 border-white text-white"

@@ -3,11 +3,12 @@ import Image from "next/image";
 import CTABanner from "@/components/CTABanner";
 import ServiceCard from "@/components/ServiceCard";
 import { useLang } from "@/context/LanguageContext";
-import { SITE } from "@/config/site";
+import { useSiteSettings } from "@/context/SiteSettingsContext";
 import { serviceCategories } from "@/data/services";
 
 export default function ServicesPage() {
   const { t } = useLang();
+  const site = useSiteSettings();
 
   return (
     <>
@@ -37,7 +38,7 @@ export default function ServicesPage() {
             {t("services.page.sub")}
           </p>
           <a
-            href={SITE.phoneHref}
+            href={site.phoneHref}
             className="inline-block text-white font-semibold px-8 py-3 rounded-lg"
             style={{ backgroundColor: "#B9954F" }}
           >

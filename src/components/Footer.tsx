@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
 import { useLang } from "@/context/LanguageContext";
-import { SITE } from "@/config/site";
+import { useSiteSettings } from "@/context/SiteSettingsContext";
 import { navLinks } from "@/data/nav";
 
 export default function Footer() {
   const { t } = useLang();
+  const site = useSiteSettings();
 
   return (
     <footer style={{ backgroundColor: "#141414" }} className="text-white">
@@ -16,7 +17,7 @@ export default function Footer() {
             className="text-xl font-bold text-white mb-3"
             style={{ fontFamily: "var(--font-heading), 'Cormorant Garamond', Georgia, serif" }}
           >
-            {SITE.legalName}
+            {site.legalName}
           </h3>
           <p className="text-sm mb-5 leading-relaxed" style={{ color: "#AFAFAF" }}>
             {t("footer.tagline")}
@@ -28,7 +29,7 @@ export default function Footer() {
             {t("footer.disclaimer")}
           </p>
           <a
-            href={SITE.google.reviewsUrl || SITE.google.mapsUrl}
+            href={site.google.reviewsUrl || site.google.mapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 mt-5 text-xs transition-opacity hover:opacity-80"
@@ -62,22 +63,22 @@ export default function Footer() {
           </h4>
           <ul className="space-y-3 text-sm" style={{ color: "#AFAFAF" }}>
             <li>
-              <span>{SITE.address.street},</span><br />
-              <span>{SITE.address.city}, {SITE.address.state} {SITE.address.zip}</span>
+              <span>{site.address.street},</span><br />
+              <span>{site.address.city}, {site.address.state} {site.address.zip}</span>
             </li>
             <li>
-              <a href={SITE.phoneHref} className="hover:opacity-70 transition-opacity">
-                {SITE.phone}
+              <a href={site.phoneHref} className="hover:opacity-70 transition-opacity">
+                {site.phone}
               </a>
             </li>
             <li>
-              <a href={SITE.emailHref} className="hover:opacity-70 transition-opacity">
-                {SITE.email}
+              <a href={site.emailHref} className="hover:opacity-70 transition-opacity">
+                {site.email}
               </a>
             </li>
             <li>
               <a
-                href={SITE.whatsapp}
+                href={site.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:opacity-70 transition-opacity"

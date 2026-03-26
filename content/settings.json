@@ -1,0 +1,18 @@
+{
+  "phone": "(407) 235-4065",
+  "phoneRaw": "4072354065",
+  "email": "inmigracion360@gmail.com",
+  "address": {
+    "street": "1216 Dyer Blvd",
+    "city": "Kissimmee",
+    "state": "FL",
+    "zip": "34741"
+  },
+  "hours": {
+    "weekdays": "9:00am – 6:00pm",
+    "saturday": "Con cita previa / By appointment",
+    "sunday": "Cerrado / Closed"
+  },
+  "googleReviewsUrl": "https://share.google/S6E2cBbGFseLH14MC",
+  "taxesToGoUrl": "https://taxestogo.com/App/Download/2620"
+}

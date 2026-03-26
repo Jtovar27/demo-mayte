@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect } from "react";
 import { MessageCircle, X, Send, Bot } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
-import { SITE } from "@/config/site";
+import { useSiteSettings } from "@/context/SiteSettingsContext";
 
 interface Message {
   role: "user" | "assistant";
@@ -31,6 +31,7 @@ const SUBTITLE: Record<"es" | "en", string> = {
 
 export default function ChatWidget() {
   const { lang } = useLang();
+  const site = useSiteSettings();
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     { role: "assistant", content: WELCOME[lang] },
@@ -108,8 +109,8 @@ export default function ChatWidget() {
           role: "assistant",
           content:
             lang === "es"
-              ? `Lo siento, ocurrió un error. Por favor llámanos al ${SITE.phone}.`
-              : `Sorry, an error occurred. Please call us at ${SITE.phone}.`,
+              ? `Lo siento, ocurrió un error. Por favor llámanos al ${site.phone}.`
+              : `Sorry, an error occurred. Please call us at ${site.phone}.`,
         };
         return updated;
       });
