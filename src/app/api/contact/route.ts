@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { getMergedSiteData } from "@/lib/admin-store";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export interface ContactPayload {
   name: string;
   phone: string;
@@ -21,6 +19,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
   }
 
+  const resend = new Resend(process.env.RESEND_API_KEY);
   const siteData = await getMergedSiteData();
   const to = process.env.CONTACT_EMAIL ?? siteData.email;
 
