@@ -4,10 +4,11 @@ import Image from "next/image";
 import ServiceCard from "@/components/ServiceCard";
 import CTABanner from "@/components/CTABanner";
 import { useLang } from "@/context/LanguageContext";
-import { SITE } from "@/config/site";
+import { useSiteSettings } from "@/context/SiteSettingsContext";
 
 export default function HomePage() {
   const { t } = useLang();
+  const site = useSiteSettings();
 
   const featuredServices = [
     { title: t("svc.taxes.personal.title"), description: t("svc.taxes.personal.desc") },
@@ -65,7 +66,7 @@ export default function HomePage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={SITE.phoneHref}
+              href={site.phoneHref}
               className="text-white font-semibold px-8 py-4 rounded-lg text-base shadow-lg"
               style={{ backgroundColor: "#B9954F" }}
             >
@@ -281,7 +282,7 @@ export default function HomePage() {
               {t("reviews.cta.sub")}
             </p>
             <a
-              href={SITE.google.reviewsUrl || SITE.google.mapsUrl}
+              href={site.google.reviewsUrl || site.google.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 font-semibold px-8 py-3 rounded-lg border-2 transition-colors hover:text-white"
@@ -306,7 +307,7 @@ export default function HomePage() {
             className="text-lg font-bold text-white"
             style={{ fontFamily: "var(--font-heading), serif" }}
           >
-            {SITE.address.full}
+            {site.address.full}
           </p>
           <p className="text-xs mt-2" style={{ color: "#AFAFAF" }}>{t("location.hours")}</p>
         </div>

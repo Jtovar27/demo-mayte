@@ -2,12 +2,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useLang } from "@/context/LanguageContext";
-import { SITE } from "@/config/site";
+import { useSiteSettings } from "@/context/SiteSettingsContext";
 import { navLinks } from "@/data/nav";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { lang, setLang, t } = useLang();
+  const site = useSiteSettings();
 
   return (
     <header className="sticky top-0 z-50 shadow-lg" style={{ backgroundColor: "#1C1C1C" }}>
@@ -17,13 +18,13 @@ export default function Header() {
           className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-1"
           style={{ color: "#AFAFAF" }}
         >
-          <span>{SITE.address.full}</span>
+          <span>{site.address.full}</span>
           <a
-            href={SITE.phoneHref}
+            href={site.phoneHref}
             className="font-semibold"
             style={{ color: "#B9954F" }}
           >
-            {SITE.phone}
+            {site.phone}
           </a>
         </div>
       </div>
@@ -31,13 +32,13 @@ export default function Header() {
       {/* Main nav */}
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo — for best results replace the current JPEG with a transparent asset (logo.png or logo.svg).
-             To swap: drop the transparent file into public/ and update SITE.logo.path in src/config/site.ts */}
+             To swap: drop the transparent file into public/ and update site.logo.path in src/config/site.ts */}
         <Link href="/" className="flex items-center gap-2">
-          {SITE.logo.path ? (
+          {site.logo.path ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src={SITE.logo.path}
-              alt={SITE.logo.alt}
+              src={site.logo.path}
+              alt={site.logo.alt}
               className="h-10 md:h-14 w-auto object-contain flex-shrink-0"
             />
           ) : (
@@ -89,7 +90,7 @@ export default function Header() {
           </button>
 
           <a
-            href={SITE.phoneHref}
+            href={site.phoneHref}
             className="text-white font-bold px-4 py-2 rounded-lg text-sm"
             style={{ backgroundColor: "#B9954F" }}
           >
@@ -138,7 +139,7 @@ export default function Header() {
               </Link>
             ))}
             <a
-              href={SITE.phoneHref}
+              href={site.phoneHref}
               className="text-white font-bold py-3 rounded-lg text-center mt-3"
               style={{ backgroundColor: "#B9954F" }}
             >

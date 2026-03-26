@@ -2,10 +2,11 @@
 import Image from "next/image";
 import CTABanner from "@/components/CTABanner";
 import { useLang } from "@/context/LanguageContext";
-import { SITE } from "@/config/site";
+import { useSiteSettings } from "@/context/SiteSettingsContext";
 
 export default function FAQPage() {
   const { t } = useLang();
+  const site = useSiteSettings();
 
   const faqs = [
     {
@@ -21,6 +22,7 @@ export default function FAQPage() {
       questions: [
         { qKey: "faq.i.q1", aKey: "faq.i.a1" },
         { qKey: "faq.i.q2", aKey: "faq.i.a2" },
+        { qKey: "faq.i.q3", aKey: "faq.i.a3" },
       ],
     },
     {
@@ -28,6 +30,9 @@ export default function FAQPage() {
       questions: [
         { qKey: "faq.n.q1", aKey: "faq.n.a1" },
         { qKey: "faq.n.q2", aKey: "faq.n.a2" },
+        { qKey: "faq.n.q3", aKey: "faq.n.a3" },
+        { qKey: "faq.n.q4", aKey: "faq.n.a4" },
+        { qKey: "faq.n.q5", aKey: "faq.n.a5" },
       ],
     },
     {
@@ -35,6 +40,17 @@ export default function FAQPage() {
       questions: [
         { qKey: "faq.b.q1", aKey: "faq.b.a1" },
         { qKey: "faq.b.q2", aKey: "faq.b.a2" },
+        { qKey: "faq.b.q3", aKey: "faq.b.a3" },
+        { qKey: "faq.b.q4", aKey: "faq.b.a4" },
+        { qKey: "faq.b.q5", aKey: "faq.b.a5" },
+      ],
+    },
+    {
+      categoryKey: "faq.cat.taxestogo",
+      questions: [
+        { qKey: "faq.ttg.q1", aKey: "faq.ttg.a1" },
+        { qKey: "faq.ttg.q2", aKey: "faq.ttg.a2" },
+        { qKey: "faq.ttg.q3", aKey: "faq.ttg.a3" },
       ],
     },
   ];
@@ -109,14 +125,14 @@ export default function FAQPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href={SITE.phoneHref}
+                href={site.phoneHref}
                 className="text-white font-semibold px-6 py-3 rounded-xl"
                 style={{ backgroundColor: "#B9954F" }}
               >
                 {t("faq.call")}
               </a>
               <a
-                href={SITE.whatsapp}
+                href={site.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-semibold px-6 py-3 rounded-xl border-2 border-white text-white"

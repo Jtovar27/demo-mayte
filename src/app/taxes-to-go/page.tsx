@@ -4,7 +4,7 @@ import Link from "next/link";
 import { CheckCircle, Calendar, FileText, ClipboardList, DollarSign, ExternalLink } from "lucide-react";
 import CTABanner from "@/components/CTABanner";
 import { useLang } from "@/context/LanguageContext";
-import { SITE } from "@/config/site";
+import { useSiteSettings } from "@/context/SiteSettingsContext";
 
 const steps = [
   { key: "ttg.step1", icon: Calendar },
@@ -22,10 +22,51 @@ const bringItems = [
   "ttg.bring.item6",
 ];
 
+const guideSteps: { titleKey: string; descKey: string; itemKeys?: string[] }[] = [
+  { titleKey: "ttg.guide.s1.title", descKey: "ttg.guide.s1.desc" },
+  { titleKey: "ttg.guide.s2.title", descKey: "ttg.guide.s2.desc" },
+  { titleKey: "ttg.guide.s3.title", descKey: "ttg.guide.s3.desc" },
+  { titleKey: "ttg.guide.s4.title", descKey: "ttg.guide.s4.desc" },
+  {
+    titleKey: "ttg.guide.s5.title",
+    descKey: "ttg.guide.s5.desc",
+    itemKeys: ["ttg.guide.s5.i1","ttg.guide.s5.i2","ttg.guide.s5.i3","ttg.guide.s5.i4","ttg.guide.s5.i5","ttg.guide.s5.i6","ttg.guide.s5.i7","ttg.guide.s5.i8","ttg.guide.s5.i9"],
+  },
+  {
+    titleKey: "ttg.guide.s6.title",
+    descKey: "ttg.guide.s6.desc",
+    itemKeys: ["ttg.guide.s6.i1","ttg.guide.s6.i2","ttg.guide.s6.i3","ttg.guide.s6.i4","ttg.guide.s6.i5","ttg.guide.s6.i6"],
+  },
+  {
+    titleKey: "ttg.guide.s7.title",
+    descKey: "ttg.guide.s7.desc",
+    itemKeys: ["ttg.guide.s7.i1","ttg.guide.s7.i2","ttg.guide.s7.i3","ttg.guide.s7.i4","ttg.guide.s7.i5"],
+  },
+  {
+    titleKey: "ttg.guide.s8.title",
+    descKey: "ttg.guide.s8.desc",
+    itemKeys: ["ttg.guide.s8.i1","ttg.guide.s8.i2","ttg.guide.s8.i3","ttg.guide.s8.i4","ttg.guide.s8.i5","ttg.guide.s8.i6"],
+  },
+  {
+    titleKey: "ttg.guide.s9.title",
+    descKey: "ttg.guide.s9.desc",
+    itemKeys: ["ttg.guide.s9.i1","ttg.guide.s9.i2","ttg.guide.s9.i3","ttg.guide.s9.i4","ttg.guide.s9.i5"],
+  },
+  { titleKey: "ttg.guide.s10.title", descKey: "ttg.guide.s10.desc" },
+  { titleKey: "ttg.guide.s11.title", descKey: "ttg.guide.s11.desc" },
+  { titleKey: "ttg.guide.s12.title", descKey: "ttg.guide.s12.desc" },
+  {
+    titleKey: "ttg.guide.s13.title",
+    descKey: "ttg.guide.s13.desc",
+    itemKeys: ["ttg.guide.s13.i1","ttg.guide.s13.i2","ttg.guide.s13.i3","ttg.guide.s13.i4"],
+  },
+];
+
 export default function TaxesToGoPage() {
   const { t } = useLang();
+  const site = useSiteSettings();
 
-  const externalUrl = SITE.taxesToGo.url || SITE.whatsapp;
+  const externalUrl = site.taxesToGo.url || site.whatsapp;
 
   return (
     <>
@@ -201,6 +242,69 @@ export default function TaxesToGoPage() {
         </div>
       </section>
 
+      {/* Step-by-step guide */}
+      <section className="py-16 md:py-24" style={{ backgroundColor: "#F5F5F5" }}>
+        <div className="max-w-4xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <div
+              className="text-xs font-semibold uppercase tracking-widest mb-3"
+              style={{ color: "#B9954F" }}
+            >
+              {t("ttg.guide.label")}
+            </div>
+            <h2
+              className="text-3xl md:text-4xl font-bold mb-3"
+              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+            >
+              {t("ttg.guide.h2")}
+            </h2>
+            <p className="text-base max-w-2xl mx-auto" style={{ color: "#6E6E6E" }}>
+              {t("ttg.guide.sub")}
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {guideSteps.map((step, index) => (
+              <div
+                key={step.titleKey}
+                className="bg-white rounded-xl border p-6"
+                style={{ borderColor: "#E8E8E8" }}
+              >
+                <div className="flex items-start gap-4">
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold text-white flex-shrink-0 mt-0.5"
+                    style={{ backgroundColor: "#B9954F" }}
+                  >
+                    {index + 1}
+                  </div>
+                  <div className="flex-1">
+                    <h3
+                      className="font-bold text-base mb-2"
+                      style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+                    >
+                      {t(step.titleKey)}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "#6E6E6E" }}>
+                      {t(step.descKey)}
+                    </p>
+                    {step.itemKeys && (
+                      <ul className="mt-3 space-y-1.5">
+                        {step.itemKeys.map((key) => (
+                          <li key={key} className="flex items-start gap-2 text-sm" style={{ color: "#444444" }}>
+                            <CheckCircle size={14} className="flex-shrink-0 mt-0.5" style={{ color: "#B9954F" }} />
+                            {t(key)}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA block */}
       <section
         className="py-16 md:py-20"
@@ -238,11 +342,11 @@ export default function TaxesToGoPage() {
           <p className="mt-6 text-sm" style={{ color: "#888888" }}>
             {t("ttg.cta.note")}{" "}
             <a
-              href={SITE.phoneHref}
+              href={site.phoneHref}
               className="underline hover:opacity-80"
               style={{ color: "#B9954F" }}
             >
-              {SITE.phone}
+              {site.phone}
             </a>
           </p>
         </div>

@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { SiteSettingsProvider } from "@/context/SiteSettingsContext";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -31,12 +32,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="es" className={`${dmSans.variable} ${cormorant.variable}`}>
       <body>
-        <LanguageProvider>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-          <ChatWidget />
-        </LanguageProvider>
+        <SiteSettingsProvider>
+          <LanguageProvider>
+            <Header />
+            <main>{children}</main>
+            <Footer />
+            <ChatWidget />
+          </LanguageProvider>
+        </SiteSettingsProvider>
       </body>
     </html>
   );

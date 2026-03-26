@@ -226,6 +226,85 @@ const translations: Record<string, Record<Lang, string>> = {
   "ttg.cta.secondary": { es: "Contáctanos Primero", en: "Contact Us First" },
   "ttg.cta.note": { es: "¿Preguntas antes de empezar? Llámanos al", en: "Questions before starting? Call us at" },
 
+  // TAXES TO GO — Step-by-step guide
+  "ttg.guide.label": { es: "Guía Completa", en: "Complete Guide" },
+  "ttg.guide.h2": { es: "Guía Paso a Paso para Usar TaxesToGo", en: "Step-by-Step Guide to Using TaxesToGo" },
+  "ttg.guide.sub": { es: "Sigue estos 13 pasos para completar tu declaración de impuestos desde tu teléfono de forma correcta.", en: "Follow these 13 steps to correctly complete your tax return from your phone." },
+  // Step 1
+  "ttg.guide.s1.title": { es: "Descarga la aplicación", en: "Download the app" },
+  "ttg.guide.s1.desc": { es: "Descarga la app TaxesToGo en tu teléfono desde App Store (iPhone) o Google Play (Android). Todo el proceso está diseñado para completarse desde el móvil.", en: "Download the TaxesToGo app on your phone from the App Store (iPhone) or Google Play (Android). The entire process is designed to be completed from your mobile device." },
+  // Step 2
+  "ttg.guide.s2.title": { es: "Abre la app y crea tu cuenta", en: "Open the app and create your account" },
+  "ttg.guide.s2.desc": { es: "Al abrir la app por primera vez, crea una cuenta con tu nombre, correo electrónico, número de teléfono y contraseña. Mantén tu información siempre actualizada.", en: "When you open the app for the first time, create an account with your name, email address, phone number, and password. Always keep your information up to date." },
+  // Step 3
+  "ttg.guide.s3.title": { es: "Inicia sesión", en: "Log in" },
+  "ttg.guide.s3.desc": { es: "Entra con tu correo y contraseña. Guarda bien esos datos — cada usuario es responsable de proteger sus credenciales de acceso.", en: "Log in with your email and password. Keep those credentials safe — each user is responsible for protecting their access information." },
+  // Step 4
+  "ttg.guide.s4.title": { es: "Vincula tu información con tu preparador", en: "Link your information with your preparer" },
+  "ttg.guide.s4.desc": { es: "La plataforma usa un Tax ID / Tax Number único para conectar tus documentos con tu preparador de impuestos. En algunos casos, el preparador te enviará instrucciones previas o un enlace directo para comenzar.", en: "The platform uses a unique Tax ID / Tax Number to connect your documents with your tax preparer. In some cases, your preparer will send you prior instructions or a direct link to get started." },
+  // Step 5
+  "ttg.guide.s5.title": { es: "Reúne todos tus documentos antes de subirlos", en: "Gather all your documents before uploading" },
+  "ttg.guide.s5.desc": { es: "Ten todo listo y ordenado antes de empezar a tomar fotos. Esto evita errores y asegura un proceso fluido. Por ejemplo:", en: "Have everything ready and organized before you start taking photos. This prevents errors and ensures a smooth process. For example:" },
+  "ttg.guide.s5.i1": { es: "ID o licencia de conducir", en: "ID or driver's license" },
+  "ttg.guide.s5.i2": { es: "Tarjetas de Seguro Social o cartas de ITIN (si aplica)", en: "Social Security cards or ITIN letters (if applicable)" },
+  "ttg.guide.s5.i3": { es: "W-2", en: "W-2" },
+  "ttg.guide.s5.i4": { es: "1099", en: "1099" },
+  "ttg.guide.s5.i5": { es: "Formas de seguro médico (si aplica)", en: "Health insurance forms (if applicable)" },
+  "ttg.guide.s5.i6": { es: "Información bancaria para depósito directo", en: "Bank account information for direct deposit" },
+  "ttg.guide.s5.i7": { es: "Declaración del año pasado (si tu preparador la solicita)", en: "Last year's tax return (if your preparer requests it)" },
+  "ttg.guide.s5.i8": { es: "Documentos de dependientes", en: "Dependent documents" },
+  "ttg.guide.s5.i9": { es: "Cartas del IRS o documentos especiales", en: "IRS letters or special documents" },
+  // Step 6
+  "ttg.guide.s6.title": { es: "Toma fotos claras de cada documento", en: "Take clear photos of each document" },
+  "ttg.guide.s6.desc": { es: "La función principal de TaxesToGo es cargar fotos de tus documentos desde el móvil. Hazlo así:", en: "The main function of TaxesToGo is to upload photos of your documents from your phone. Follow these tips:" },
+  "ttg.guide.s6.i1": { es: "Coloca el documento sobre una superficie plana", en: "Place the document on a flat surface" },
+  "ttg.guide.s6.i2": { es: "Usa buena iluminación, natural o artificial", en: "Use good lighting, natural or artificial" },
+  "ttg.guide.s6.i3": { es: "Evita sombras sobre el documento", en: "Avoid shadows on the document" },
+  "ttg.guide.s6.i4": { es: "Toma la foto completa sin cortar las esquinas", en: "Take the full photo without cutting the corners" },
+  "ttg.guide.s6.i5": { es: "Asegúrate de que todo el texto se lea claramente", en: "Make sure all text is clearly readable" },
+  "ttg.guide.s6.i6": { es: "Si salió borrosa, repite la foto", en: "If it came out blurry, retake the photo" },
+  // Step 7
+  "ttg.guide.s7.title": { es: "Sube cada documento correctamente", en: "Upload each document correctly" },
+  "ttg.guide.s7.desc": { es: "Carga los documentos en orden y revisa antes de enviar que la imagen correcta quedó adjunta, que no hay duplicados y que no falta ninguna página:", en: "Upload documents in order and verify before sending that the correct image is attached, there are no duplicates, and no pages are missing:" },
+  "ttg.guide.s7.i1": { es: "Primero: identificación", en: "First: identification" },
+  "ttg.guide.s7.i2": { es: "Luego: ingresos (W-2, 1099, etc.)", en: "Then: income documents (W-2, 1099, etc.)" },
+  "ttg.guide.s7.i3": { es: "Después: documentos de dependientes", en: "Next: dependent documents" },
+  "ttg.guide.s7.i4": { es: "Finalmente: documentos adicionales solicitados", en: "Finally: any additional requested documents" },
+  "ttg.guide.s7.i5": { es: "Verifica que ningún documento esté duplicado o incompleto", en: "Verify that no document is duplicated or incomplete" },
+  // Step 8
+  "ttg.guide.s8.title": { es: "Completa la información solicitada en la app", en: "Complete the information requested in the app" },
+  "ttg.guide.s8.desc": { es: "Además de fotos, puede que tengas que escribir información adicional directamente en la app:", en: "In addition to photos, you may need to enter additional information directly in the app:" },
+  "ttg.guide.s8.i1": { es: "Dirección actual", en: "Current address" },
+  "ttg.guide.s8.i2": { es: "Estado civil", en: "Marital status" },
+  "ttg.guide.s8.i3": { es: "Ocupación", en: "Occupation" },
+  "ttg.guide.s8.i4": { es: "Datos de dependientes", en: "Dependent information" },
+  "ttg.guide.s8.i5": { es: "Información de cuenta bancaria", en: "Bank account information" },
+  "ttg.guide.s8.i6": { es: "Preguntas básicas relacionadas con tus impuestos", en: "Basic questions related to your taxes" },
+  // Step 9
+  "ttg.guide.s9.title": { es: "Revisa todo antes de enviar", en: "Review everything before sending" },
+  "ttg.guide.s9.desc": { es: "Antes de tocar 'enviar', verifica cuidadosamente los datos principales. La plataforma indica que la información debe revisarse antes de enviar:", en: "Before tapping 'send', carefully verify the main information. The platform states that all information should be reviewed before submitting:" },
+  "ttg.guide.s9.i1": { es: "Que tu nombre esté correcto", en: "Your name is correct" },
+  "ttg.guide.s9.i2": { es: "Que no falte ningún documento", en: "No document is missing" },
+  "ttg.guide.s9.i3": { es: "Que los números (ingresos, cuenta bancaria) se lean bien", en: "Numbers (income, bank account) are clearly readable" },
+  "ttg.guide.s9.i4": { es: "Que la cuenta bancaria para depósito directo sea correcta", en: "Bank account for direct deposit is correct" },
+  "ttg.guide.s9.i5": { es: "Que los dependientes estén correctamente identificados", en: "Dependents are properly identified" },
+  // Step 10
+  "ttg.guide.s10.title": { es: "Envía la información a tu preparador", en: "Send your information to your preparer" },
+  "ttg.guide.s10.desc": { es: "Cuando todo esté listo, envía los documentos y datos a tu preparador desde la app. TaxesToGo es una forma rápida, conveniente y segura de transmitir información sin ir físicamente a la oficina.", en: "When everything is ready, send your documents and data to your preparer through the app. TaxesToGo is a fast, convenient, and secure way to transmit information without visiting the office in person." },
+  // Step 11
+  "ttg.guide.s11.title": { es: "Espera la revisión y responde si te piden más documentos", en: "Wait for the review and respond if more documents are needed" },
+  "ttg.guide.s11.desc": { es: "El preparador revisará la información enviada. Si falta algo, normalmente te pedirá una foto más clara, documentos adicionales o confirmación de algún dato. Esto es normal — muchas veces el primer envío genera preguntas de seguimiento.", en: "Your preparer will review the submitted information. If something is missing, they will typically ask for a clearer photo, additional documents, or confirmation of a detail. This is normal — the first submission often generates follow-up questions." },
+  // Step 12
+  "ttg.guide.s12.title": { es: "Firma la declaración cuando te la envíen", en: "Sign your return when it is sent to you" },
+  "ttg.guide.s12.desc": { es: "TaxesToGo permite firmar tu declaración de impuestos directamente desde el móvil. Antes de firmar, verifica: tu nombre, dirección, dependientes, cuenta bancaria y el monto de reembolso o balance a pagar. Si tienes dudas, consúltanos antes de firmar.", en: "TaxesToGo allows you to sign your tax return directly from your mobile device. Before signing, verify: your name, address, dependents, bank account, and refund amount or balance due. If you have any questions, ask us before signing." },
+  // Step 13
+  "ttg.guide.s13.title": { es: "Guarda copia de todo", en: "Save a copy of everything" },
+  "ttg.guide.s13.desc": { es: "Importante: TaxesToGo no tiene la obligación de almacenar tu información indefinidamente. Siempre guarda copias de lo que envíes para tus propios registros:", en: "Important: TaxesToGo is not required to store your information indefinitely. Always save copies of what you send for your own records:" },
+  "ttg.guide.s13.i1": { es: "Capturas o PDF de los documentos firmados", en: "Screenshots or PDFs of signed documents" },
+  "ttg.guide.s13.i2": { es: "Copia de los documentos enviados", en: "Copy of the documents submitted" },
+  "ttg.guide.s13.i3": { es: "Copia final de tu declaración de impuestos", en: "Final copy of your tax return" },
+  "ttg.guide.s13.i4": { es: "Confirmaciones o mensajes importantes del proceso", en: "Important confirmations or messages from the process" },
+
   // BLOG PAGE
   "blog.page.label": { es: "Blog y Recursos", en: "Blog & Resources" },
   "blog.page.h1": { es: "Información que te Ayuda", en: "Information That Helps You" },
@@ -273,6 +352,8 @@ const translations: Record<string, Record<Lang, string>> = {
   "contact.form.team": { es: "Asesor Preferido", en: "Preferred Advisor" },
   "contact.form.team.ph": { es: "Sin preferencia", en: "No preference" },
   "contact.form.submit": { es: "Enviar Mensaje", en: "Send Message" },
+  "contact.form.sending": { es: "Enviando...", en: "Sending..." },
+  "contact.form.error": { es: "Hubo un error al enviar. Por favor intenta de nuevo o llámanos directamente.", en: "There was an error sending your message. Please try again or call us directly." },
   "contact.form.privacy": { es: "Tu información está segura. No compartimos tus datos con terceros.", en: "Your information is safe. We do not share your data with third parties." },
   "contact.form.success.title": { es: "¡Mensaje Enviado!", en: "Message Sent!" },
   "contact.form.success.sub": { es: "Gracias por contactarnos. Te responderemos a la brevedad posible.", en: "Thank you for reaching out. We will reply as soon as possible." },
@@ -316,6 +397,35 @@ const translations: Record<string, Record<Lang, string>> = {
   "faq.b.a1": { es: "El costo oficial del estado de Florida es de $125 para registrar una LLC nueva. Nosotros te ayudamos con todo el proceso y la preparación de documentos. Contáctanos para conocer nuestras tarifas de servicio.", en: "The official Florida state cost is $125 to register a new LLC. We help you with the entire process and document preparation. Contact us to learn about our service fees." },
   "faq.b.q2": { es: "Necesito un número de EIN para mi negocio?", en: "Do I need an EIN number for my business?" },
   "faq.b.a2": { es: "Si tienes empleados, operas como LLC o corporación, o abres una cuenta bancaria de negocios, sí necesitas un EIN. Te ayudamos a solicitarlo ante el IRS de forma gratuita.", en: "If you have employees, operate as an LLC or corporation, or open a business bank account, you do need an EIN. We help you apply for it with the IRS for free." },
+
+  // FAQ — Taxes To Go
+  // FAQ — Insurance (expanded)
+  "faq.i.q3": { es: "¿Qué tipos de seguro de vida ofrecen?", en: "What types of life insurance do you offer?" },
+  "faq.i.a3": { es: "Ofrecemos asesoría y planes de seguro de vida para proteger el futuro de tu familia. Te ayudamos a comparar opciones según tu presupuesto, edad y necesidades. La consulta inicial es completamente gratuita. Llámanos o escríbenos por WhatsApp para conocer las opciones disponibles.", en: "We offer life insurance advisory services and plans to protect your family's future. We help you compare options based on your budget, age, and needs. The initial consultation is completely free. Call us or message us on WhatsApp to learn about available options." },
+
+  // FAQ — Notary (expanded)
+  "faq.n.q3": { es: "¿Qué es un Poder Notarial y cuándo lo necesito?", en: "What is a Power of Attorney and when do I need one?" },
+  "faq.n.a3": { es: "Un Poder Notarial es un documento legal que autoriza a otra persona a actuar en tu nombre para trámites específicos — como firmar contratos, manejar cuentas bancarias o representarte ante instituciones. Lo necesitas cuando no puedes estar presente en persona para un trámite importante. Ofrecemos Poderes Notariales generales y específicos. Contáctanos para más información.", en: "A Power of Attorney is a legal document that authorizes another person to act on your behalf for specific matters — such as signing contracts, managing bank accounts, or representing you before institutions. You need one when you cannot be present in person for an important transaction. We offer general and specific Powers of Attorney. Contact us for more information." },
+  "faq.n.q4": { es: "¿Qué es la Fe de Vida y para qué trámites se usa?", en: "What is a Certificate of Life and what is it used for?" },
+  "faq.n.a4": { es: "La Fe de Vida es un documento que certifica que una persona está viva. Se necesita principalmente para trámites en el extranjero, como cobrar pensiones, herencias o beneficios en otro país. Si tienes familiares fuera de EE.UU. o necesitas gestionar trámites internacionales, podemos ayudarte a obtener este documento. Contáctanos para conocer el proceso.", en: "A Certificate of Life is a document that certifies that a person is alive. It is mainly needed for international procedures, such as collecting pensions, inheritances, or benefits in another country. If you have family members outside the US or need to manage international procedures, we can help you obtain this document. Contact us to learn about the process." },
+  "faq.n.q5": { es: "¿Qué documentos preparan para trámites migratorios?", en: "What documents do you prepare for immigration procedures?" },
+  "faq.n.a5": { es: "Preparamos documentos administrativos de apoyo para trámites migratorios, como cartas de presentación, declaraciones y formularios de carácter administrativo. Importante: no somos abogados ni representantes acreditados de inmigración. No tramitamos visas, green cards ni peticiones ante USCIS. Para asuntos legales migratorios, te recomendamos consultar con un abogado de inmigración autorizado.", en: "We prepare administrative support documents for immigration procedures, such as cover letters, declarations, and administrative forms. Important: we are not attorneys or accredited immigration representatives. We do not process visas, green cards, or USCIS petitions. For legal immigration matters, we recommend consulting a licensed immigration attorney." },
+
+  // FAQ — Business (expanded)
+  "faq.b.q3": { es: "¿Cómo funciona el servicio de reparación de crédito?", en: "How does the credit repair service work?" },
+  "faq.b.a3": { es: "La reparación de crédito es un proceso administrativo en el que disputamos errores o items negativos en tu reporte de crédito ante las agencias (Equifax, Experian, TransUnion). Revisamos tu reporte, identificamos lo que se puede disputar, enviamos las cartas correspondientes y hacemos seguimiento. El proceso toma tiempo — generalmente varios meses — y los resultados varían según cada caso. Contáctanos para una evaluación gratuita.", en: "Credit repair is an administrative process in which we dispute errors or negative items on your credit report with the credit bureaus (Equifax, Experian, TransUnion). We review your report, identify what can be disputed, send the appropriate letters, and follow up. The process takes time — generally several months — and results vary by case. Contact us for a free evaluation." },
+  "faq.b.q4": { es: "¿Qué necesito para establecer crédito empresarial?", en: "What do I need to establish business credit?" },
+  "faq.b.a4": { es: "Para comenzar a construir crédito empresarial necesitas tener tu negocio formalmente registrado (LLC o corporación), un EIN del IRS, una cuenta bancaria de negocios y una dirección comercial. Nosotros te guiamos en cada paso: desde la formación de la empresa hasta la creación de un perfil crediticio que te permita acceder a financiamiento. Llámanos para una consulta sin costo.", en: "To start building business credit you need to have your business formally registered (LLC or corporation), an EIN from the IRS, a business bank account, and a commercial address. We guide you every step of the way: from business formation to creating a credit profile that gives you access to financing. Call us for a free consultation." },
+  "faq.b.q5": { es: "¿Qué tipos de préstamos ofrecen?", en: "What types of loans do you offer?" },
+  "faq.b.a5": { es: "Ofrecemos asesoría y gestión de préstamos de corto y largo plazo para personas y negocios. El tipo de préstamo disponible depende de tu historial crediticio, ingresos y necesidades específicas. Te ayudamos a evaluar opciones y a preparar la documentación necesaria. La consulta inicial es completamente gratuita. Contáctanos para conocer qué opciones aplican a tu situación.", en: "We offer advisory services and management for short and long-term loans for individuals and businesses. The type of loan available depends on your credit history, income, and specific needs. We help you evaluate options and prepare the necessary documentation. The initial consultation is completely free. Contact us to find out which options apply to your situation." },
+
+  "faq.cat.taxestogo": { es: "Taxes To Go", en: "Taxes To Go" },
+  "faq.ttg.q1": { es: "¿Cómo funciona Taxes To Go paso a paso?", en: "How does Taxes To Go work step by step?" },
+  "faq.ttg.a1": { es: "Taxes To Go es una app móvil que te permite enviar tus documentos de impuestos a tu preparador desde el teléfono en 13 pasos: descargar la app, crear cuenta, iniciar sesión, vincular con el preparador, reunir documentos, tomar fotos, subirlos en orden, completar información adicional, revisar, enviar, esperar revisión, firmar la declaración y guardar copia. Visita nuestra página de Taxes To Go para ver la guía completa con todos los detalles.", en: "Taxes To Go is a mobile app that lets you send your tax documents to your preparer from your phone in 13 steps: download the app, create an account, log in, link with your preparer, gather documents, take photos, upload them in order, complete additional info, review, send, wait for review, sign your return, and save a copy. Visit our Taxes To Go page for the complete guide with all the details." },
+  "faq.ttg.q2": { es: "¿Qué documentos necesito para usar la app de Taxes To Go?", en: "What documents do I need to use the Taxes To Go app?" },
+  "faq.ttg.a2": { es: "Necesitas: ID o licencia de conducir, tarjetas de Seguro Social o carta de ITIN (si aplica), W-2 o 1099, formas de seguro médico (si aplica), información bancaria para depósito directo, declaración del año pasado (si el preparador la solicita), documentos de dependientes y cartas del IRS si las tienes. Visita nuestra página de Taxes To Go para ver la lista y la guía completa.", en: "You need: ID or driver's license, Social Security cards or ITIN letter (if applicable), W-2 or 1099, health insurance forms (if applicable), bank account information for direct deposit, last year's return (if your preparer requests it), dependent documents, and any IRS letters you have. Visit our Taxes To Go page to see the full list and guide." },
+  "faq.ttg.q3": { es: "¿Puedo firmar mi declaración de impuestos desde el móvil?", en: "Can I sign my tax return from my mobile phone?" },
+  "faq.ttg.a3": { es: "Sí. TaxesToGo permite firmar y enviar tu declaración completamente desde el teléfono. Cuando tu preparador termine de procesar todo, recibirás los documentos para revisión y firma dentro de la app. Antes de firmar, verifica tu nombre, dirección, dependientes, cuenta bancaria y el monto a recibir o pagar.", en: "Yes. TaxesToGo allows you to sign and submit your tax return entirely from your phone. When your preparer finishes processing everything, you will receive the documents for review and signature within the app. Before signing, verify your name, address, dependents, bank account, and the amount to receive or pay." },
 };
 
 const LanguageContext = createContext<LanguageContextType>({
