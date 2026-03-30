@@ -86,6 +86,15 @@ export default function Footer() {
                 WhatsApp
               </a>
             </li>
+            <li>
+              <a
+                href="/admin/login"
+                className="hover:opacity-70 transition-opacity"
+                style={{ color: "#555555" }}
+              >
+                Admin
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -96,17 +105,7 @@ export default function Footer() {
           style={{ color: "#555555" }}
         >
           <span>{t("footer.rights")}</span>
-          <span>
-            {t("footer.bilingual")}
-            {" · "}
-            <a
-              href="/admin/login"
-              className="transition-opacity hover:opacity-80"
-              style={{ color: "#444444" }}
-            >
-              Admin
-            </a>
-          </span>
+          <span>{t("footer.bilingual")}</span>
         </div>
       </div>
     </footer>
