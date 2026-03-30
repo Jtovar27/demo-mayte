@@ -44,7 +44,7 @@ export function SiteSettingsProvider({ children }: { children: ReactNode }) {
   const [site, setSite] = useState<DynamicSiteData>(DEFAULT);
 
   useEffect(() => {
-    fetch("/api/site-settings")
+    fetch("/api/site-settings", { cache: "no-store" })
       .then((r) => r.json())
       .then((data: unknown) => {
         if (data && typeof data === "object" && "phone" in data) {
