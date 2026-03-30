@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 import { getMergedSiteData } from "@/lib/admin-store";
+import { isRateLimited, getClientIp } from "@/lib/rate-limit";
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
@@ -75,12 +76,26 @@ If asked about: green cards, naturalization, citizenship, asylum, refugee status
 }
 
 export async function POST(req: NextRequest) {
-  const { messages } = await req.json();
-  const siteData = await getMergedSiteData();
+  // Rate limit: max 20 messages per IP per minute
+  if (isRateLimited(getClientIp(req), { limit: 20, windowMs: 60 * 1000 })) {
+    return new Response("Too many requests. Please try again later.", { status: 429 });
+  }
+
+  let messages: { role: string; content: string }[];
+  let siteData: Awaited<ReturnType<typeof getMergedSiteData>>;
+
+  try {
+    const body = await req.json() as { messages?: unknown };
+    messages = Array.isArray(body.messages) ? (body.messages as { role: string; content: string }[]) : [];
+    siteData = await getMergedSiteData();
+  } catch {
+    return new Response("Bad request", { status: 400 });
+  }
+
   const SYSTEM_PROMPT = buildSystemPrompt(siteData);
 
   // Keep only real user/assistant turns (skip empty welcome message) and last 6 to limit tokens
-  const filtered = (messages as { role: string; content: string }[])
+  const filtered = messages
     .filter((m) => (m.role === "user" || m.role === "assistant") && m.content.trim().length > 0)
     .slice(-6);
 

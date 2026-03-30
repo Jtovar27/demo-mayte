@@ -1,22 +1,25 @@
 import { SignJWT, jwtVerify } from "jose";
 import { scryptSync, randomBytes, timingSafeEqual } from "crypto";
-import { promises as fs } from "fs";
-import path from "path";
-
-const AUTH_FILE = path.join(process.cwd(), "content", "auth.json");
+import { supabase } from "@/lib/supabase";
 
 async function getPasswordHash(): Promise<string> {
   try {
-    const raw = await fs.readFile(AUTH_FILE, "utf-8");
-    const data = JSON.parse(raw) as { passwordHash?: string };
-    return data.passwordHash ?? "";
+    const { data } = await supabase
+      .from("auth")
+      .select("password_hash")
+      .eq("id", 1)
+      .single();
+    return data?.password_hash ?? "";
   } catch {
     return "";
   }
 }
 
 export async function savePasswordHash(hash: string): Promise<void> {
-  await fs.writeFile(AUTH_FILE, JSON.stringify({ passwordHash: hash }, null, 2), "utf-8");
+  const { error } = await supabase
+    .from("auth")
+    .upsert({ id: 1, password_hash: hash });
+  if (error) throw error;
 }
 
 export function hashPassword(password: string): string {
@@ -39,7 +42,6 @@ export function verifyPasswordHash(password: string, stored: string): boolean {
 export async function checkPassword(password: string): Promise<boolean> {
   const stored = await getPasswordHash();
   if (stored) return verifyPasswordHash(password, stored);
-  // Fall back to env var (plaintext) when no hash is set
   return password === process.env.ADMIN_PASSWORD;
 }
 

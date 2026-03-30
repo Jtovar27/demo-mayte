@@ -1,9 +1,7 @@
-import { promises as fs } from "fs";
-import path from "path";
+import { supabase } from "@/lib/supabase";
 import { SITE } from "@/config/site";
 
-// Resolve content dir relative to project root (process.cwd())
-const CONTENT_DIR = path.join(process.cwd(), "content");
+// ─── Types ────────────────────────────────────────────────────────────────────
 
 export interface BlogPost {
   id: string;
@@ -35,45 +33,6 @@ export interface SiteSettings {
   taxesToGoUrl: string;
 }
 
-async function readJSON<T>(filename: string): Promise<T> {
-  const filePath = path.join(CONTENT_DIR, filename);
-  const raw = await fs.readFile(filePath, "utf-8");
-  return JSON.parse(raw) as T;
-}
-
-async function writeJSON<T>(filename: string, data: T): Promise<void> {
-  const filePath = path.join(CONTENT_DIR, filename);
-  await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf-8");
-}
-
-// Blog
-export async function getBlogPosts(): Promise<BlogPost[]> {
-  return readJSON<BlogPost[]>("blog.json");
-}
-
-export async function saveBlogPosts(posts: BlogPost[]): Promise<void> {
-  return writeJSON("blog.json", posts);
-}
-
-// Team
-export async function getTeamMembers(): Promise<AdminTeamMember[]> {
-  return readJSON<AdminTeamMember[]>("team-admin.json");
-}
-
-export async function saveTeamMembers(members: AdminTeamMember[]): Promise<void> {
-  return writeJSON("team-admin.json", members);
-}
-
-// Settings
-export async function getSettings(): Promise<SiteSettings> {
-  return readJSON<SiteSettings>("settings.json");
-}
-
-export async function saveSettings(settings: SiteSettings): Promise<void> {
-  return writeJSON("settings.json", settings);
-}
-
-// Merged site data — settings.json overrides site.ts defaults
 export interface DynamicSiteData {
   name: string;
   legalName: string;
@@ -91,6 +50,126 @@ export interface DynamicSiteData {
   logo: { path: string; alt: string };
   disclaimer: { es: string; en: string };
 }
+
+// ─── Blog ─────────────────────────────────────────────────────────────────────
+
+export async function getBlogPosts(): Promise<BlogPost[]> {
+  const { data, error } = await supabase
+    .from("blog_posts")
+    .select("*")
+    .order("date", { ascending: false });
+  if (error) throw error;
+  return (data ?? []) as BlogPost[];
+}
+
+export async function getBlogPostById(id: string): Promise<BlogPost | null> {
+  const { data, error } = await supabase
+    .from("blog_posts")
+    .select("*")
+    .eq("id", id)
+    .single();
+  if (error) return null;
+  return data as BlogPost;
+}
+
+export async function createBlogPost(post: Omit<BlogPost, "id">): Promise<BlogPost> {
+  const { data, error } = await supabase
+    .from("blog_posts")
+    .insert(post)
+    .select()
+    .single();
+  if (error) throw error;
+  return data as BlogPost;
+}
+
+export async function updateBlogPost(id: string, updates: Partial<BlogPost>): Promise<BlogPost> {
+  const { data, error } = await supabase
+    .from("blog_posts")
+    .update(updates)
+    .eq("id", id)
+    .select()
+    .single();
+  if (error) throw error;
+  return data as BlogPost;
+}
+
+export async function deleteBlogPost(id: string): Promise<void> {
+  const { error } = await supabase.from("blog_posts").delete().eq("id", id);
+  if (error) throw error;
+}
+
+// ─── Team ─────────────────────────────────────────────────────────────────────
+
+export async function getTeamMembers(): Promise<AdminTeamMember[]> {
+  const { data, error } = await supabase
+    .from("team_members")
+    .select("*")
+    .order("created_at", { ascending: true });
+  if (error) throw error;
+  return (data ?? []) as AdminTeamMember[];
+}
+
+export async function createTeamMember(member: Omit<AdminTeamMember, "id">): Promise<AdminTeamMember> {
+  const { data, error } = await supabase
+    .from("team_members")
+    .insert(member)
+    .select()
+    .single();
+  if (error) throw error;
+  return data as AdminTeamMember;
+}
+
+export async function updateTeamMember(id: string, updates: Partial<AdminTeamMember>): Promise<AdminTeamMember> {
+  const { data, error } = await supabase
+    .from("team_members")
+    .update(updates)
+    .eq("id", id)
+    .select()
+    .single();
+  if (error) throw error;
+  return data as AdminTeamMember;
+}
+
+export async function deleteTeamMember(id: string): Promise<void> {
+  const { error } = await supabase.from("team_members").delete().eq("id", id);
+  if (error) throw error;
+}
+
+// ─── Settings ─────────────────────────────────────────────────────────────────
+
+export async function getSettings(): Promise<SiteSettings> {
+  const { data, error } = await supabase
+    .from("site_settings")
+    .select("*")
+    .eq("id", 1)
+    .single();
+  if (error) throw error;
+  return {
+    phone: data.phone,
+    phoneRaw: data.phone_raw,
+    email: data.email,
+    address: data.address,
+    hours: data.hours,
+    googleReviewsUrl: data.google_reviews_url,
+    taxesToGoUrl: data.taxes_to_go_url,
+  };
+}
+
+export async function saveSettings(settings: SiteSettings): Promise<void> {
+  const { error } = await supabase.from("site_settings").upsert({
+    id: 1,
+    phone: settings.phone,
+    phone_raw: settings.phoneRaw,
+    email: settings.email,
+    address: settings.address,
+    hours: settings.hours,
+    google_reviews_url: settings.googleReviewsUrl,
+    taxes_to_go_url: settings.taxesToGoUrl,
+  });
+  if (error) throw error;
+}
+
+// ─── Merged site data ─────────────────────────────────────────────────────────
 
 export async function getMergedSiteData(): Promise<DynamicSiteData> {
   const s = await getSettings();

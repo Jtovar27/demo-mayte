@@ -22,6 +22,7 @@ export default function EditBlogPostPage() {
   const id = params.id as string;
 
   const [form, setForm] = useState<BlogPost | null>(null);
+  const [slugEdited, setSlugEdited] = useState(false);
   const [loadingData, setLoadingData] = useState(true);
   const [saving, setSaving] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -69,7 +70,11 @@ export default function EditBlogPostPage() {
       });
     }
 
-    if (name === "title.es") {
+    if (name === "slug") {
+      setSlugEdited(true);
+    }
+
+    if (name === "title.es" && !slugEdited) {
       setForm((prev) => {
         if (!prev) return prev;
         return {
