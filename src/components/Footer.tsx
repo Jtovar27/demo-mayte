@@ -97,6 +97,13 @@ export default function Footer() {
         >
           <span>{t("footer.rights")}</span>
           <span>{t("footer.bilingual")}</span>
+          <a
+            href="/admin/login"
+            className="transition-opacity hover:opacity-80"
+            style={{ color: "#444444" }}
+          >
+            Admin
+          </a>
         </div>
       </div>
     </footer>

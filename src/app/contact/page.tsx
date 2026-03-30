@@ -289,7 +289,7 @@ export default function ContactPage() {
                 >
                   <option value="">{t("contact.form.team.ph")}</option>
                   {dynamicTeam.map((member) => (
-                    <option key={member.id} value={member.id}>
+                    <option key={member.id} value={member.name}>
                       {member.name} — {member.role[lang]}
                     </option>
                   ))}
