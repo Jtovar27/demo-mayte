@@ -86,26 +86,24 @@ export default function Footer() {
                 WhatsApp
               </a>
             </li>
-            <li>
-              <a
-                href="/admin/login"
-                className="hover:opacity-70 transition-opacity"
-                style={{ color: "#555555" }}
-              >
-                Admin
-              </a>
-            </li>
           </ul>
         </div>
       </div>
 
       <div className="border-t" style={{ borderColor: "#222222" }}>
         <div
-          className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs"
+          className="max-w-7xl mx-auto px-4 py-4 text-xs text-center"
           style={{ color: "#555555" }}
         >
-          <span>{t("footer.rights")}</span>
-          <span>{t("footer.bilingual")}</span>
+          {t("footer.bilingual")}
+          {" · "}
+          <a
+            href="/admin/login"
+            className="transition-opacity hover:opacity-80"
+            style={{ color: "#444444" }}
+          >
+            Admin
+          </a>
         </div>
       </div>
     </footer>
