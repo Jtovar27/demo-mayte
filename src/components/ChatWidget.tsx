@@ -134,7 +134,7 @@ export default function ChatWidget() {
           {/* Header */}
           <div
             className="flex items-center gap-3 px-4 py-3 flex-shrink-0"
-            style={{ backgroundColor: "#1C1C1C" }}
+            style={{ backgroundColor: "#0D2B4E" }}
           >
             <div
               className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
@@ -170,8 +170,8 @@ export default function ChatWidget() {
                   className="max-w-[80%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed"
                   style={
                     msg.role === "user"
-                      ? { backgroundColor: "#1C1C1C", color: "#FFFFFF", borderBottomRightRadius: 4 }
-                      : { backgroundColor: "#FFFFFF", color: "#1C1C1C", borderBottomLeftRadius: 4, border: "1px solid #E4E4E4" }
+                      ? { backgroundColor: "#0D2B4E", color: "#FFFFFF", borderBottomRightRadius: 4 }
+                      : { backgroundColor: "#FFFFFF", color: "#0D2B4E", borderBottomLeftRadius: 4, border: "1px solid #E4E4E4" }
                   }
                 >
                   {msg.content || (
@@ -201,7 +201,7 @@ export default function ChatWidget() {
               placeholder={PLACEHOLDER[lang]}
               disabled={loading}
               className="flex-1 text-sm px-3 py-2 rounded-xl outline-none disabled:opacity-50"
-              style={{ backgroundColor: "#F5F5F5", border: "1px solid #E4E4E4", color: "#1C1C1C" }}
+              style={{ backgroundColor: "#F5F5F5", border: "1px solid #E4E4E4", color: "#0D2B4E" }}
             />
             <button
               onClick={sendMessage}

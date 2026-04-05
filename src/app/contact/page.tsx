@@ -129,7 +129,7 @@ export default function ContactPage() {
         <div className="max-w-5xl mx-auto px-4">
           <h2
             className="text-2xl font-bold text-center mb-12"
-            style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+            style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
           >
             {t("contact.how")}
           </h2>
@@ -143,7 +143,7 @@ export default function ContactPage() {
                 <div className="w-6 h-0.5 mb-5" style={{ backgroundColor: "#B9954F" }} />
                 <h3
                   className="text-base font-bold mb-1"
-                  style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+                  style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
                 >
                   {t(method.titleKey)}
                 </h3>
@@ -171,7 +171,7 @@ export default function ContactPage() {
           <div className="text-center mb-10">
             <h2
               className="text-2xl font-bold mb-2"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+              style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
             >
               {t("contact.form.title")}
             </h2>
@@ -188,7 +188,7 @@ export default function ContactPage() {
               <div>
                 <h3
                   className="text-xl font-bold mb-2"
-                  style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+                  style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
                 >
                   {t("contact.form.success.title")}
                 </h3>
@@ -318,7 +318,7 @@ export default function ContactPage() {
                 type="submit"
                 disabled={loading}
                 className="w-full text-white font-bold py-4 rounded-xl text-base disabled:opacity-60"
-                style={{ backgroundColor: "#1C1C1C" }}
+                style={{ backgroundColor: "#0D2B4E" }}
               >
                 {loading ? t("contact.form.sending") : t("contact.form.submit")}
               </button>
@@ -336,18 +336,18 @@ export default function ContactPage() {
           <div>
             <h3
               className="text-lg font-bold mb-4"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+              style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
             >
               {t("contact.hours.title")}
             </h3>
             <ul className="space-y-3 text-sm" style={{ color: "#6E6E6E" }}>
               <li className="flex justify-between border-b pb-2" style={{ borderColor: "#EBEBEB" }}>
                 <span>{t("contact.hours.mf")}</span>
-                <span className="font-semibold" style={{ color: "#1C1C1C" }}>9:00am – 6:00pm</span>
+                <span className="font-semibold" style={{ color: "#0D2B4E" }}>9:00am – 6:00pm</span>
               </li>
               <li className="flex justify-between border-b pb-2" style={{ borderColor: "#EBEBEB" }}>
                 <span>{t("contact.hours.sat")}</span>
-                <span className="font-semibold" style={{ color: "#1C1C1C" }}>{t("contact.hours.sat.val")}</span>
+                <span className="font-semibold" style={{ color: "#0D2B4E" }}>{t("contact.hours.sat.val")}</span>
               </li>
               <li className="flex justify-between">
                 <span>{t("contact.hours.sun")}</span>

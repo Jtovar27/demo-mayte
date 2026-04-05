@@ -88,7 +88,7 @@ export default function BlogPage() {
                   onClick={() => setActiveCategory(cat)}
                   className="text-xs font-semibold px-4 py-2 rounded-full transition-colors"
                   style={activeCategory === cat
-                    ? { backgroundColor: "#1C1C1C", color: "#FFFFFF" }
+                    ? { backgroundColor: "#0D2B4E", color: "#FFFFFF" }
                     : { backgroundColor: "#FFFFFF", color: "#6E6E6E", border: "1px solid #D0D0D0" }}
                 >
                   {cat === "all" ? (lang === "es" ? "Todos" : "All") : t(CATEGORY_KEY_MAP[cat] ?? cat)}
@@ -126,7 +126,7 @@ export default function BlogPage() {
               <div className="w-10 h-0.5 mx-auto mb-6" style={{ backgroundColor: "#B9954F" }} />
               <h3
                 className="text-xl font-bold mb-2"
-                style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+                style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
               >
                 {t("blog.more.title")}
               </h3>
@@ -156,7 +156,7 @@ export default function BlogPage() {
                       </div>
                       <h2
                         className="text-lg font-bold mb-3 leading-tight"
-                        style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+                        style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
                       >
                         {post.title[lang as Lang]}
                       </h2>
@@ -182,7 +182,7 @@ export default function BlogPage() {
                 <div className="w-10 h-0.5 mx-auto mb-6" style={{ backgroundColor: "#B9954F" }} />
                 <h3
                   className="text-xl font-bold mb-2"
-                  style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+                  style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
                 >
                   {t("blog.more.title")}
                 </h3>

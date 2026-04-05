@@ -9,7 +9,7 @@ export default function Footer() {
   const site = useSiteSettings();
 
   return (
-    <footer style={{ backgroundColor: "#141414" }} className="text-white">
+    <footer style={{ backgroundColor: "#0D2B4E" }} className="text-white">
       <div className="max-w-7xl mx-auto px-4 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Brand */}
         <div className="lg:col-span-2">
@@ -90,7 +90,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t" style={{ borderColor: "#222222" }}>
+      <div className="border-t" style={{ borderColor: "#071929", backgroundColor: "#071929" }}>
         <div
           className="max-w-7xl mx-auto px-4 py-4 text-xs text-center"
           style={{ color: "#555555" }}
