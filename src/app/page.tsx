@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ServiceCard from "@/components/ServiceCard";
 import CTABanner from "@/components/CTABanner";
+import ReviewCarousel from "@/components/ReviewCarousel";
 import { useLang } from "@/context/LanguageContext";
 import { useSiteSettings } from "@/context/SiteSettingsContext";
 
@@ -249,31 +250,9 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Testimonial cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 md:mb-12">
-            {[
-              { text: "reviews.r1.text", name: "reviews.r1.name", service: "reviews.r1.service" },
-              { text: "reviews.r2.text", name: "reviews.r2.name", service: "reviews.r2.service" },
-              { text: "reviews.r3.text", name: "reviews.r3.name", service: "reviews.r3.service" },
-            ].map((r) => (
-              <div
-                key={r.name}
-                className="rounded-xl border p-6 flex flex-col gap-4"
-                style={{ borderColor: "#E4E4E4", backgroundColor: "#FAFAFA" }}
-              >
-                <div className="flex items-center gap-1 text-sm" style={{ color: "#B9954F" }}>
-                  {"★★★★★"}
-                </div>
-                <p className="text-sm leading-relaxed flex-1" style={{ color: "#0D2B4E" }}>
-                  &ldquo;{t(r.text)}&rdquo;
-                </p>
-                <div className="border-t pt-4" style={{ borderColor: "#EBEBEB" }}>
-                  <p className="text-sm font-semibold" style={{ color: "#0D2B4E" }}>{t(r.name)}</p>
-                  <p className="text-xs mt-0.5" style={{ color: "#B9954F" }}>{t(r.service)}</p>
-                  <p className="text-xs mt-1" style={{ color: "#AFAFAF" }}>{t("reviews.verified")}</p>
-                </div>
-              </div>
-            ))}
+          {/* Testimonial carousel */}
+          <div className="mb-8 md:mb-12">
+            <ReviewCarousel />
           </div>
 
           {/* Leave a review CTA */}
