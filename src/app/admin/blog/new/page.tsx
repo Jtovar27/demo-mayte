@@ -98,7 +98,7 @@ export default function NewBlogPostPage() {
   }
 
   return (
-    <div className="p-8 max-w-3xl">
+    <div className="p-4 md:p-8 max-w-3xl">
       <div className="flex items-center gap-3 mb-8">
         <Link href="/admin/blog" className="text-sm" style={{ color: "#B9954F" }}>
           ← Blog

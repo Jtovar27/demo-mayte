@@ -53,8 +53,7 @@ export default function AdminLoginPage() {
           </div>
           <h1
             className="text-xl font-bold leading-tight"
-            style={{ color: "#0D2B4E" }}
-            style={{ fontFamily: "var(--font-heading), serif" }}
+            style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
           >
             Taxes & Insurance Group LLC
           </h1>
