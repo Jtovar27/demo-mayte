@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
   const eMessage = message ? escapeHtml(message) : "";
 
   const { error } = await resend.emails.send({
-    from: "Formulario Web <onboarding@resend.dev>",
+    from: "Taxes & Insurance Group LLC <onboarding@resend.dev>",
     to,
     replyTo: email || undefined,
     subject: `Nuevo contacto: ${eName} — ${eService}`,

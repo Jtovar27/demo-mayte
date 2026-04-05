@@ -3,8 +3,6 @@
  *
  * Update this file when business contact details change.
  * All components and API routes import from here — do NOT hardcode these values elsewhere.
- *
- * TODO: Replace email with the correct business email before going live.
  */
 
 export const SITE = {
@@ -19,9 +17,8 @@ export const SITE = {
   phoneHref: "tel:4072354065",
 
   // Contact
-  // TODO: replace with correct business email before going live
-  email: "inmigracion360@gmail.com",
-  emailHref: "mailto:inmigracion360@gmail.com",
+  email: "tigllc4@gmail.com",
+  emailHref: "mailto:tigllc4@gmail.com",
 
   // WhatsApp
   whatsapp: "https://wa.me/14072354065",
