@@ -31,31 +31,13 @@ export default function Header() {
 
       {/* Main nav */}
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          {site.logo.path && (
-            <span
-              className="block flex-shrink-0 h-10 w-10 md:h-14 md:w-14 rounded-full overflow-hidden"
-              style={{ border: "2px solid #B9954F" }}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={site.logo.path}
-                alt={site.logo.alt}
-                className="h-full w-full object-cover"
-              />
-            </span>
-          )}
-          <div className="flex flex-col">
-            <span
-              className="text-base md:text-lg font-bold leading-tight text-white"
-              style={{ fontFamily: "var(--font-heading), 'Cormorant Garamond', Georgia, serif" }}
-            >
-              Taxes &amp; Insurance Group LLC
-            </span>
-            <span className="text-xs leading-tight" style={{ color: "#AFAFAF" }}>
-              {t("header.tagline")}
-            </span>
-          </div>
+        <Link href="/">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={site.logo.path || "/logo-transparent.png"}
+            alt={site.logo.alt}
+            className="h-12 md:h-16 w-auto object-contain flex-shrink-0"
+          />
         </Link>
 
         {/* Desktop nav */}
