@@ -24,7 +24,10 @@ export default function Header() {
             className="font-semibold text-xs w-full sm:w-auto text-center sm:text-left"
             style={{ color: "#B9954F" }}
           >
-            {site.phone}
+            <span className="sm:hidden">
+              {lang === "es" ? "Llámanos al " : "Call us at "} +1{site.phone}
+            </span>
+            <span className="hidden sm:inline">+1{site.phone}</span>
           </a>
         </div>
       </div>
