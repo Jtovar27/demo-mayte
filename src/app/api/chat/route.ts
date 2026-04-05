@@ -106,6 +106,11 @@ export async function POST(req: NextRequest) {
   }
   const apiMessages = filtered.slice(firstUserIdx) as Anthropic.MessageParam[];
 
+  if (!process.env.ANTHROPIC_API_KEY) {
+    console.error("[/api/chat] ANTHROPIC_API_KEY is not set");
+    return new Response("Service unavailable", { status: 503 });
+  }
+
   try {
     const stream = client.messages.stream({
       model: "claude-3-5-haiku-20241022",
@@ -113,6 +118,10 @@ export async function POST(req: NextRequest) {
       system: SYSTEM_PROMPT,
       messages: apiMessages,
     });
+
+    // Wait for the initial connection to verify the API call succeeds
+    // before returning a 200 response, so we can return a proper error status
+    let firstChunkReceived = false;
 
     const readableStream = new ReadableStream({
       async start(controller) {
@@ -123,11 +132,15 @@ export async function POST(req: NextRequest) {
               event.type === "content_block_delta" &&
               event.delta.type === "text_delta"
             ) {
+              firstChunkReceived = true;
               controller.enqueue(encoder.encode(event.delta.text));
             }
           }
         } catch (streamErr) {
           console.error("[/api/chat] Stream error:", streamErr);
+          if (!firstChunkReceived) {
+            controller.enqueue(encoder.encode("\x00ERROR"));
+          }
         } finally {
           controller.close();
         }

@@ -84,24 +84,29 @@ export default function ChatWidget() {
         }),
       });
 
-      if (!res.body) throw new Error("No response body");
+      if (!res.ok || !res.body) throw new Error("API error");
 
       const reader = res.body.getReader();
       const decoder = new TextDecoder();
+      let receivedText = "";
 
       while (true) {
         const { done, value } = await reader.read();
         if (done) break;
         const chunk = decoder.decode(value, { stream: true });
+        receivedText += chunk;
         setMessages((prev) => {
           const updated = [...prev];
           updated[updated.length - 1] = {
             role: "assistant",
-            content: updated[updated.length - 1].content + chunk,
+            content: receivedText,
           };
           return updated;
         });
       }
+
+      // If stream closed but no text was received, show error
+      if (!receivedText) throw new Error("Empty response");
     } catch {
       setMessages((prev) => {
         const updated = [...prev];
