@@ -74,7 +74,7 @@ export default function AdminSettingsPage() {
   const inputCls = "w-full border rounded-lg px-3 py-2.5 text-sm bg-white focus:outline-none";
   const inputStyle = { borderColor: "#D0D0D0" };
   const labelCls = "block text-xs font-semibold mb-1.5 uppercase tracking-wider";
-  const labelStyle = { color: "#272727" };
+  const labelStyle = { color: "#0D2B4E" };
 
   if (loading) {
     return (
@@ -89,7 +89,7 @@ export default function AdminSettingsPage() {
       <div className="mb-8">
         <h1
           className="text-2xl font-bold"
-          style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+          style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
         >
           Site Settings
         </h1>
@@ -190,7 +190,7 @@ export default function AdminSettingsPage() {
           type="submit"
           disabled={saving}
           className="px-6 py-3 rounded-xl text-sm font-bold text-white disabled:opacity-60"
-          style={{ backgroundColor: "#1C1C1C" }}
+          style={{ backgroundColor: "#0D2B4E" }}
         >
           {saving ? "Saving..." : "Save Settings"}
         </button>

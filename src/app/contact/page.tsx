@@ -106,7 +106,7 @@ export default function ContactPage() {
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(150deg, rgba(8,8,8,0.93) 0%, rgba(28,28,28,0.87) 100%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(150deg, rgba(7,25,41,0.93) 0%, rgba(13,43,78,0.87) 100%)" }} />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <div className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#B9954F" }}>
@@ -213,7 +213,7 @@ export default function ContactPage() {
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
+                  <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
                     {t("contact.form.name")}
                   </label>
                   <input
@@ -228,7 +228,7 @@ export default function ContactPage() {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
+                  <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
                     {t("contact.form.phone")}
                   </label>
                   <input
@@ -244,7 +244,7 @@ export default function ContactPage() {
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
+                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
                   {t("contact.form.email")}
                 </label>
                 <input
@@ -258,7 +258,7 @@ export default function ContactPage() {
                 />
               </div>
               <div>
-                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
+                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
                   {t("contact.form.service")}
                 </label>
                 <select
@@ -277,7 +277,7 @@ export default function ContactPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
+                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
                   {t("contact.form.team")}
                 </label>
                 <select
@@ -296,7 +296,7 @@ export default function ContactPage() {
                 </select>
               </div>
               <div>
-                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#272727" }}>
+                <label className="block text-xs font-semibold mb-2 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
                   {t("contact.form.message")}
                 </label>
                 <textarea

@@ -128,7 +128,7 @@ export default function ChatWidget() {
           style={{
             width: "min(380px, calc(100vw - 2rem))",
             height: "min(520px, calc(100vh - 8rem))",
-            border: "1px solid #2E2E2E",
+            border: "1px solid #0D2B4E",
           }}
         >
           {/* Header */}

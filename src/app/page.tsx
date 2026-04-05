@@ -40,7 +40,7 @@ export default function HomePage() {
           />
           <div
             className="absolute inset-0"
-            style={{ background: "linear-gradient(150deg, rgba(10,10,10,0.92) 0%, rgba(28,28,28,0.88) 55%, rgba(39,39,39,0.85) 100%)" }}
+            style={{ background: "linear-gradient(150deg, rgba(7,25,41,0.92) 0%, rgba(13,43,78,0.88) 55%, rgba(13,43,78,0.85) 100%)" }}
           />
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
@@ -174,7 +174,7 @@ export default function HomePage() {
                 style={{ backgroundColor: "#FAFAFA", borderColor: "#EBEBEB" }}
               >
                 <div className="w-6 h-0.5 mx-auto mb-4" style={{ backgroundColor: "#B9954F" }} />
-                <p className="text-sm font-semibold" style={{ color: "#272727" }}>{t(key)}</p>
+                <p className="text-sm font-semibold" style={{ color: "#0D2B4E" }}>{t(key)}</p>
               </div>
             ))}
           </div>
@@ -264,7 +264,7 @@ export default function HomePage() {
                 <div className="flex items-center gap-1 text-sm" style={{ color: "#B9954F" }}>
                   {"★★★★★"}
                 </div>
-                <p className="text-sm leading-relaxed flex-1" style={{ color: "#444444" }}>
+                <p className="text-sm leading-relaxed flex-1" style={{ color: "#0D2B4E" }}>
                   &ldquo;{t(r.text)}&rdquo;
                 </p>
                 <div className="border-t pt-4" style={{ borderColor: "#EBEBEB" }}>

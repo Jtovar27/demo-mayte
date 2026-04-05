@@ -34,14 +34,14 @@ export default function SecurityPage() {
   const inputCls = "w-full border rounded-lg px-3 py-2.5 text-sm bg-white focus:outline-none";
   const inputStyle = { borderColor: "#D0D0D0" };
   const labelCls = "block text-xs font-semibold mb-1.5 uppercase tracking-wider";
-  const labelStyle = { color: "#272727" };
+  const labelStyle = { color: "#0D2B4E" };
 
   return (
     <div className="p-8 max-w-md">
       <div className="flex items-center gap-3 mb-8">
         <Link href="/admin/settings" className="text-sm" style={{ color: "#B9954F" }}>← Settings</Link>
         <span style={{ color: "#D0D0D0" }}>/</span>
-        <h1 className="text-2xl font-bold" style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}>
+        <h1 className="text-2xl font-bold" style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}>
           Change Password
         </h1>
       </div>
@@ -66,7 +66,7 @@ export default function SecurityPage() {
         {success && <p className="text-xs" style={{ color: "#2E7D32" }}>Password updated successfully.</p>}
         <button type="submit" disabled={saving}
           className="w-full py-2.5 rounded-lg text-sm font-bold text-white disabled:opacity-60"
-          style={{ backgroundColor: "#1C1C1C" }}>
+          style={{ backgroundColor: "#0D2B4E" }}>
           {saving ? "Updating..." : "Update Password"}
         </button>
       </form>

@@ -48,7 +48,7 @@ export default function BlogPostContent({ post }: { post: BlogPost }) {
           <div className="flex items-center gap-3 mb-4">
             <span
               className="text-xs font-semibold px-3 py-1 rounded-full"
-              style={{ backgroundColor: "#2A2A2A", color: "#B9954F" }}
+              style={{ backgroundColor: "#1A3A6E", color: "#B9954F" }}
             >
               {t(CATEGORY_KEY_MAP[post.category] ?? "blog.cat.taxes")}
             </span>
@@ -80,9 +80,9 @@ export default function BlogPostContent({ post }: { post: BlogPost }) {
                 h1: ({ children }) => <h1 style={{ ...headingStyle, fontSize: "1.4rem", marginTop: "1.2rem" }}>{children}</h1>,
                 h2: ({ children }) => <h2 style={{ ...headingStyle, fontSize: "1.2rem", marginTop: "1rem" }}>{children}</h2>,
                 h3: ({ children }) => <h3 style={{ ...headingStyle, fontSize: "1.05rem", marginTop: "0.8rem" }}>{children}</h3>,
-                p: ({ children }) => <p className="text-base leading-relaxed" style={{ ...paragraphStyle, color: "#3A3A3A" }}>{children}</p>,
-                ul: ({ children }) => <ul style={{ paddingLeft: "1.4rem", marginBottom: "0.85rem", listStyleType: "disc", color: "#3A3A3A" }}>{children}</ul>,
-                ol: ({ children }) => <ol style={{ paddingLeft: "1.4rem", marginBottom: "0.85rem", listStyleType: "decimal", color: "#3A3A3A" }}>{children}</ol>,
+                p: ({ children }) => <p className="text-base leading-relaxed" style={{ ...paragraphStyle, color: "#0D2B4E" }}>{children}</p>,
+                ul: ({ children }) => <ul style={{ paddingLeft: "1.4rem", marginBottom: "0.85rem", listStyleType: "disc", color: "#0D2B4E" }}>{children}</ul>,
+                ol: ({ children }) => <ol style={{ paddingLeft: "1.4rem", marginBottom: "0.85rem", listStyleType: "decimal", color: "#0D2B4E" }}>{children}</ol>,
                 li: ({ children }) => <li className="text-base leading-relaxed" style={{ marginBottom: "0.3rem" }}>{children}</li>,
                 strong: ({ children }) => <strong style={{ fontWeight: 700, color: "#0D2B4E" }}>{children}</strong>,
                 em: ({ children }) => <em style={{ fontStyle: "italic" }}>{children}</em>,

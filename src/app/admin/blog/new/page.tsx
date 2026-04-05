@@ -106,7 +106,7 @@ export default function NewBlogPostPage() {
         <span style={{ color: "#D0D0D0" }}>/</span>
         <h1
           className="text-2xl font-bold"
-          style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+          style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
         >
           New Post
         </h1>
@@ -120,7 +120,7 @@ export default function NewBlogPostPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#272727" }}>
+              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
                 Category
               </label>
               <select
@@ -137,7 +137,7 @@ export default function NewBlogPostPage() {
               </select>
             </div>
             <div>
-              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#272727" }}>
+              <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
                 Date
               </label>
               <input
@@ -152,7 +152,7 @@ export default function NewBlogPostPage() {
             </div>
           </div>
           <div>
-            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#272727" }}>
+            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
               Slug
             </label>
             <input
@@ -167,7 +167,7 @@ export default function NewBlogPostPage() {
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#272727" }}>
+            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
               Image URL (optional)
             </label>
             <input
@@ -189,7 +189,7 @@ export default function NewBlogPostPage() {
               onChange={handleChange}
               className="w-4 h-4 rounded"
             />
-            <label htmlFor="published" className="text-sm font-medium" style={{ color: "#1C1C1C" }}>
+            <label htmlFor="published" className="text-sm font-medium" style={{ color: "#0D2B4E" }}>
               Publish immediately
             </label>
           </div>
@@ -199,7 +199,7 @@ export default function NewBlogPostPage() {
         <div className="bg-white rounded-xl border p-6 space-y-4" style={{ borderColor: "#E4E4E4" }}>
           <h2 className="text-sm font-bold uppercase tracking-wider" style={{ color: "#6E6E6E" }}>Title</h2>
           <div>
-            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#272727" }}>
+            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
               Spanish
             </label>
             <input
@@ -214,7 +214,7 @@ export default function NewBlogPostPage() {
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#272727" }}>
+            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
               English
             </label>
             <input
@@ -234,7 +234,7 @@ export default function NewBlogPostPage() {
         <div className="bg-white rounded-xl border p-6 space-y-4" style={{ borderColor: "#E4E4E4" }}>
           <h2 className="text-sm font-bold uppercase tracking-wider" style={{ color: "#6E6E6E" }}>Excerpt</h2>
           <div>
-            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#272727" }}>
+            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
               Spanish
             </label>
             <textarea
@@ -249,7 +249,7 @@ export default function NewBlogPostPage() {
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#272727" }}>
+            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>
               English
             </label>
             <textarea
@@ -272,7 +272,7 @@ export default function NewBlogPostPage() {
             <span className="text-xs" style={{ color: "#AFAFAF" }}>**bold** · *italic* · # Heading · - list item</span>
           </div>
           <div>
-            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#272727" }}>Spanish</label>
+            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>Spanish</label>
             <MarkdownTextarea
               name="content.es"
               value={form.content.es}
@@ -283,7 +283,7 @@ export default function NewBlogPostPage() {
             />
           </div>
           <div>
-            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#272727" }}>English</label>
+            <label className="block text-xs font-semibold mb-1.5 uppercase tracking-wider" style={{ color: "#0D2B4E" }}>English</label>
             <MarkdownTextarea
               name="content.en"
               value={form.content.en}
@@ -306,7 +306,7 @@ export default function NewBlogPostPage() {
             type="submit"
             disabled={loading}
             className="px-6 py-3 rounded-xl text-sm font-bold text-white disabled:opacity-60"
-            style={{ backgroundColor: "#1C1C1C" }}
+            style={{ backgroundColor: "#0D2B4E" }}
           >
             {loading ? "Creating..." : "Create Post"}
           </button>

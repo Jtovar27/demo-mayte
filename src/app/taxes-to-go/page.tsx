@@ -84,7 +84,7 @@ export default function TaxesToGoPage() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(150deg, rgba(8,8,8,0.94) 0%, rgba(28,28,28,0.88) 100%)",
+                "linear-gradient(150deg, rgba(7,25,41,0.94) 0%, rgba(13,43,78,0.88) 100%)",
             }}
           />
         </div>
@@ -135,10 +135,10 @@ export default function TaxesToGoPage() {
           >
             {t("ttg.what.h2")}
           </h2>
-          <p className="text-base leading-relaxed mb-4" style={{ color: "#444444" }}>
+          <p className="text-base leading-relaxed mb-4" style={{ color: "#0D2B4E" }}>
             {t("ttg.what.p1")}
           </p>
-          <p className="text-base leading-relaxed" style={{ color: "#444444" }}>
+          <p className="text-base leading-relaxed" style={{ color: "#0D2B4E" }}>
             {t("ttg.what.p2")}
           </p>
         </div>
@@ -232,7 +232,7 @@ export default function TaxesToGoPage() {
                     className="flex-shrink-0 mt-0.5"
                     style={{ color: "#B9954F" }}
                   />
-                  <span className="text-sm leading-relaxed" style={{ color: "#444444" }}>
+                  <span className="text-sm leading-relaxed" style={{ color: "#0D2B4E" }}>
                     {t(key)}
                   </span>
                 </li>
@@ -290,7 +290,7 @@ export default function TaxesToGoPage() {
                     {step.itemKeys && (
                       <ul className="mt-3 space-y-1.5">
                         {step.itemKeys.map((key) => (
-                          <li key={key} className="flex items-start gap-2 text-sm" style={{ color: "#444444" }}>
+                          <li key={key} className="flex items-start gap-2 text-sm" style={{ color: "#0D2B4E" }}>
                             <CheckCircle size={14} className="flex-shrink-0 mt-0.5" style={{ color: "#B9954F" }} />
                             {t(key)}
                           </li>

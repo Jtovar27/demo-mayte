@@ -36,10 +36,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Sidebar */}
       <aside
         className="w-60 flex flex-col fixed top-0 left-0 h-full z-40"
-        style={{ backgroundColor: "#1C1C1C" }}
+        style={{ backgroundColor: "#0D2B4E" }}
       >
         {/* Logo / Business name */}
-        <div className="px-6 py-6 border-b" style={{ borderColor: "#2E2E2E" }}>
+        <div className="px-6 py-6 border-b" style={{ borderColor: "#071929" }}>
           <div
             className="text-xs font-semibold uppercase tracking-widest mb-1"
             style={{ color: "#B9954F" }}
@@ -67,7 +67,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 href={link.href}
                 className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors"
                 style={{
-                  color: isActive ? "#B9954F" : "#AAAAAA",
+                  color: isActive ? "#B9954F" : "#FFFFFF",
                   backgroundColor: isActive ? "rgba(185,149,79,0.12)" : "transparent",
                 }}
               >
@@ -79,12 +79,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </nav>
 
         {/* Logout */}
-        <div className="px-3 py-4 border-t" style={{ borderColor: "#2E2E2E" }}>
+        <div className="px-3 py-4 border-t" style={{ borderColor: "#071929" }}>
           <button
             onClick={handleLogout}
             disabled={loggingOut}
             className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium transition-colors disabled:opacity-50"
-            style={{ color: "#888888" }}
+            style={{ color: "#AFAFAF" }}
           >
             <span style={{ fontSize: "14px" }}>→</span>
             {loggingOut ? "Logging out..." : "Logout"}

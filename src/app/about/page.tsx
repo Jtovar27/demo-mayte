@@ -25,7 +25,7 @@ export default function AboutPage() {
             className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(150deg, rgba(8,8,8,0.93) 0%, rgba(28,28,28,0.87) 100%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(150deg, rgba(7,25,41,0.93) 0%, rgba(13,43,78,0.87) 100%)" }} />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <div className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#B9954F" }}>
