@@ -30,7 +30,7 @@ export default function Header() {
       </div>
 
       {/* Main nav */}
-      <div className="max-w-7xl mx-auto px-4 py-2 md:py-4 flex items-center justify-between relative">
+      <div className="max-w-7xl mx-auto px-4 py-0 md:py-2 flex items-center justify-between relative">
 
         {/* Mobile: hamburger (left) */}
         <button
@@ -57,7 +57,7 @@ export default function Header() {
           <img
             src={site.logo.path || "/logo-transparent.png"}
             alt={site.logo.alt}
-            className="h-20 md:h-24 w-auto object-contain"
+            className="h-24 md:h-28 w-auto object-contain"
           />
         </Link>
 

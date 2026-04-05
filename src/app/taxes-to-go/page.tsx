@@ -71,7 +71,7 @@ export default function TaxesToGoPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative text-white py-28 overflow-hidden">
+      <section className="relative text-white py-10 md:py-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1600&q=80"
@@ -121,7 +121,7 @@ export default function TaxesToGoPage() {
       </section>
 
       {/* What is Taxes To Go */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: "#FFFFFF" }}>
+      <section className="py-8 md:py-20" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="max-w-4xl mx-auto px-4">
           <div
             className="text-xs font-semibold uppercase tracking-widest mb-3"
@@ -145,7 +145,7 @@ export default function TaxesToGoPage() {
       </section>
 
       {/* How it works — process steps */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: "#F5F5F5" }}>
+      <section className="py-8 md:py-20" style={{ backgroundColor: "#F5F5F5" }}>
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <div
@@ -200,7 +200,7 @@ export default function TaxesToGoPage() {
       </section>
 
       {/* What to bring */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: "#FFFFFF" }}>
+      <section className="py-8 md:py-20" style={{ backgroundColor: "#FFFFFF" }}>
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-10">
             <div
@@ -243,7 +243,7 @@ export default function TaxesToGoPage() {
       </section>
 
       {/* Step-by-step guide */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: "#F5F5F5" }}>
+      <section className="py-8 md:py-20" style={{ backgroundColor: "#F5F5F5" }}>
         <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
             <div

@@ -13,7 +13,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative text-white py-28 overflow-hidden">
+      <section className="relative text-white py-10 md:py-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1600&q=80"
@@ -48,7 +48,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Service categories */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: "#F5F5F5" }}>
+      <section className="py-8 md:py-20" style={{ backgroundColor: "#F5F5F5" }}>
         <div className="max-w-7xl mx-auto px-4 space-y-16">
           {serviceCategories.map((cat) => (
             <div key={cat.categoryKey}>

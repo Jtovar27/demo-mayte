@@ -16,7 +16,7 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative text-white py-28 overflow-hidden">
+      <section className="relative text-white py-10 md:py-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=1600&q=80"
@@ -44,7 +44,7 @@ export default function AboutPage() {
       </section>
 
       {/* Story */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-8 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-start">
           <div>
             <h2
@@ -104,9 +104,9 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: "#F5F5F5" }}>
+      <section className="py-8 md:py-20" style={{ backgroundColor: "#F5F5F5" }}>
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-14">
+          <div className="text-center mb-6 md:mb-12">
             <h2
               className="text-3xl font-bold mb-3"
               style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
@@ -137,7 +137,7 @@ export default function AboutPage() {
       </section>
 
       {/* Founder */}
-      <section className="py-16 bg-white">
+      <section className="py-8 md:py-16bg-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <div
             className="w-20 h-20 rounded-full flex items-center justify-center text-lg font-bold text-white mx-auto mb-6"
