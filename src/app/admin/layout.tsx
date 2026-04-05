@@ -1,10 +1,11 @@
 "use client";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const NAV_LINKS = [
   { href: "/admin", label: "Dashboard", icon: "◈" },
+  { href: "/admin/contacts", label: "Contactos", icon: "◎" },
   { href: "/admin/blog", label: "Blog", icon: "✎" },
   { href: "/admin/team", label: "Equipo", icon: "◉" },
   { href: "/admin/settings", label: "Ajustes", icon: "⚙" },
@@ -16,6 +17,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const router = useRouter();
   const [loggingOut, setLoggingOut] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
+
+  useEffect(() => {
+    async function loadUnread() {
+      try {
+        const res = await fetch("/api/admin/contacts");
+        if (!res.ok) return;
+        const data = await res.json() as { read: boolean }[];
+        setUnreadCount(data.filter((s) => !s.read).length);
+      } catch { /* ignore */ }
+    }
+    if (pathname !== "/admin/login") void loadUnread();
+  }, [pathname]);
 
   if (pathname === "/admin/login") {
     return <>{children}</>;
@@ -41,12 +55,20 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       >
         <button
           onClick={() => setSidebarOpen(true)}
-          className="flex flex-col gap-1.5 p-1"
+          className="flex flex-col gap-1.5 p-1 relative"
           aria-label="Abrir menú"
         >
           <span className="block w-6 h-0.5 bg-white rounded" />
           <span className="block w-6 h-0.5 bg-white rounded" />
           <span className="block w-5 h-0.5 bg-white rounded" />
+          {unreadCount > 0 && (
+            <span
+              className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-white flex items-center justify-center"
+              style={{ backgroundColor: "#B9954F", fontSize: "9px", fontWeight: 700 }}
+            >
+              {unreadCount > 9 ? "9+" : unreadCount}
+            </span>
+          )}
         </button>
         <span
           className="text-sm font-bold text-white absolute left-1/2 -translate-x-1/2"
@@ -98,7 +120,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               Taxes &amp; Insurance
             </div>
           </div>
-          {/* Close button on mobile */}
           <button
             className="md:hidden text-white/50 hover:text-white ml-2"
             onClick={() => setSidebarOpen(false)}
@@ -117,6 +138,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               link.href === "/admin"
                 ? pathname === "/admin"
                 : pathname.startsWith(link.href);
+            const isContacts = link.href === "/admin/contacts";
             return (
               <Link
                 key={link.href}
@@ -129,10 +151,18 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 }}
               >
                 <span className="w-4 text-center" style={{ fontSize: "13px" }}>{link.icon}</span>
-                {link.label}
-                {isActive && (
+                <span className="flex-1">{link.label}</span>
+                {isContacts && unreadCount > 0 && (
                   <span
-                    className="ml-auto w-1 h-4 rounded-full"
+                    className="text-white rounded-full px-1.5 py-0.5 text-xs font-bold"
+                    style={{ backgroundColor: "#B9954F", fontSize: "10px" }}
+                  >
+                    {unreadCount > 9 ? "9+" : unreadCount}
+                  </span>
+                )}
+                {isActive && !isContacts && (
+                  <span
+                    className="w-1 h-4 rounded-full"
                     style={{ backgroundColor: "#B9954F" }}
                   />
                 )}
@@ -141,11 +171,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           })}
         </nav>
 
-        {/* Logout */}
+        {/* Bottom links */}
         <div className="px-3 py-4 border-t" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
           <a
             href="/"
-            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all mb-1"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium mb-1"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
             <span className="w-4 text-center text-xs">↗</span>
@@ -154,7 +184,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <button
             onClick={handleLogout}
             disabled={loggingOut}
-            className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium transition-all disabled:opacity-50"
+            className="flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-sm font-medium disabled:opacity-50"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
             <span className="w-4 text-center text-xs">→</span>

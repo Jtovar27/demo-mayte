@@ -102,6 +102,19 @@ INSERT INTO blog_posts (slug, title, excerpt, content, category, date, published
   'notary', '2025-12-10', true
 );
 
+-- 5. Contact form submissions
+CREATE TABLE contact_submissions (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  email TEXT,
+  service TEXT NOT NULL,
+  advisor TEXT,
+  message TEXT,
+  read BOOLEAN NOT NULL DEFAULT false,
+  created_at TIMESTAMPTZ DEFAULT now()
+);
+
 -- ============================================================
 -- DISABLE Row Level Security (service role key bypasses RLS,
 -- but disabling it keeps things simple for a private admin app)
@@ -110,3 +123,4 @@ ALTER TABLE blog_posts DISABLE ROW LEVEL SECURITY;
 ALTER TABLE team_members DISABLE ROW LEVEL SECURITY;
 ALTER TABLE site_settings DISABLE ROW LEVEL SECURITY;
 ALTER TABLE auth DISABLE ROW LEVEL SECURITY;
+ALTER TABLE contact_submissions DISABLE ROW LEVEL SECURITY;
