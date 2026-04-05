@@ -84,7 +84,8 @@ export default function NewBlogPostPage() {
       });
 
       if (!res.ok) {
-        setError("Failed to create post.");
+        const data = await res.json() as { error?: string };
+        setError(data.error ?? "Failed to create post.");
         return;
       }
 

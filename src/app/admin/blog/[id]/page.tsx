@@ -38,6 +38,7 @@ export default function EditBlogPostPage() {
         }
         const data = await res.json() as BlogPost;
         setForm(data);
+        setSlugEdited(true); // prevent auto-overwriting existing slug when title changes
       } catch {
         setError("Failed to load post.");
       } finally {
@@ -101,7 +102,8 @@ export default function EditBlogPostPage() {
       });
 
       if (!res.ok) {
-        setError("Failed to save post.");
+        const data = await res.json() as { error?: string };
+        setError(data.error ?? "Failed to save post.");
         return;
       }
 
