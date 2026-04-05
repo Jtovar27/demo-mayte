@@ -44,14 +44,16 @@ export function SiteSettingsProvider({ children }: { children: ReactNode }) {
   const [site, setSite] = useState<DynamicSiteData>(DEFAULT);
 
   useEffect(() => {
-    fetch("/api/site-settings", { cache: "no-store" })
+    const controller = new AbortController();
+    fetch("/api/site-settings", { cache: "no-store", signal: controller.signal })
       .then((r) => r.json())
       .then((data: unknown) => {
         if (data && typeof data === "object" && "phone" in data) {
           setSite(data as DynamicSiteData);
         }
       })
-      .catch(() => {/* keep defaults */});
+      .catch((e) => { if (e.name !== "AbortError") console.error(e); });
+    return () => controller.abort();
   }, []);
 
   return (

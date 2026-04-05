@@ -176,10 +176,10 @@ export async function getMergedSiteData(): Promise<DynamicSiteData> {
   const phoneRaw = s.phoneRaw || SITE.phoneRaw;
   const email = s.email || SITE.email;
   const addr = {
-    street: s.address.street || SITE.address.street,
-    city: s.address.city || SITE.address.city,
-    state: s.address.state || SITE.address.state,
-    zip: s.address.zip || SITE.address.zip,
+    street: s.address?.street || SITE.address.street,
+    city: s.address?.city || SITE.address.city,
+    state: s.address?.state || SITE.address.state,
+    zip: s.address?.zip || SITE.address.zip,
   };
   const full = `${addr.street}, ${addr.city}, ${addr.state} ${addr.zip}`;
   return {
@@ -194,9 +194,9 @@ export async function getMergedSiteData(): Promise<DynamicSiteData> {
     whatsapp: `https://wa.me/1${phoneRaw}`,
     address: { ...addr, full, mapsHref: `https://maps.google.com/?q=${encodeURIComponent(full)}` },
     hours: {
-      weekdays: s.hours.weekdays || SITE.hours.weekdays,
-      saturday: s.hours.saturday || SITE.hours.saturday,
-      sunday: s.hours.sunday || SITE.hours.sunday,
+      weekdays: s.hours?.weekdays || SITE.hours.weekdays,
+      saturday: s.hours?.saturday || SITE.hours.saturday,
+      sunday: s.hours?.sunday || SITE.hours.sunday,
       display: SITE.hours.display,
       displayEn: SITE.hours.displayEn,
     },
