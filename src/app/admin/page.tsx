@@ -46,7 +46,7 @@ export default function AdminDashboard() {
   const recent = posts.slice(0, 5);
 
   const STAT_CARDS = [
-    { label: "Total Posts", value: stats.total, color: "#1C1C1C" },
+    { label: "Total Posts", value: stats.total, color: "#0D2B4E" },
     { label: "Published", value: stats.published, color: "#2E7D32" },
     { label: "Drafts", value: stats.drafts, color: "#B9954F" },
     { label: "Team Members", value: stats.teamCount, color: "#1565C0" },
@@ -63,7 +63,7 @@ export default function AdminDashboard() {
       <div className="mb-8">
         <h1
           className="text-2xl font-bold"
-          style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+          style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
         >
           Dashboard
         </h1>
@@ -95,7 +95,7 @@ export default function AdminDashboard() {
         <Link
           href="/admin/blog/new"
           className="text-sm font-semibold px-5 py-2.5 rounded-lg text-white"
-          style={{ backgroundColor: "#1C1C1C" }}
+          style={{ backgroundColor: "#0D2B4E" }}
         >
           + New Blog Post
         </Link>
@@ -116,7 +116,7 @@ export default function AdminDashboard() {
         <div className="px-6 py-4 border-b flex items-center justify-between" style={{ borderColor: "#E4E4E4" }}>
           <h2
             className="text-base font-bold"
-            style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+            style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
           >
             Recent Posts
           </h2>
@@ -144,7 +144,7 @@ export default function AdminDashboard() {
                 className="flex items-center justify-between px-6 py-4 hover:bg-gray-50 transition-colors"
               >
                 <div>
-                  <div className="text-sm font-medium" style={{ color: "#1C1C1C" }}>
+                  <div className="text-sm font-medium" style={{ color: "#0D2B4E" }}>
                     {post.title.es}
                   </div>
                   <div className="text-xs mt-0.5" style={{ color: "#AFAFAF" }}>

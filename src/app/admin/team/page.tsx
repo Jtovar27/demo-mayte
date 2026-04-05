@@ -148,7 +148,7 @@ export default function AdminTeamPage() {
   const inputCls = "w-full border rounded-lg px-3 py-2.5 text-sm bg-white focus:outline-none";
   const inputStyle = { borderColor: "#D0D0D0" };
   const labelCls = "block text-xs font-semibold mb-1.5 uppercase tracking-wider";
-  const labelStyle = { color: "#272727" };
+  const labelStyle = { color: "#0D2B4E" };
 
   return (
     <div className="p-8 max-w-2xl">
@@ -156,7 +156,7 @@ export default function AdminTeamPage() {
         <div>
           <h1
             className="text-2xl font-bold"
-            style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+            style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
           >
             Team Members
           </h1>
@@ -168,7 +168,7 @@ export default function AdminTeamPage() {
           <button
             onClick={() => setShowAdd(true)}
             className="text-sm font-semibold px-5 py-2.5 rounded-lg text-white"
-            style={{ backgroundColor: "#1C1C1C" }}
+            style={{ backgroundColor: "#0D2B4E" }}
           >
             + Add Member
           </button>
@@ -218,7 +218,7 @@ export default function AdminTeamPage() {
           <div className="flex gap-3">
             <button type="submit" disabled={addLoading}
               className="px-5 py-2.5 rounded-lg text-sm font-bold text-white disabled:opacity-60"
-              style={{ backgroundColor: "#1C1C1C" }}>
+              style={{ backgroundColor: "#0D2B4E" }}>
               {addLoading ? "Adding..." : "Add Member"}
             </button>
             <button type="button" onClick={() => { setShowAdd(false); setAddForm(EMPTY_FORM); setAddError(""); }}
@@ -284,7 +284,7 @@ export default function AdminTeamPage() {
                 <div className="flex gap-3">
                   <button type="submit" disabled={editLoading}
                     className="px-5 py-2.5 rounded-lg text-sm font-bold text-white disabled:opacity-60"
-                    style={{ backgroundColor: "#1C1C1C" }}>
+                    style={{ backgroundColor: "#0D2B4E" }}>
                     {editLoading ? "Saving..." : "Save"}
                   </button>
                   <button type="button" onClick={() => setEditingId(null)}
@@ -301,7 +301,7 @@ export default function AdminTeamPage() {
                 style={{ borderColor: "#E4E4E4" }}
               >
                 <div>
-                  <div className="text-sm font-bold" style={{ color: "#1C1C1C" }}>{member.name}</div>
+                  <div className="text-sm font-bold" style={{ color: "#0D2B4E" }}>{member.name}</div>
                   <div className="text-xs mt-0.5" style={{ color: "#6E6E6E" }}>
                     {member.role.es} / {member.role.en}
                   </div>
@@ -315,7 +315,7 @@ export default function AdminTeamPage() {
                   <button
                     onClick={() => startEdit(member)}
                     className="text-xs font-semibold px-3 py-1.5 rounded-lg text-white"
-                    style={{ backgroundColor: "#1C1C1C" }}
+                    style={{ backgroundColor: "#0D2B4E" }}
                   >
                     Edit
                   </button>

@@ -68,7 +68,7 @@ export default function AdminBlogPage() {
         <div>
           <h1
             className="text-2xl font-bold"
-            style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+            style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
           >
             Blog Posts
           </h1>
@@ -79,7 +79,7 @@ export default function AdminBlogPage() {
         <Link
           href="/admin/blog/new"
           className="text-sm font-semibold px-5 py-2.5 rounded-lg text-white"
-          style={{ backgroundColor: "#1C1C1C" }}
+          style={{ backgroundColor: "#0D2B4E" }}
         >
           + New Post
         </Link>
@@ -109,7 +109,7 @@ export default function AdminBlogPage() {
                   <div className="flex items-center gap-2 mb-0.5">
                     <span
                       className="text-xs font-semibold px-2 py-0.5 rounded-full"
-                      style={{ backgroundColor: "#F0EAE0", color: "#8A6F40" }}
+                      style={{ backgroundColor: "#F0EAE0", color: "#7A5F30" }}
                     >
                       {CATEGORY_LABELS[post.category] ?? post.category}
                     </span>
@@ -123,7 +123,7 @@ export default function AdminBlogPage() {
                       {post.published ? "Published" : "Draft"}
                     </span>
                   </div>
-                  <div className="text-sm font-medium truncate" style={{ color: "#1C1C1C" }}>
+                  <div className="text-sm font-medium truncate" style={{ color: "#0D2B4E" }}>
                     {post.title.es}
                   </div>
                   <div className="text-xs truncate mt-0.5" style={{ color: "#AFAFAF" }}>
@@ -148,7 +148,7 @@ export default function AdminBlogPage() {
                   <Link
                     href={`/admin/blog/${post.id}`}
                     className="text-xs font-semibold px-3 py-1.5 rounded-lg text-white"
-                    style={{ backgroundColor: "#1C1C1C" }}
+                    style={{ backgroundColor: "#0D2B4E" }}
                   >
                     Edit
                   </Link>

@@ -100,7 +100,7 @@ export default function Footer() {
           <a
             href="/admin/login"
             className="transition-opacity hover:opacity-80"
-            style={{ color: "#444444" }}
+            style={{ color: "#0D2B4E" }}
           >
             Admin
           </a>

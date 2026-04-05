@@ -58,7 +58,7 @@ export default function BlogPage() {
       <section className="relative text-white py-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1600&q=80" alt="Workspace with laptop" fill className="object-cover object-center" priority />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(150deg, rgba(8,8,8,0.93) 0%, rgba(28,28,28,0.87) 100%)" }} />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(150deg, rgba(7,25,41,0.93) 0%, rgba(13,43,78,0.87) 100%)" }} />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <div className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#B9954F" }}>
@@ -149,7 +149,7 @@ export default function BlogPage() {
                       <div className="mb-4">
                         <span
                           className="text-xs font-semibold px-3 py-1 rounded-full"
-                          style={{ backgroundColor: "#F0EAE0", color: "#8A6F40" }}
+                          style={{ backgroundColor: "#F0EAE0", color: "#7A5F30" }}
                         >
                           {t(CATEGORY_KEY_MAP[post.category] ?? "blog.cat.taxes")}
                         </span>

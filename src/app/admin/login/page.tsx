@@ -37,11 +37,11 @@ export default function AdminLoginPage() {
   return (
     <div
       className="min-h-screen flex items-center justify-center px-4"
-      style={{ backgroundColor: "#1C1C1C" }}
+      style={{ backgroundColor: "#F5F5F5" }}
     >
       <div
         className="w-full max-w-sm rounded-2xl border p-8"
-        style={{ backgroundColor: "#252525", borderColor: "#333333" }}
+        style={{ backgroundColor: "#FFFFFF", borderColor: "#E4E4E4" }}
       >
         {/* Header */}
         <div className="text-center mb-8">
@@ -52,12 +52,13 @@ export default function AdminLoginPage() {
             Admin Panel
           </div>
           <h1
-            className="text-xl font-bold text-white leading-tight"
+            className="text-xl font-bold leading-tight"
+            style={{ color: "#0D2B4E" }}
             style={{ fontFamily: "var(--font-heading), serif" }}
           >
             Taxes & Insurance Group LLC
           </h1>
-          <p className="text-sm mt-2" style={{ color: "#888888" }}>
+          <p className="text-sm mt-2" style={{ color: "#6E6E6E" }}>
             Sign in to continue
           </p>
         </div>
@@ -67,7 +68,7 @@ export default function AdminLoginPage() {
           <div>
             <label
               className="block text-xs font-semibold uppercase tracking-wider mb-2"
-              style={{ color: "#AAAAAA" }}
+              style={{ color: "#0D2B4E" }}
             >
               Password
             </label>
@@ -77,10 +78,10 @@ export default function AdminLoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               required
               placeholder="Enter admin password"
-              className="w-full rounded-lg px-4 py-3 text-sm text-white focus:outline-none border"
+              className="w-full rounded-lg px-4 py-3 text-sm focus:outline-none border"
               style={{
-                backgroundColor: "#1C1C1C",
-                borderColor: "#444444",
+                backgroundColor: "#FFFFFF",
+                borderColor: "#D0D0D0",
               }}
             />
           </div>
