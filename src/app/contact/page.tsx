@@ -97,7 +97,7 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative text-white py-28 overflow-hidden">
+      <section className="relative text-white py-10 md:py-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80"
@@ -125,7 +125,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact methods */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: "#F5F5F5" }}>
+      <section className="py-8 md:py-16" style={{ backgroundColor: "#F5F5F5" }}>
         <div className="max-w-5xl mx-auto px-4">
           <h2
             className="text-2xl font-bold text-center mb-12"
@@ -166,7 +166,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact form */}
-      <section className="py-16 bg-white">
+      <section className="py-8 md:py-14 bg-white">
         <div className="max-w-2xl mx-auto px-4">
           <div className="text-center mb-10">
             <h2
@@ -331,7 +331,7 @@ export default function ContactPage() {
       </section>
 
       {/* Hours + Disclaimer */}
-      <section className="py-12 border-t" style={{ backgroundColor: "#F5F5F5", borderColor: "#E4E4E4" }}>
+      <section className="py-6 md:py-10 border-t" style={{ backgroundColor: "#F5F5F5", borderColor: "#E4E4E4" }}>
         <div className="max-w-4xl mx-auto px-4 grid sm:grid-cols-2 gap-8">
           <div>
             <h3

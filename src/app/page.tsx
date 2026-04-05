@@ -28,7 +28,7 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative text-white py-16 md:py-36 overflow-hidden">
+      <section className="relative text-white py-10 md:py-32 overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -85,7 +85,7 @@ export default function HomePage() {
 
       {/* TRUST BAR */}
 
-      <section className="bg-white border-b py-5 md:py-8" style={{ borderColor: "#E4E4E4" }}>
+      <section className="bg-white border-b py-4 md:py-7" style={{ borderColor: "#E4E4E4" }}>
         <div className="max-w-5xl mx-auto px-4 grid grid-cols-3 gap-4">
           {[
             { number: "20+", key: "trust.years" },
@@ -108,7 +108,7 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES PREVIEW */}
-      <section className="py-10 md:py-24" style={{ backgroundColor: "#F5F5F5" }}>
+      <section className="py-8 md:py-20" style={{ backgroundColor: "#F5F5F5" }}>
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8 md:mb-14">
             <h2
@@ -139,7 +139,7 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT TEASER */}
-      <section className="py-10 md:py-24 bg-white">
+      <section className="py-8 md:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
           <div>
             <div className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#B9954F" }}>
@@ -182,7 +182,7 @@ export default function HomePage() {
       </section>
 
       {/* BLOG PREVIEW */}
-      <section className="py-10 md:py-24" style={{ backgroundColor: "#F5F5F5" }}>
+      <section className="py-8 md:py-20" style={{ backgroundColor: "#F5F5F5" }}>
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-8 md:mb-14">
             <h2
@@ -226,9 +226,9 @@ export default function HomePage() {
       </section>
 
       {/* GOOGLE REVIEWS */}
-      <section className="py-10 md:py-24 bg-white">
+      <section className="py-8 md:py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6 md:mb-10">
             <div className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#B9954F" }}>
               {t("reviews.label")}
             </div>
