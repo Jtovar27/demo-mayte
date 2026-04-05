@@ -109,6 +109,16 @@ export async function getTeamMembers(): Promise<AdminTeamMember[]> {
   return (data ?? []) as AdminTeamMember[];
 }
 
+export async function getTeamMemberById(id: string): Promise<AdminTeamMember | null> {
+  const { data, error } = await supabase
+    .from("team_members")
+    .select("*")
+    .eq("id", id)
+    .single();
+  if (error) return null;
+  return data as AdminTeamMember;
+}
+
 export async function createTeamMember(member: Omit<AdminTeamMember, "id">): Promise<AdminTeamMember> {
   const { data, error } = await supabase
     .from("team_members")
