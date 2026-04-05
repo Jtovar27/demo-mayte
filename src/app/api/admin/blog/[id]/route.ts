@@ -34,6 +34,7 @@ export async function PUT(request: NextRequest, { params }: Params) {
     }
     const updated = await updateBlogPost(id, body);
     revalidatePath("/blog");
+    revalidatePath(`/blog/${updated.slug}`);
     return NextResponse.json(updated);
   } catch {
     return NextResponse.json({ error: "Server error" }, { status: 500 });
@@ -47,6 +48,7 @@ export async function DELETE(_request: NextRequest, { params }: Params) {
     if (!post) return NextResponse.json({ error: "Not found" }, { status: 404 });
     await deleteBlogPost(id);
     revalidatePath("/blog");
+    revalidatePath(`/blog/${post.slug}`);
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Server error" }, { status: 500 });
