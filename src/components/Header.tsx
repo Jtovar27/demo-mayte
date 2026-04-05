@@ -13,15 +13,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50" style={{ backgroundColor: "#FFFFFF", boxShadow: "0 2px 8px rgba(13,43,78,0.15)" }}>
       {/* Top bar */}
-      <div style={{ backgroundColor: "#0D2B4E" }} className="text-sm py-2">
+      <div style={{ backgroundColor: "#0D2B4E" }} className="text-sm py-1.5">
         <div
-          className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-1"
+          className="max-w-7xl mx-auto px-4 flex justify-between items-center gap-1"
           style={{ color: "#FFFFFF" }}
         >
-          <span>{site.address.full}</span>
+          <span className="hidden sm:block text-xs" style={{ color: "rgba(255,255,255,0.65)" }}>{site.address.full}</span>
           <a
             href={site.phoneHref}
-            className="font-semibold"
+            className="font-semibold text-xs w-full sm:w-auto text-center sm:text-left"
             style={{ color: "#B9954F" }}
           >
             {site.phone}
@@ -30,13 +30,13 @@ export default function Header() {
       </div>
 
       {/* Main nav */}
-      <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 py-2 md:py-4 flex items-center justify-between">
         <Link href="/">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={site.logo.path || "/logo-transparent.png"}
             alt={site.logo.alt}
-            className="h-16 md:h-24 w-auto object-contain flex-shrink-0"
+            className="h-12 md:h-24 w-auto object-contain flex-shrink-0"
           />
         </Link>
 

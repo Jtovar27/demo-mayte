@@ -53,14 +53,14 @@ export default function AdminDashboard() {
   ];
 
   return (
-    <div className="p-8">
+    <div className="p-4 md:p-8">
       {loadError && (
         <div className="mb-6 rounded-lg px-4 py-3 text-sm font-medium" style={{ backgroundColor: "#FEECEC", color: "#C0392B" }}>
           Failed to load dashboard data. Please refresh the page.
         </div>
       )}
       {/* Page header */}
-      <div className="mb-8">
+      <div className="mb-6">
         <h1
           className="text-2xl font-bold"
           style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
@@ -73,7 +73,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
         {STAT_CARDS.map((stat) => (
           <div
             key={stat.label}

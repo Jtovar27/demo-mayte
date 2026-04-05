@@ -28,7 +28,7 @@ export default function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative text-white py-24 md:py-36 overflow-hidden">
+      <section className="relative text-white py-16 md:py-36 overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -85,8 +85,8 @@ export default function HomePage() {
 
       {/* TRUST BAR */}
 
-      <section className="bg-white border-b py-8" style={{ borderColor: "#E4E4E4" }}>
-        <div className="max-w-5xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <section className="bg-white border-b py-5 md:py-8" style={{ borderColor: "#E4E4E4" }}>
+        <div className="max-w-5xl mx-auto px-4 grid grid-cols-3 gap-4">
           {[
             { number: "20+", key: "trust.years" },
             { number: "100%", key: "trust.spanish" },
@@ -108,9 +108,9 @@ export default function HomePage() {
       </section>
 
       {/* SERVICES PREVIEW */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: "#F5F5F5" }}>
+      <section className="py-10 md:py-24" style={{ backgroundColor: "#F5F5F5" }}>
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 md:mb-14">
             <h2
               className="text-3xl md:text-4xl font-bold mb-3"
               style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
@@ -121,7 +121,7 @@ export default function HomePage() {
               {t("services.sub")}
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
             {featuredServices.map((service) => (
               <ServiceCard key={service.title} {...service} />
             ))}
@@ -139,7 +139,7 @@ export default function HomePage() {
       </section>
 
       {/* ABOUT TEASER */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-10 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
           <div>
             <div className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "#B9954F" }}>
@@ -182,9 +182,9 @@ export default function HomePage() {
       </section>
 
       {/* BLOG PREVIEW */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: "#F5F5F5" }}>
+      <section className="py-10 md:py-24" style={{ backgroundColor: "#F5F5F5" }}>
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-14">
+          <div className="text-center mb-8 md:mb-14">
             <h2
               className="text-3xl md:text-4xl font-bold mb-3"
               style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
@@ -226,7 +226,7 @@ export default function HomePage() {
       </section>
 
       {/* GOOGLE REVIEWS */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-10 md:py-24 bg-white">
         <div className="max-w-5xl mx-auto px-4">
           <div className="text-center mb-12">
             <div className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: "#B9954F" }}>
@@ -250,7 +250,7 @@ export default function HomePage() {
           </div>
 
           {/* Testimonial cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 md:mb-12">
             {[
               { text: "reviews.r1.text", name: "reviews.r1.name", service: "reviews.r1.service" },
               { text: "reviews.r2.text", name: "reviews.r2.name", service: "reviews.r2.service" },

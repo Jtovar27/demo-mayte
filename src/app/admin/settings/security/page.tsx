@@ -37,7 +37,7 @@ export default function SecurityPage() {
   const labelStyle = { color: "#0D2B4E" };
 
   return (
-    <div className="p-8 max-w-md">
+    <div className="p-4 md:p-8 max-w-md">
       <div className="flex items-center gap-3 mb-8">
         <Link href="/admin/settings" className="text-sm" style={{ color: "#B9954F" }}>← Settings</Link>
         <span style={{ color: "#D0D0D0" }}>/</span>

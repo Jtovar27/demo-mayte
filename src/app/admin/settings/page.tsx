@@ -85,7 +85,7 @@ export default function AdminSettingsPage() {
   }
 
   return (
-    <div className="p-8 max-w-2xl">
+    <div className="p-4 md:p-8 max-w-2xl">
       <div className="mb-8">
         <h1
           className="text-2xl font-bold"

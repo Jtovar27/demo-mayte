@@ -10,7 +10,7 @@ interface ServiceCardProps {
 export default function ServiceCard({ title, description, icon: Icon, featured }: ServiceCardProps) {
   return (
     <div
-      className="rounded-xl p-6 border transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+      className="rounded-xl p-4 md:p-6 border transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
       style={
         featured
           ? { backgroundColor: "#0D2B4E", borderColor: "#B9954F" }
@@ -31,13 +31,13 @@ export default function ServiceCard({ title, description, icon: Icon, featured }
         />
       )}
       <h3
-        className="text-lg font-bold mb-2"
+        className="text-sm md:text-lg font-bold mb-1 md:mb-2"
         style={{ color: featured ? "#FFFFFF" : "#0D2B4E" }}
       >
         {title}
       </h3>
       <p
-        className="text-sm leading-relaxed"
+        className="text-xs md:text-sm leading-relaxed"
         style={{ color: featured ? "#AFAFAF" : "#6E6E6E" }}
       >
         {description}
