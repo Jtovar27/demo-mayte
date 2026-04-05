@@ -29,6 +29,7 @@ export async function POST(request: NextRequest) {
 
     const newPost = await createBlogPost(body);
     revalidatePath("/blog");
+    revalidatePath(`/blog/${newPost.slug}`);
     return NextResponse.json(newPost, { status: 201 });
   } catch {
     return NextResponse.json({ error: "Failed to create post" }, { status: 500 });
