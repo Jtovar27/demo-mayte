@@ -30,7 +30,7 @@ export default function Header() {
       </div>
 
       {/* Main nav */}
-      <div className="max-w-7xl mx-auto px-4 py-0 md:py-2 flex items-center justify-between relative">
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between relative min-h-24 md:min-h-0 md:py-2">
 
         {/* Mobile: hamburger (left) */}
         <button
