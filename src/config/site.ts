@@ -58,7 +58,7 @@ export const SITE = {
   // IMPORTANT: Replace /logo.jpeg with a transparent asset (e.g. public/logo.png or public/logo.svg)
   // for clean rendering on the dark navbar. JPEG files with a background will show a visible box.
   logo: {
-    path: "/logo.png" as string,
+    path: "/logo-business.jpg" as string,
     alt: "Taxes & Insurance Group LLC",
   },
 
