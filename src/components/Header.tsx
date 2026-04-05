@@ -11,9 +11,9 @@ export default function Header() {
   const site = useSiteSettings();
 
   return (
-    <header className="sticky top-0 z-50 shadow-lg" style={{ backgroundColor: "#1C1C1C" }}>
+    <header className="sticky top-0 z-50 shadow-lg" style={{ backgroundColor: "#0D2B4E" }}>
       {/* Top bar */}
-      <div style={{ backgroundColor: "#0E0E0E" }} className="text-sm py-2">
+      <div style={{ backgroundColor: "#071929" }} className="text-sm py-2">
         <div
           className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-1"
           style={{ color: "#AFAFAF" }}
@@ -36,7 +36,7 @@ export default function Header() {
           <img
             src={site.logo.path || "/logo-transparent.png"}
             alt={site.logo.alt}
-            className="h-12 md:h-16 w-auto object-contain flex-shrink-0"
+            className="h-16 md:h-24 w-auto object-contain flex-shrink-0"
           />
         </Link>
 
@@ -112,7 +112,7 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t" style={{ backgroundColor: "#141414", borderColor: "#333333" }}>
+        <div className="md:hidden border-t" style={{ backgroundColor: "#0D2B4E", borderColor: "#1A4A7A" }}>
           <div className="flex flex-col px-4 py-4 gap-1">
             {navLinks.map((link) => (
               <Link
