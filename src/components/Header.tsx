@@ -11,12 +11,12 @@ export default function Header() {
   const site = useSiteSettings();
 
   return (
-    <header className="sticky top-0 z-50 shadow-lg" style={{ backgroundColor: "#0D2B4E" }}>
+    <header className="sticky top-0 z-50" style={{ backgroundColor: "#FFFFFF", boxShadow: "0 2px 8px rgba(13,43,78,0.15)" }}>
       {/* Top bar */}
-      <div style={{ backgroundColor: "#071929" }} className="text-sm py-2">
+      <div style={{ backgroundColor: "#0D2B4E" }} className="text-sm py-2">
         <div
           className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-1"
-          style={{ color: "#AFAFAF" }}
+          style={{ color: "#FFFFFF" }}
         >
           <span>{site.address.full}</span>
           <a
@@ -47,9 +47,9 @@ export default function Header() {
               key={link.href}
               href={link.href}
               className="transition-colors"
-              style={{ color: "#C2C8CC" }}
+              style={{ color: "#0D2B4E" }}
               onMouseEnter={e => (e.currentTarget.style.color = "#B9954F")}
-              onMouseLeave={e => (e.currentTarget.style.color = "#C2C8CC")}
+              onMouseLeave={e => (e.currentTarget.style.color = "#0D2B4E")}
             >
               {t(link.key)}
             </Link>
@@ -95,7 +95,8 @@ export default function Header() {
             {lang === "es" ? "EN" : "ES"}
           </button>
           <button
-            className="text-white p-1"
+            className="p-1"
+            style={{ color: "#0D2B4E" }}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
@@ -112,14 +113,14 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t" style={{ backgroundColor: "#0D2B4E", borderColor: "#1A4A7A" }}>
+        <div className="md:hidden border-t" style={{ backgroundColor: "#FFFFFF", borderColor: "#E4E4E4" }}>
           <div className="flex flex-col px-4 py-4 gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className="py-3 text-sm border-b last:border-0"
-                style={{ color: "#C2C8CC", borderColor: "#2A2A2A" }}
+                style={{ color: "#0D2B4E", borderColor: "#E4E4E4" }}
                 onClick={() => setMenuOpen(false)}
               >
                 {t(link.key)}

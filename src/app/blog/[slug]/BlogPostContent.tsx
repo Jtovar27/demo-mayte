@@ -31,12 +31,12 @@ export default function BlogPostContent({ post }: { post: BlogPost }) {
   const { t, lang } = useLang();
 
   const paragraphStyle = { marginBottom: "0.85rem" };
-  const headingStyle = { fontWeight: 700, color: "#1C1C1C", marginBottom: "0.4rem", fontFamily: "var(--font-heading), serif" };
+  const headingStyle = { fontWeight: 700, color: "#0D2B4E", marginBottom: "0.4rem", fontFamily: "var(--font-heading), serif" };
 
   return (
     <>
       {/* Header bar */}
-      <section className="py-14" style={{ backgroundColor: "#1C1C1C" }}>
+      <section className="py-14" style={{ backgroundColor: "#0D2B4E" }}>
         <div className="max-w-3xl mx-auto px-4">
           <Link
             href="/blog"
@@ -84,7 +84,7 @@ export default function BlogPostContent({ post }: { post: BlogPost }) {
                 ul: ({ children }) => <ul style={{ paddingLeft: "1.4rem", marginBottom: "0.85rem", listStyleType: "disc", color: "#3A3A3A" }}>{children}</ul>,
                 ol: ({ children }) => <ol style={{ paddingLeft: "1.4rem", marginBottom: "0.85rem", listStyleType: "decimal", color: "#3A3A3A" }}>{children}</ol>,
                 li: ({ children }) => <li className="text-base leading-relaxed" style={{ marginBottom: "0.3rem" }}>{children}</li>,
-                strong: ({ children }) => <strong style={{ fontWeight: 700, color: "#1C1C1C" }}>{children}</strong>,
+                strong: ({ children }) => <strong style={{ fontWeight: 700, color: "#0D2B4E" }}>{children}</strong>,
                 em: ({ children }) => <em style={{ fontStyle: "italic" }}>{children}</em>,
                 blockquote: ({ children }) => (
                   <blockquote style={{ borderLeft: "3px solid #B9954F", paddingLeft: "1rem", margin: "1rem 0", color: "#6E6E6E" }}>

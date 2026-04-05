@@ -49,7 +49,7 @@ export default function AboutPage() {
           <div>
             <h2
               className="text-3xl font-bold mb-6 leading-tight"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+              style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
             >
               {t("about.page.story.h2")}
             </h2>
@@ -87,7 +87,7 @@ export default function AboutPage() {
               <div
                 key={stat.key}
                 className="text-white rounded-xl p-6 text-center"
-                style={{ backgroundColor: "#1C1C1C" }}
+                style={{ backgroundColor: "#0D2B4E" }}
               >
                 <div
                   className="text-2xl font-bold mb-1"
@@ -109,7 +109,7 @@ export default function AboutPage() {
           <div className="text-center mb-14">
             <h2
               className="text-3xl font-bold mb-3"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+              style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
             >
               {t("about.values.title")}
             </h2>
@@ -125,7 +125,7 @@ export default function AboutPage() {
                 <div className="w-8 h-0.5 mx-auto mb-5" style={{ backgroundColor: "#B9954F" }} />
                 <h3
                   className="text-base font-bold mb-2"
-                  style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+                  style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
                 >
                   {t(value.titleKey)}
                 </h3>
@@ -147,7 +147,7 @@ export default function AboutPage() {
           </div>
           <h2
             className="text-2xl font-bold mb-1"
-            style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+            style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
           >
             Mayte F. Roses Soto
           </h2>

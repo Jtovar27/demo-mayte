@@ -86,7 +86,7 @@ export default function FAQPage() {
             <div key={section.categoryKey}>
               <h2
                 className="text-lg font-bold mb-6 pb-2 border-b-2 inline-block"
-                style={{ color: "#1C1C1C", borderColor: "#B9954F", fontFamily: "var(--font-heading), serif" }}
+                style={{ color: "#0D2B4E", borderColor: "#B9954F", fontFamily: "var(--font-heading), serif" }}
               >
                 {t(section.categoryKey)}
               </h2>
@@ -99,7 +99,7 @@ export default function FAQPage() {
                   >
                     <h3
                       className="text-sm font-bold mb-3"
-                      style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+                      style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
                     >
                       {t(faq.qKey)}
                     </h3>
@@ -113,7 +113,7 @@ export default function FAQPage() {
 
         {/* Still have questions */}
         <div className="max-w-4xl mx-auto px-4 mt-14">
-          <div className="text-white rounded-2xl p-10 text-center" style={{ backgroundColor: "#1C1C1C" }}>
+          <div className="text-white rounded-2xl p-10 text-center" style={{ backgroundColor: "#0D2B4E" }}>
             <h3
               className="text-xl font-bold mb-2 text-white"
               style={{ fontFamily: "var(--font-heading), serif" }}

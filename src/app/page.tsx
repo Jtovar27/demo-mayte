@@ -113,7 +113,7 @@ export default function HomePage() {
           <div className="text-center mb-14">
             <h2
               className="text-3xl md:text-4xl font-bold mb-3"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+              style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
             >
               {t("services.title")}
             </h2>
@@ -130,7 +130,7 @@ export default function HomePage() {
             <Link
               href="/services"
               className="inline-block text-white font-semibold px-8 py-3 rounded-lg"
-              style={{ backgroundColor: "#1C1C1C" }}
+              style={{ backgroundColor: "#0D2B4E" }}
             >
               {t("services.cta")}
             </Link>
@@ -147,12 +147,12 @@ export default function HomePage() {
             </div>
             <h2
               className="text-3xl md:text-4xl font-bold mb-5 leading-tight"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+              style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
             >
               {t("about.h2")}
             </h2>
             <p className="leading-relaxed mb-4 text-sm" style={{ color: "#6E6E6E" }}>
-              <strong style={{ color: "#1C1C1C" }}>Taxes and Insurance Group LLC</strong>{" "}
+              <strong style={{ color: "#0D2B4E" }}>Taxes and Insurance Group LLC</strong>{" "}
               {t("about.p1").replace("Taxes and Insurance Group LLC", "").trim()}
             </p>
             <p className="leading-relaxed mb-8 text-sm" style={{ color: "#6E6E6E" }}>
@@ -187,7 +187,7 @@ export default function HomePage() {
           <div className="text-center mb-14">
             <h2
               className="text-3xl md:text-4xl font-bold mb-3"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+              style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
             >
               {t("blog.title")}
             </h2>
@@ -207,7 +207,7 @@ export default function HomePage() {
                   </span>
                   <h3
                     className="text-base font-bold mt-2 mb-2 leading-tight"
-                    style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+                    style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
                   >
                     {post.title}
                   </h3>
@@ -234,7 +234,7 @@ export default function HomePage() {
             </div>
             <h2
               className="text-3xl md:text-4xl font-bold mb-3"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+              style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
             >
               {t("reviews.h2")}
             </h2>
@@ -243,7 +243,7 @@ export default function HomePage() {
             </p>
             {/* Aggregate rating */}
             <div className="inline-flex items-center gap-2 mt-5 px-4 py-2 rounded-full border" style={{ borderColor: "#E4E4E4", backgroundColor: "#FAFAFA" }}>
-              <span className="text-base font-bold" style={{ color: "#1C1C1C" }}>4.9</span>
+              <span className="text-base font-bold" style={{ color: "#0D2B4E" }}>4.9</span>
               <span className="text-sm" style={{ color: "#B9954F" }}>★★★★★</span>
               <span className="text-xs" style={{ color: "#6E6E6E" }}>{t("reviews.aggregate")}</span>
             </div>
@@ -268,7 +268,7 @@ export default function HomePage() {
                   &ldquo;{t(r.text)}&rdquo;
                 </p>
                 <div className="border-t pt-4" style={{ borderColor: "#EBEBEB" }}>
-                  <p className="text-sm font-semibold" style={{ color: "#1C1C1C" }}>{t(r.name)}</p>
+                  <p className="text-sm font-semibold" style={{ color: "#0D2B4E" }}>{t(r.name)}</p>
                   <p className="text-xs mt-0.5" style={{ color: "#B9954F" }}>{t(r.service)}</p>
                   <p className="text-xs mt-1" style={{ color: "#AFAFAF" }}>{t("reviews.verified")}</p>
                 </div>
@@ -300,7 +300,7 @@ export default function HomePage() {
       <CTABanner />
 
       {/* LOCATION BAR */}
-      <section className="py-8 text-white" style={{ backgroundColor: "#1C1C1C" }}>
+      <section className="py-8 text-white" style={{ backgroundColor: "#0D2B4E" }}>
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-xs mb-1 uppercase tracking-widest" style={{ color: "#6E6E6E" }}>{t("location.visit")}</p>
           <p

@@ -22,7 +22,7 @@ export default function CTABanner() {
           <a
             href={site.phoneHref}
             className="font-bold px-8 py-3 rounded-lg text-base"
-            style={{ backgroundColor: "#1C1C1C", color: "#FFFFFF" }}
+            style={{ backgroundColor: "#0D2B4E", color: "#FFFFFF" }}
           >
             {t("cta.call")}
           </a>

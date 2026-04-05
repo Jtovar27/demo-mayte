@@ -131,7 +131,7 @@ export default function TaxesToGoPage() {
           </div>
           <h2
             className="text-3xl md:text-4xl font-bold mb-6"
-            style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+            style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
           >
             {t("ttg.what.h2")}
           </h2>
@@ -156,7 +156,7 @@ export default function TaxesToGoPage() {
             </div>
             <h2
               className="text-3xl md:text-4xl font-bold mb-3"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+              style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
             >
               {t("ttg.steps.h2")}
             </h2>
@@ -185,7 +185,7 @@ export default function TaxesToGoPage() {
                   </div>
                   <h3
                     className="text-base font-bold leading-snug"
-                    style={{ color: "#1C1C1C" }}
+                    style={{ color: "#0D2B4E" }}
                   >
                     {t(`${step.key}.title`)}
                   </h3>
@@ -211,7 +211,7 @@ export default function TaxesToGoPage() {
             </div>
             <h2
               className="text-3xl md:text-4xl font-bold mb-3"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+              style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
             >
               {t("ttg.bring.h2")}
             </h2>
@@ -254,7 +254,7 @@ export default function TaxesToGoPage() {
             </div>
             <h2
               className="text-3xl md:text-4xl font-bold mb-3"
-              style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+              style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
             >
               {t("ttg.guide.h2")}
             </h2>
@@ -280,7 +280,7 @@ export default function TaxesToGoPage() {
                   <div className="flex-1">
                     <h3
                       className="font-bold text-base mb-2"
-                      style={{ color: "#1C1C1C", fontFamily: "var(--font-heading), serif" }}
+                      style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
                     >
                       {t(step.titleKey)}
                     </h3>
@@ -308,7 +308,7 @@ export default function TaxesToGoPage() {
       {/* CTA block */}
       <section
         className="py-16 md:py-20"
-        style={{ backgroundColor: "#1C1C1C" }}
+        style={{ backgroundColor: "#0D2B4E" }}
       >
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2

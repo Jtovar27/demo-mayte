@@ -54,7 +54,7 @@ export default function ServicesPage() {
             <div key={cat.categoryKey}>
               <h2
                 className="text-xl font-bold mb-8 pb-2 border-b-2 inline-block"
-                style={{ color: "#1C1C1C", borderColor: "#B9954F", fontFamily: "var(--font-heading), serif" }}
+                style={{ color: "#0D2B4E", borderColor: "#B9954F", fontFamily: "var(--font-heading), serif" }}
               >
                 {t(cat.categoryKey)}
               </h2>
