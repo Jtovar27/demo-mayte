@@ -105,8 +105,8 @@ export default function ChatWidget() {
         });
       }
 
-      // If stream closed but no text was received, show error
-      if (!receivedText) throw new Error("Empty response");
+      // If stream returned an error marker or no text, show error
+      if (!receivedText || receivedText.includes("\x00ERROR")) throw new Error("Stream error");
     } catch {
       setMessages((prev) => {
         const updated = [...prev];
