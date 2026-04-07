@@ -94,9 +94,15 @@ export async function POST(req: NextRequest) {
 
   const SYSTEM_PROMPT = buildSystemPrompt(siteData);
 
-  // Keep only real user/assistant turns (skip empty welcome message) and last 6 to limit tokens
+  const MAX_MESSAGE_LENGTH = 2000;
+
+  // Keep only real user/assistant turns (skip empty/oversized messages) and last 6 to limit tokens
   const filtered = messages
-    .filter((m) => (m.role === "user" || m.role === "assistant") && m.content.trim().length > 0)
+    .filter((m) =>
+      (m.role === "user" || m.role === "assistant") &&
+      m.content.trim().length > 0 &&
+      m.content.length <= MAX_MESSAGE_LENGTH
+    )
     .slice(-6);
 
   // Anthropic API requires the conversation to start with a user message
