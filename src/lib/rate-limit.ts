@@ -9,6 +9,9 @@ interface Window {
   resetAt: number;
 }
 
+// NOTE: This in-memory limiter is per-process. In serverless deployments
+// (Vercel), rate limits are not shared across instances. For production-grade
+// rate limiting, use a shared store (e.g., Upstash Redis).
 const store = new Map<string, Window>();
 
 export interface RateLimitOptions {
