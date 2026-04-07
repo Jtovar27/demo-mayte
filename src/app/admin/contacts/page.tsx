@@ -56,9 +56,15 @@ export default function AdminContactsPage() {
     if (!confirm("¿Eliminar este mensaje?")) return;
     setDeletingId(id);
     try {
-      await fetch(`/api/admin/contacts/${id}`, { method: "DELETE" });
+      const res = await fetch(`/api/admin/contacts/${id}`, { method: "DELETE" });
+      if (!res.ok) {
+        alert("Error al eliminar. Intenta de nuevo.");
+        return;
+      }
       setItems((prev) => prev.filter((s) => s.id !== id));
       if (expanded === id) setExpanded(null);
+    } catch {
+      alert("Error de conexión. Intenta de nuevo.");
     } finally {
       setDeletingId(null);
     }
