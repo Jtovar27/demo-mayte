@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
-
-const SECRET = new TextEncoder().encode(
-  process.env.ADMIN_JWT_SECRET ?? "fallback-secret-change-me"
-);
+import { SECRET } from "@/lib/admin-auth";
 
 const PUBLIC_PATHS = ["/admin/login", "/api/admin/login"];
 
