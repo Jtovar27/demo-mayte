@@ -41,13 +41,14 @@ export function verifyPasswordHash(password: string, stored: string): boolean {
 
 export async function checkPassword(password: string): Promise<boolean> {
   const stored = await getPasswordHash();
-  if (stored) return verifyPasswordHash(password, stored);
-  return password === process.env.ADMIN_PASSWORD;
+  if (!stored) return false; // no password configured — deny all access
+  return verifyPasswordHash(password, stored);
 }
 
-const SECRET = new TextEncoder().encode(
-  process.env.ADMIN_JWT_SECRET ?? "fallback-secret-change-me"
-);
+if (!process.env.ADMIN_JWT_SECRET) {
+  throw new Error("ADMIN_JWT_SECRET environment variable is required");
+}
+export const SECRET = new TextEncoder().encode(process.env.ADMIN_JWT_SECRET);
 
 export async function signToken(payload: Record<string, unknown>): Promise<string> {
   return new SignJWT(payload)
