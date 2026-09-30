@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ServiceCard from "@/components/ServiceCard";
@@ -6,10 +7,27 @@ import CTABanner from "@/components/CTABanner";
 import ReviewCarousel from "@/components/ReviewCarousel";
 import { useLang } from "@/context/LanguageContext";
 import { useSiteSettings } from "@/context/SiteSettingsContext";
+import type { BlogPost } from "@/lib/admin-store";
+import { CATEGORY_KEY_MAP, formatDate, type Lang } from "@/lib/blog-format";
 
 export default function HomePage() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const site = useSiteSettings();
+  const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
+
+  useEffect(() => {
+    async function loadPosts() {
+      try {
+        const res = await fetch("/api/blog");
+        if (!res.ok) return;
+        const data = (await res.json()) as BlogPost[];
+        if (Array.isArray(data)) setRecentPosts(data.slice(0, 3));
+      } catch {
+        // keep static fallback below on failure
+      }
+    }
+    void loadPosts();
+  }, []);
 
   const featuredServices = [
     { title: t("svc.taxes.personal.title"), description: t("svc.taxes.personal.desc") },
@@ -195,33 +213,62 @@ export default function HomePage() {
             <p className="text-sm" style={{ color: "#6E6E6E" }}>{t("blog.sub")}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {blogPreviews.map((post) => (
-              <div
-                key={post.title}
-                className="bg-white rounded-xl border overflow-hidden hover:shadow-md transition-shadow"
-                style={{ borderColor: "#E4E4E4" }}
-              >
-                <div className="h-0.5" style={{ backgroundColor: "#B9954F" }} />
-                <div className="p-6">
-                  <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#B9954F" }}>
-                    {post.category}
-                  </span>
-                  <h3
-                    className="text-base font-bold mt-2 mb-2 leading-tight"
-                    style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
-                  >
-                    {post.title}
-                  </h3>
-                  <p className="text-xs leading-relaxed mb-4" style={{ color: "#6E6E6E" }}>{post.excerpt}</p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs" style={{ color: "#AFAFAF" }}>{post.date}</span>
-                    <Link href="/blog" className="text-xs font-semibold" style={{ color: "#B9954F" }}>
-                      {t("blog.read")}
-                    </Link>
+            {recentPosts.length > 0
+              ? recentPosts.map((post) => (
+                <Link
+                  key={post.id}
+                  href={`/blog/${post.slug}`}
+                  className="block bg-white rounded-xl border overflow-hidden hover:shadow-md transition-shadow"
+                  style={{ borderColor: "#E4E4E4" }}
+                >
+                  <div className="h-0.5" style={{ backgroundColor: "#B9954F" }} />
+                  <div className="p-6">
+                    <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#B9954F" }}>
+                      {t(CATEGORY_KEY_MAP[post.category] ?? "blog.cat.taxes")}
+                    </span>
+                    <h3
+                      className="text-base font-bold mt-2 mb-2 leading-tight"
+                      style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
+                    >
+                      {post.title[lang as Lang]}
+                    </h3>
+                    <p className="text-xs leading-relaxed mb-4" style={{ color: "#6E6E6E" }}>{post.excerpt[lang as Lang]}</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs" style={{ color: "#AFAFAF" }}>{formatDate(post.date, lang as Lang)}</span>
+                      <span className="text-xs font-semibold" style={{ color: "#B9954F" }}>
+                        {t("blog.read")}
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              ))
+              : blogPreviews.map((post) => (
+                <div
+                  key={post.title}
+                  className="bg-white rounded-xl border overflow-hidden hover:shadow-md transition-shadow"
+                  style={{ borderColor: "#E4E4E4" }}
+                >
+                  <div className="h-0.5" style={{ backgroundColor: "#B9954F" }} />
+                  <div className="p-6">
+                    <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#B9954F" }}>
+                      {post.category}
+                    </span>
+                    <h3
+                      className="text-base font-bold mt-2 mb-2 leading-tight"
+                      style={{ color: "#0D2B4E", fontFamily: "var(--font-heading), serif" }}
+                    >
+                      {post.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed mb-4" style={{ color: "#6E6E6E" }}>{post.excerpt}</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs" style={{ color: "#AFAFAF" }}>{post.date}</span>
+                      <Link href="/blog" className="text-xs font-semibold" style={{ color: "#B9954F" }}>
+                        {t("blog.read")}
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </section>

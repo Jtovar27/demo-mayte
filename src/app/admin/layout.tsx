@@ -173,14 +173,14 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
         {/* Bottom links */}
         <div className="px-3 py-4 border-t" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
-          <a
+          <Link
             href="/"
             className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium mb-1"
             style={{ color: "rgba(255,255,255,0.45)" }}
           >
             <span className="w-4 text-center text-xs">↗</span>
             Ver sitio
-          </a>
+          </Link>
           <button
             onClick={handleLogout}
             disabled={loggingOut}

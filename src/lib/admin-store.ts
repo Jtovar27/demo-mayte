@@ -72,6 +72,17 @@ export async function getBlogPostById(id: string): Promise<BlogPost | null> {
   return data as BlogPost;
 }
 
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+  const { data, error } = await supabase
+    .from("blog_posts")
+    .select("*")
+    .eq("slug", slug)
+    .eq("published", true)
+    .maybeSingle();
+  if (error) return null;
+  return data as BlogPost | null;
+}
+
 export async function createBlogPost(post: Omit<BlogPost, "id">): Promise<BlogPost> {
   const { data, error } = await supabase
     .from("blog_posts")

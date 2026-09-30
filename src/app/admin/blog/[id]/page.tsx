@@ -3,18 +3,8 @@ import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import type { BlogPost } from "@/lib/admin-store";
+import { slugify } from "@/lib/slugify";
 import MarkdownTextarea from "@/components/MarkdownTextarea";
-
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9\s-]/g, "")
-    .trim()
-    .replace(/\s+/g, "-")
-    .replace(/-+/g, "-");
-}
 
 export default function EditBlogPostPage() {
   const router = useRouter();

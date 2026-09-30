@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { jwtVerify } from "jose";
-import { SECRET } from "@/lib/admin-auth";
+import { SECRET } from "@/lib/jwt-secret";
 
 const PUBLIC_PATHS = ["/admin/login", "/api/admin/login"];
 

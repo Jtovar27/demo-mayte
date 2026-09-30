@@ -1,6 +1,7 @@
 import { SignJWT, jwtVerify } from "jose";
 import { scryptSync, randomBytes, timingSafeEqual } from "crypto";
 import { supabase } from "@/lib/supabase";
+import { SECRET } from "@/lib/jwt-secret";
 
 async function getPasswordHash(): Promise<string> {
   try {
@@ -44,11 +45,6 @@ export async function checkPassword(password: string): Promise<boolean> {
   if (!stored) return false; // no password configured — deny all access
   return verifyPasswordHash(password, stored);
 }
-
-if (!process.env.ADMIN_JWT_SECRET) {
-  throw new Error("ADMIN_JWT_SECRET environment variable is required");
-}
-export const SECRET = new TextEncoder().encode(process.env.ADMIN_JWT_SECRET);
 
 export async function signToken(payload: Record<string, unknown>): Promise<string> {
   return new SignJWT(payload)

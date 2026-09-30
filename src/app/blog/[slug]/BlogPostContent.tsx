@@ -4,28 +4,7 @@ import ReactMarkdown from "react-markdown";
 import CTABanner from "@/components/CTABanner";
 import { useLang } from "@/context/LanguageContext";
 import type { BlogPost } from "@/lib/admin-store";
-
-type Lang = "es" | "en";
-
-const CATEGORY_KEY_MAP: Record<string, string> = {
-  taxes: "blog.cat.taxes",
-  insurance: "blog.cat.insurance",
-  business: "blog.cat.business",
-  notary: "blog.cat.notary",
-};
-
-function formatDate(dateStr: string, lang: Lang): string {
-  try {
-    const date = new Date(dateStr + "T00:00:00");
-    return date.toLocaleDateString(lang === "es" ? "es-ES" : "en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  } catch {
-    return dateStr;
-  }
-}
+import { CATEGORY_KEY_MAP, formatDate, type Lang } from "@/lib/blog-format";
 
 export default function BlogPostContent({ post }: { post: BlogPost }) {
   const { t, lang } = useLang();
@@ -53,7 +32,7 @@ export default function BlogPostContent({ post }: { post: BlogPost }) {
               {t(CATEGORY_KEY_MAP[post.category] ?? "blog.cat.taxes")}
             </span>
             <span className="text-xs" style={{ color: "#6E6E6E" }}>
-              {formatDate(post.date, lang as Lang)}
+              {formatDate(post.date, lang as Lang, true)}
             </span>
           </div>
           <h1
