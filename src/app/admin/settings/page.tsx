@@ -94,7 +94,7 @@ export default function AdminSettingsPage() {
           Site Settings
         </h1>
         <p className="text-sm mt-1" style={{ color: "#6E6E6E" }}>
-          Override site contact information saved in <code className="text-xs bg-gray-100 px-1 py-0.5 rounded">content/settings.json</code>.
+          Override the site&apos;s contact information. Changes are saved to the database and take effect immediately.
         </p>
       </div>
 
